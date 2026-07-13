@@ -1,13 +1,4 @@
-# Deep Seek Crawler
 
-This project is a web crawler built with Python that extracts venue data (wedding reception venues) from a website using asynchronous programming with Crawl4AI. It utilizes a language model-based extraction strategy and saves the collected data to a CSV file.
-
-## Features
-
-- Asynchronous web crawling using [Crawl4AI](https://pypi.org/project/Crawl4AI/)
-- Data extraction powered by a language model (LLM)
-- CSV export of extracted venue information
-- Modular and easy-to-follow code structure ideal for beginners
 
 ## Project Structure
 ```
@@ -27,12 +18,8 @@ This project is a web crawler built with Python that extracts venue data (weddin
 
 ## Installation
 
-1. **Create and Activate a Conda Environment**
+1. **Create and Activate a Virtual Environment**
 
-   ```bash
-   conda create -n deep-seek-crawler python=3.12 -y
-   conda activate deep-seek-crawler
-   ```
 
 2. **Install Dependencies**
 
@@ -57,25 +44,3 @@ To start the crawler, run:
 ```bash
 python main.py
 ```
-
-The script will crawl the specified website, extract data page by page, and save the complete venues to a `complete_venues.csv` file in the project directory. Additionally, usage statistics for the LLM strategy will be displayed after crawling.
-
-## Configuration
-
-The `config.py` file contains key constants used throughout the project:
-
-- **BASE_URL**: The URL of the website from which to extract venue data.
-- **CSS_SELECTOR**: CSS selector string used to target venue content.
-- **REQUIRED_KEYS**: List of required fields to consider a venue complete.
-
-You can modify these values as needed.
-
-## Additional Notes
-
-- **Logging:** The project currently uses print statements for status messages. For production or further development, consider integrating Python’s built-in `logging` module.
-- **Improvements:** The code is structured in multiple modules to maintain separation of concerns, making it easier for beginners to follow and extend the functionality.
-- **Dependencies:** Ensure that the package versions specified in `requirements.txt` are installed to avoid compatibility issues.
-
-## License
-
-Include license information if applicable.
