@@ -1,4 +1,4 @@
-from typing import List, Optional, Dict, Any
+from typing import List, Optional, Dict, Any, Literal
 from pydantic import BaseModel, Field
 
 
@@ -16,15 +16,18 @@ class VisaKnowledge(BaseModel):
     page_title: str
 
     # ---------- Classification ----------
-    purpose: str = Field(
-        description="Purpose such as Work, Study, Tourist, Family Reunion, Business, PR"
-    )
+    #purpose: str = Field(
+    #    description="Purpose such as Work, Study, Tourist, Family Reunion, Business, PR")
 
-    topic: str = Field(
-        description="High-level topic such as Visa, Immigration, Qualification Recognition, Living"
-    )
+    #topic: str = Field(
+    #    description="High-level topic such as Visa, Immigration, Qualification Recognition, Living")
+
+    purpose: Optional[str] = None
+    topic: Optional[str] = None
 
     visa_type: Optional[str] = None
+
+    entry_type: Literal["overview", "detailed"] = "detailed"
 
     # ---------- Content ----------
     title: str

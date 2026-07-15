@@ -37,6 +37,46 @@ COUNTRY_KEYWORDS = {
     "Qatar": ["visa", "visit-visa", "residence-permit", "immigration"],
 }
 
+# ==============================
+# Post-crawl exclusion (title/content based)
+# ==============================
+# Pages matching these are skipped BEFORE the LLM call — catches junk
+# that URL-based filtering can't see (e.g. diplo.de uses opaque numeric
+# IDs in URLs, so title/content is the only reliable signal).
+
+# Applies to ALL countries — CMS/platform-level placeholder markers,
+# not tied to any language. Confirmed so far only on diplo.de (Germany);
+# revisit once other countries are live to see what's actually shared.
+UNIVERSAL_PLACEHOLDER_MARKERS = [
+    "(dummy)",
+]
+
+# Per-country, language-specific junk categories (non-visa consular
+# services: inheritance, notarization, police certificates, complaints,
+# etc). Add an entry here when a new country is enabled.
+EXCLUDED_TITLE_KEYWORDS = {
+    "Germany": [
+        "erbschaftsangelegenheiten",   # inheritance matters
+        "beglaubigungen",              # document authentication/notarization
+        "führungszeugnis",             # police certificate requests
+        "complaints about",            # complaints process
+        "zoll",
+        "anwälten, ärzten und übersetzern",
+    ],
+    "France": [],
+    "Qatar": [],
+}
+
+# Per-country placeholder/stub content markers found IN the page body
+# (not just the title) — e.g. literal CMS dummy Q&A text.
+PLACEHOLDER_CONTENT_MARKERS = {
+    "Germany": [
+        "frage 1 ?",
+        "antwort 1 !",
+    ],
+    "France": [],
+    "Qatar": [],
+}
 
 # ==============================
 # Crawl Settings

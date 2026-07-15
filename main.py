@@ -12,8 +12,8 @@ from utils.scraper_utils import (
     get_page_title,
 )
 from utils.llm_utils import extract_entities
-from utils.data_utils import save_entities_to_csv
-from utils.discovery_utils import discover_urls
+from utils.data_utils import save_entities_to_csv, classify_entry_type, merge_duplicate_entities
+from utils.discovery_utils import discover_urls, is_relevant_page
 
 load_dotenv()
 
@@ -97,6 +97,11 @@ async def crawl_knowledge():
                     page_title = get_page_title(result)
                     print(f"Page Title: {page_title}")
 
+                    if not is_relevant_page(page_title, markdown, country):
+                        print(f"Skipping {url} (excluded: irrelevant/placeholder content).")
+                        country_pages_failed += 1
+                        continue
+
                     try:
                         extraction = extract_entities(
                             markdown=markdown,
@@ -117,7 +122,9 @@ async def crawl_knowledge():
                         continue
 
                     for entity in extraction.entities:
-                        all_entities.append(entity.model_dump())
+                        entity_dict = entity.model_dump()
+                        entity_dict["entry_type"] = classify_entry_type(entity_dict)
+                        all_entities.append(entity_dict)
 
                     country_entities += len(extraction.entities)
                     country_pages_ok += 1
@@ -139,9 +146,12 @@ async def crawl_knowledge():
     total_elapsed = _format_elapsed(time.monotonic() - run_started_at)
 
     print("\n" + "=" * 80)
-    print(f"Total Knowledge Entities: {len(all_entities)}")
+    print(f"Total Knowledge Entities (before merge): {len(all_entities)}")
     print(f"Total run time: {total_elapsed}")
     print("=" * 80)
+
+    all_entities = merge_duplicate_entities(all_entities)
+    print(f"Total Knowledge Entities (after merging duplicates): {len(all_entities)}")
 
     if all_entities:
         save_entities_to_csv(all_entities, OUTPUT_CSV)

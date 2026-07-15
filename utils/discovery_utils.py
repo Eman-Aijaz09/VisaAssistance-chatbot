@@ -21,9 +21,15 @@ from urllib.parse import urlparse, urljoin
 import requests
 import gzip
 import xml.etree.ElementTree as ET
-from config import COUNTRY_KEYWORDS, MAX_PAGES, MAX_DEPTH, PREFERRED_LANGUAGE_PATH
-
-from config import COUNTRY_KEYWORDS, MAX_PAGES, MAX_DEPTH
+from config import (
+    COUNTRY_KEYWORDS,
+    MAX_PAGES,
+    MAX_DEPTH,
+    PREFERRED_LANGUAGE_PATH,
+    EXCLUDED_TITLE_KEYWORDS,
+    PLACEHOLDER_CONTENT_MARKERS,
+    UNIVERSAL_PLACEHOLDER_MARKERS,
+)
 
 USER_AGENT = "VisaAssistantBot/0.1"
 
@@ -338,6 +344,31 @@ def is_relevant_url(url: str, country: str) -> bool:
         return True
 
     return False
+
+
+def is_relevant_page(page_title: str, markdown: str, country: str) -> bool:
+    """
+    Post-crawl relevance check, run AFTER crawling but BEFORE the LLM call.
+    Catches junk that URL-based filtering can't see (e.g. opaque numeric
+    IDs), and avoids burning a Groq call on pages we already know are junk.
+    """
+
+    title_lower = (page_title or "").lower()
+    markdown_lower = (markdown or "").lower()
+
+    for marker in UNIVERSAL_PLACEHOLDER_MARKERS:
+        if marker in title_lower or marker in markdown_lower:
+            return False
+
+    for keyword in EXCLUDED_TITLE_KEYWORDS.get(country, []):
+        if keyword in title_lower:
+            return False
+
+    for marker in PLACEHOLDER_CONTENT_MARKERS.get(country, []):
+        if marker in markdown_lower:
+            return False
+
+    return True
 
 
 def filter_relevant_urls(urls: list[str], country: str) -> list[str]:
