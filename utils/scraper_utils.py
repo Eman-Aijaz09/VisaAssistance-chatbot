@@ -4,6 +4,7 @@ from crawl4ai import (
     CacheMode,
     CrawlerRunConfig,
 )
+from config import CSS_SELECTOR
 
 
 def get_browser_config() -> BrowserConfig:
@@ -39,6 +40,7 @@ async def fetch_page(
         url=url,
         config=CrawlerRunConfig(
             cache_mode=CacheMode.BYPASS,
+            css_selector=CSS_SELECTOR, 
         ),
     )
 

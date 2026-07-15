@@ -18,7 +18,10 @@ import urllib.request
 import urllib.error
 import urllib.robotparser
 from urllib.parse import urlparse, urljoin
+import requests
+import gzip
 import xml.etree.ElementTree as ET
+from config import COUNTRY_KEYWORDS, MAX_PAGES, MAX_DEPTH, PREFERRED_LANGUAGE_PATH
 
 from config import COUNTRY_KEYWORDS, MAX_PAGES, MAX_DEPTH
 
@@ -40,17 +43,69 @@ def _get_robots_url(seed_url: str) -> str:
 def _fetch_text(url: str, timeout: int = 10) -> str | None:
     """
     Fetch raw text content from a URL using a plain HTTP GET.
-    Returns None on any failure (missing file, timeout, non-200, etc.).
+    Returns None on failure, but prints the real reason so failures
+    are debuggable instead of silently downgrading to "not found".
     """
 
-    try:
-        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-        with urllib.request.urlopen(req, timeout=timeout) as response:
-            if response.status != 200:
-                return None
-            return response.read().decode("utf-8", errors="ignore")
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/120.0.0.0 Safari/537.36"
+        )
+    }
 
-    except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError):
+    try:
+        response = requests.get(url, headers=headers, timeout=timeout)
+
+        if response.status_code != 200:
+            print(f"Fetch failed for {url}: HTTP {response.status_code}")
+            return None
+
+        return response.text
+
+    except requests.exceptions.RequestException as e:
+        print(f"Fetch failed for {url}: {e}")
+        return None
+
+
+def _fetch_sitemap_bytes(url: str, timeout: int = 10) -> bytes | None:
+    """
+    Fetch raw bytes for a sitemap URL, transparently handling
+    gzip-compressed sitemaps (.xml.gz), which are common on
+    large government/embassy sites.
+    """
+
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/120.0.0.0 Safari/537.36"
+        )
+    }
+
+    try:
+        response = requests.get(url, headers=headers, timeout=timeout)
+
+        if response.status_code != 200:
+            print(f"Fetch failed for {url}: HTTP {response.status_code}")
+            return None
+
+        raw = response.content
+
+        # Gzip magic bytes: 0x1f 0x8b — check content, not just the
+        # .gz extension, since some servers rename/serve it differently.
+        if raw[:2] == b"\x1f\x8b":
+            try:
+                return gzip.decompress(raw)
+            except OSError as e:
+                print(f"Failed to gunzip {url}: {e}")
+                return None
+
+        return raw
+
+    except requests.exceptions.RequestException as e:
+        print(f"Fetch failed for {url}: {e}")
         return None
 
 
@@ -130,20 +185,16 @@ def _parse_sitemap_xml(xml_text: str) -> tuple[list[str], list[str]]:
 
 
 def fetch_sitemap_urls(sitemap_url: str, max_depth: int = 3) -> list[str]:
-    """
-    Fetch a sitemap, recursing into child sitemaps if it's a sitemap index.
-
-    max_depth guards against pathological/circular sitemap references.
-    """
 
     if max_depth <= 0:
         return []
 
-    xml_text = _fetch_text(sitemap_url)
-    if xml_text is None:
+    raw_bytes = _fetch_sitemap_bytes(sitemap_url)
+    if raw_bytes is None:
         print(f"Could not fetch sitemap: {sitemap_url}")
         return []
 
+    xml_text = raw_bytes.decode("utf-8", errors="ignore")
     page_urls, child_sitemaps = _parse_sitemap_xml(xml_text)
 
     all_urls = list(page_urls)
@@ -241,23 +292,52 @@ async def discover_via_bfs(
 # Relevance filtering
 # ==============================
 
+def filter_by_language(urls: list[str], country: str) -> list[str]:
+    """
+    For multilingual sites, keep only the preferred-language mirror
+    (e.g. pakistan.diplo.de duplicates every page under /pk-de/ and
+    /pk-en/). If no preference is configured for a country, all
+    URLs pass through unchanged.
+    """
+
+    preferred_path = PREFERRED_LANGUAGE_PATH.get(country)
+
+    if not preferred_path:
+        return urls
+
+    return [url for url in urls if preferred_path in url]
+
 def is_relevant_url(url: str, country: str) -> bool:
     """
-    Check whether a URL matches the known visa/immigration path
-    patterns for a given country, as defined in config.COUNTRY_KEYWORDS.
+    Broad-net relevance check. Two passes:
+      1. Path-based: content lives under known site sections
+         (e.g. diplo.de sites put everything under /service/).
+      2. Keyword-based: explicit visa/immigration terms, as a
+         secondary signal for sites with descriptive URL slugs.
 
-    If a country has no keywords configured, everything is treated
-    as relevant (fail-open, since we'd rather over-collect than miss
-    pages for a country we haven't tuned yet).
+    This is intentionally permissive — true precision happens at
+    the LLM extraction step, which already returns zero entities
+    for off-topic pages. This filter only needs to exclude
+    obviously irrelevant sections (embassy staff, press, etc.)
+    to save on crawl/LLM calls, not decide topic relevance itself.
     """
 
-    keywords = COUNTRY_KEYWORDS.get(country)
+    keywords = COUNTRY_KEYWORDS.get(country, [])
+    url_lower = url.lower()
+
+    # Path-based: broad content sections known to hold service pages
+    CONTENT_PATH_HINTS = ["/service/", "-visa-", "/visa"]
+    if any(hint in url_lower for hint in CONTENT_PATH_HINTS):
+        return True
+
+    # Keyword-based fallback
+    if keywords and any(keyword.lower() in url_lower for keyword in keywords):
+        return True
 
     if not keywords:
         return True
 
-    url_lower = url.lower()
-    return any(keyword.lower() in url_lower for keyword in keywords)
+    return False
 
 
 def filter_relevant_urls(urls: list[str], country: str) -> list[str]:
@@ -267,7 +347,6 @@ def filter_relevant_urls(urls: list[str], country: str) -> list[str]:
 # ==============================
 # Main entry point
 # ==============================
-
 async def discover_urls(crawler, seed_url: str, country: str) -> list[str]:
     """
     Full discovery pipeline for a single seed URL.
@@ -276,7 +355,8 @@ async def discover_urls(crawler, seed_url: str, country: str) -> list[str]:
     2. Try sitemap-based discovery.
     3. Fall back to BFS internal-link crawling if no sitemap URLs found.
     4. Apply per-country relevance filtering.
-    5. Deduplicate and cap at MAX_PAGES.
+    5. Apply language-preference filtering (drop non-preferred mirrors).
+    6. Deduplicate and cap at MAX_PAGES.
 
     Returns a list of URLs ready to be handed to the extraction pipeline.
     """
@@ -296,7 +376,8 @@ async def discover_urls(crawler, seed_url: str, country: str) -> list[str]:
         raw_urls = await discover_via_bfs(crawler, seed_url)
 
     relevant_urls = filter_relevant_urls(raw_urls, country)
-    print(f"{len(relevant_urls)} of {len(raw_urls)} discovered URLs are relevant.")
+    relevant_urls = filter_by_language(relevant_urls, country)
+    print(f"{len(relevant_urls)} of {len(raw_urls)} discovered URLs passed relevance + language filtering.")
 
     # Dedupe while preserving order, cap at MAX_PAGES
     seen = set()
