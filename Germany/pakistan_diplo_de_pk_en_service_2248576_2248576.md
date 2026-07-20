@@ -1,0 +1,36 @@
+<!-- Source: https://pakistan.diplo.de/pk-en/service/2248576-2248576 -->
+<!-- Scraped: 2026-07-20T13:40:05.177130 -->
+
+# Welcome
+##  Breadcrumbs
+  1. [Home ](https://pakistan.diplo.de/pk-en/service/</pk-en> "Home")
+  2. [Consular Services ](https://pakistan.diplo.de/pk-en/service/</pk-en/service> "Consular Services")
+  3. **Important note to our visitors**
+
+
+#  Important note to our visitors 
+10.06.2021 - Article 
+Dear Reader,
+In order to simplify procedures at the German Missions in Pakistan, please familiarize yourself with the following information:
+  * Applicants from Sindh and Balochistan are advised to book their appointments at the Consulate General in Karachi, applicants from all other regions in Pakistan at the German Embassy Islamabad.
+  * The German Embassy is located in the Diplomatic Enclave in Islamabad. Every visitor must take the Diplomatic Shuttle from the 3rd Avenue, Quaid-e-Azam University Road to the Embassy. The Shuttle Service is a private company; the price of their services is subject to change without notice. The visa sections can only be reached during official office hours. There is no parking near the Embassy’s Consular section.
+  * The Consulate General in Karachi is located in the Clifton area of Karachi near the campus of the Szabist University. There is no parking directly in front of the Consulate, but parking can usually be found in the adjacent streets.
+  * Most services can only be applied for via online-appointments. Please make one separate online-appointment for each service and for each member of your family.
+  * Applicants who make online-appointments for the wrong type of service or the wrong type of visa will not be served. Please make yourself familiar with the different services and different types of visa, as explained on this homepage.
+  * Please make sure that applications are handed in with all documents and copies required. In case the application is not complete the applicant forfeits the booked appointment. Copy services are available on the premises of German Embassy Islamabad. Late arrivals will be asked to reschedule.
+  * Please note that mobile phones and bags are not allowed in the buildings of the German Missions.
+  * Please cancel your appointment as soon as you know that you are not going to use it! You will enable other applicants to use that slot. No-shows will be monitored and if necessary registered.
+
+
+**ATTENTION:** There have been cases reported that so-called “agents” offered to check applications and their documents and demanded horrendous prices for their service. Please be informed that the German Missions are not related to these agents in any way. Their service may be without any value and in no case will bind the German Consular Sections.
+[ Overview "Consular Services" ](https://pakistan.diplo.de/pk-en/service/</pk-en/service> "Overview Consular Services")
+  * [ Print page ](https://pakistan.diplo.de/pk-en/service/<javascript:window.print\(\)> "Print page")
+  * Share page
+### Share page
+    * [WhatsApp](https://pakistan.diplo.de/pk-en/service/<WhatsApp:/send?text=Consular+Services%20https://pakistan.diplo.de/pk-en/service/2248576-2248576> "WhatsApp")
+    * [Facebook](https://pakistan.diplo.de/pk-en/service/<http:/www.facebook.com/sharer.php?u=https://pakistan.diplo.de/pk-en/service/2248576-2248576> "Facebook")
+    * [X](https://pakistan.diplo.de/pk-en/service/<https:/twitter.com/intent/tweet?url=https://pakistan.diplo.de/pk-en/service/2248576-2248576&text=Consular+Services> "X")
+    * Mail
+  * [ Top of page ](https://pakistan.diplo.de/pk-en/service/<#header> "Top of page")
+
+
