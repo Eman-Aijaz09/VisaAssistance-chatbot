@@ -135,41 +135,56 @@ SOURCE_CONFIG = {
         "country": "Germany",
         "css_selector": "#main",
         "preferred_language_path": "/pk-en/",
+        "content_path_hints": ["/service/", "-visa-", "/visa"],
+        "excluded_url_path_patterns": [],
         "keywords": ["visa", "visum", "aufenthalt", "einreise", "staatsangehoerigkeit"],
         "excluded_title_keywords": [
-            "erbschaftsangelegenheiten",   # inheritance matters
-            "beglaubigungen",              # document authentication/notarization
-            "führungszeugnis",             # police certificate requests
-            "complaints about",
-            "zoll",
-            "anwälten, ärzten und übersetzern",
+            "erbschaftsangelegenheiten", "beglaubigungen", "führungszeugnis",
+            "complaints about", "zoll", "anwälten, ärzten und übersetzern",
         ],
-        "placeholder_content_markers": [
-            "frage 1 ?",
-            "antwort 1 !",
-        ],
+        "placeholder_content_markers": ["frage 1 ?", "antwort 1 !"],
     },
 
-    "www.make-it-in-germany.com": {
-        "country": "Germany",
-        "css_selector": None,  # TODO: confirm after inspecting the site
-        "preferred_language_path": None,  # TODO: confirm — may not need this at all
-        "keywords": ["visa", "residence", "blue-card", "work", "study", "skilled"],
-        "excluded_title_keywords": [],
-        "placeholder_content_markers": [],
-    },
-
-    # Add new sources below, e.g.:
-    # "immi.homeaffairs.gov.au": {
-    #     "country": "Australia",
-    #     "css_selector": None,
-    #     "preferred_language_path": None,
-    #     "keywords": ["visa", "points", "skilled", "migration"],
-    #     "excluded_title_keywords": [],
+    # "www.make-it-in-germany.com": {
+    #     "country": "Germany",
+    #     "css_selector": "#main",  # TODO: confirm
+    #     "preferred_language_path": "/en/",
+    #     "content_path_hints": [],  # TODO: fill from test_discovery output, don't reuse diplo.de's
+    #     "excluded_url_path_patterns": ["/glossar/", "/glossary/"],
+    #     "keywords": ["visa", "residence", "blue-card", "work", "study", "skilled", "pakistan", "card", "employment"],
+    #     "excluded_title_keywords": ["glossary", "press-news", "worldwide"],
     #     "placeholder_content_markers": [],
+    #     "anti_bot": True, 
     # },
 
+    "pk.usembassy.gov": {
+        "country": "USA",
+        "css_selector": "#main",  # TODO: confirm
+        "preferred_language_path": "",
+        "content_path_hints": ["/visas/"],  # TODO: fill from test_discovery output, don't reuse diplo.de's
+        "excluded_url_path_patterns": ["/glossar/", "/glossary/","/ur/","/snd/"],
+        "keywords": ["visa"],
+        "excluded_title_keywords": ["glossary", "press-news", "worldwide"],
+        "placeholder_content_markers": [],
+        "anti_bot": False, 
+    },
+
+    "travel.state.gov": {
+        "country": "USA",
+        "css_selector": "#main",  # TODO: confirm
+        "preferred_language_path": "",
+        "content_path_hints": ["/visas/"],  # TODO: fill from test_discovery output, don't reuse diplo.de's
+        "excluded_url_path_patterns": ["/glossar/", "/glossary/","/ur/","/snd/"],
+        "keywords": ["visa"],
+        "excluded_title_keywords": ["glossary", "press-news", "worldwide"],
+        "placeholder_content_markers": [],
+        "anti_bot": True, 
+    },
+
 }
+
+SITEMAP_FETCH_TIMEOUT = 30
+SITEMAP_FETCH_RETRIES = 2
 
 # ==============================
 # Seed URLs — the actual crawl entry points
@@ -195,7 +210,7 @@ UNIVERSAL_PLACEHOLDER_MARKERS = [
     "(dummy)",
 ]
 
-MAX_PAGES = 60
+MAX_PAGES = 5
 MAX_DEPTH = 3
 
 REQUIRED_KEYS = [

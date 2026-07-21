@@ -76,10 +76,17 @@ async def crawl_knowledge():
 
                     result = await fetch_page(crawler, url)
 
+                    if result is not None:
+                        print(f"DEBUG raw html length: {len(result.html or '')}")
+                        print(f"DEBUG markdown length: {len(result.markdown or '')}")
+                        with open("debug_page.html", "w", encoding="utf-8") as f:
+                            f.write(result.html or "")
+
                     if result is None:
                         print(f"Skipping {url} (crawl failed).")
                         country_pages_failed += 1
                         continue
+                      
 
                     markdown = extract_page_content(result)
 

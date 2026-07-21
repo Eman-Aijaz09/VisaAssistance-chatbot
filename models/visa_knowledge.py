@@ -41,13 +41,6 @@ class VisaKnowledge(BaseModel):
     page_title: str
 
     # ---------- Classification ----------
-    #purpose: str = Field(
-    #    description="Purpose such as Work, Study, Tourist, Family Reunion, Business, PR")
-
-    #topic: str = Field(
-    #    description="High-level topic such as Visa, Immigration, Qualification Recognition, Living")
-
-    # purpose: Optional[str] = None
     purpose: Optional[VisaPurpose] = None
     topic: Optional[str] = None
 
@@ -82,7 +75,6 @@ class VisaKnowledge(BaseModel):
     pr_pathway_years: Optional[int] = None
 
     # ---------- Provenance / verification ----------
-    source_tier: Literal[0, 1, 2, 3] = 3
     last_verified_date: Optional[str] = None
 
     # ---------- Application ----------

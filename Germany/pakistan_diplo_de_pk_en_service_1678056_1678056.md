@@ -1,5 +1,5 @@
 <!-- Source: https://pakistan.diplo.de/pk-en/service/1678056-1678056 -->
-<!-- Scraped: 2026-07-20T13:32:17.723206 -->
+<!-- Scraped: 2026-07-21T13:50:01.096292 -->
 
 # Welcome
 ##  Breadcrumbs

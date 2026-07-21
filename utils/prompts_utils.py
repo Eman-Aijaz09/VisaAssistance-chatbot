@@ -107,7 +107,6 @@ The JSON MUST follow this schema:
             "pr_pathway_available": null,
             "pr_pathway_years": null,
 
-            "source_tier": 3,
             "last_verified_date": null,
 
             "extra_information": {}

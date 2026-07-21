@@ -42,29 +42,29 @@ def get_browser_config() -> BrowserConfig:
     )
 
 
-async def fetch_page(
-    crawler: AsyncWebCrawler,
-    url: str,
-):
-    """
-    Fetch a webpage and return the Crawl4AI result.
-
-    CHANGED: css_selector is no longer a single global constant.
-    It's resolved per-URL from SOURCE_CONFIG, via the domain the
-    URL belongs to. This fixes the make-it-in-germany.com bug, where
-    diplo.de's "#main" selector matched nothing on a different site.
-    """
-
+async def fetch_page(crawler: AsyncWebCrawler, url: str, _attempt: int = 1):
     cfg = get_source_config(url)
-    css_selector = cfg.get("css_selector")  # None = extract full page
+    css_selector = cfg.get("css_selector")
+    anti_bot = cfg.get("anti_bot", False)
+    max_attempts = 3 if anti_bot else 1
 
     result = await crawler.arun(
         url=url,
         config=CrawlerRunConfig(
             cache_mode=CacheMode.BYPASS,
             css_selector=css_selector,
+            magic=anti_bot,
+            simulate_user=anti_bot,
+            override_navigator=anti_bot,
+            wait_until="load" if anti_bot else "domcontentloaded",
+            page_timeout=30000,
+            delay_before_return_html=3.0 if anti_bot else 0.1,
         ),
     )
+
+    if not result.success and _attempt < max_attempts:
+        print(f"Retrying {url} (attempt {_attempt + 1}/{max_attempts})")
+        return await fetch_page(crawler, url, _attempt + 1)
 
     if not result.success:
         print(f"\nFailed to crawl: {url}")
@@ -72,7 +72,6 @@ async def fetch_page(
         return None
 
     return result
-
 
 def extract_page_content(result) -> str:
     if result.markdown:

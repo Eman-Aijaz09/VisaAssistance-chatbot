@@ -1,5 +1,5 @@
 <!-- Source: https://pakistan.diplo.de/pk-en/service/paesse-uess-1677834 -->
-<!-- Scraped: 2026-07-20T13:32:06.309764 -->
+<!-- Scraped: 2026-07-21T13:49:50.035608 -->
 
 # Welcome
 ##  Breadcrumbs
