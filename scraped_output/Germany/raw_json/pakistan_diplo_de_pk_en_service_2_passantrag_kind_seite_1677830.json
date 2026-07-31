@@ -1,0 +1,68 @@
+{
+  "entities":[
+      {
+         "country":"Germany",
+         "source_url":"https://pakistan.diplo.de/pk-en/service/2-passantrag-kind-seite-1677830",
+         "page_title":"Child's passport",
+         "purpose":null,
+         "topic":"Passport application for minors",
+         "visa_type":null,
+         "title":"Application for a child's passport",
+         "summary":"This page provides information on how to apply for a child's passport for German citizens in Pakistan.",
+         "eligibility":[
+            "The child must be a German citizen",
+            "The child must be under the age of 12"
+         ],
+         "required_documents":[
+            "Application form for minors",
+            "3 passport photos of the child",
+            "Present passport/ ID card of the child",
+            "Proof of the child's legal stay in Pakistan",
+            "Notice of Departure (Abmeldebescheinigung)",
+            "Proof of the child's German Nationality",
+            "Proof of the child's birth",
+            "Marriage certificate of the child's parents",
+            "Divorce certificate of previous marriages of the child's parents",
+            "Passports of the child's parents",
+            "Birth certificates of the child's parents",
+            "Declaration of consent"
+         ],
+         "application_process":[
+            "Submit application and required documents",
+            "Document verification",
+            "Name declaration (if applicable)",
+            "Biometrics (for children from the age of 6)",
+            "Passport/ ID card collection"
+         ],
+         "processing_time":"at least 4 months",
+         "application_fee":"50,000 PKR (with Afghan certificates: 90,000 PKR)",
+         "validity":null,
+         "official_links":[
+            "https://service2.diplo.de/rktermin/extern/choose_realmList.do?locationCode=isla&request_locale=en"
+         ],
+         "important_notes":[
+            "Appointments are required for application submission",
+            "The child's passport is not accepted by all countries (e.g. the USA)"
+         ],
+         "min_income_threshold":null,
+         "min_education_level":null,
+         "min_age":null,
+         "max_age":12,
+         "required_language_test":null,
+         "min_language_score":null,
+         "points_required":null,
+         "mandatory_prerequisites":[
+            "Appointment"
+         ],
+         "total_estimated_cost":null,
+         "cost_currency":null,
+         "processing_time_days_min":null,
+         "processing_time_days_max":null,
+         "pr_pathway_available":null,
+         "pr_pathway_years":null,
+         "last_verified_date":null,
+         "extra_information":{},
+         "source_tier":3
+      }
+   ]
+}

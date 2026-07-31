@@ -1,0 +1,61 @@
+{
+  "entities":[
+      {
+         "country":"Germany",
+         "source_url":"https://pakistan.diplo.de/pk-en/service",
+         "page_title":"Passport",
+         "purpose":null,
+         "topic":"Passport Application",
+         "visa_type":null,
+         "title":"Passport Application",
+         "summary":"The page provides information on applying for a German passport or ID card in Pakistan.",
+         "eligibility":[
+            "German nationality"
+         ],
+         "required_documents":[
+            "Application form",
+            "3 passport photos",
+            "Current Passport/ ID card",
+            "Pakistani visa or POC",
+            "Notice of departure (Abmeldebescheinigung)",
+            "Proof of German nationality",
+            "Birth certificate"
+         ],
+         "application_process":[
+            "Submitting your Application and Document verification",
+            "Name declaration",
+            "Biometrics",
+            "Passport/ ID card collection"
+         ],
+         "processing_time":"at least 4 months",
+         "application_fee":"50,000 PKR",
+         "validity":null,
+         "official_links":[
+            "https://pakistan.diplo.de/pk-en/service/paesse-uess/1677834"
+         ],
+         "important_notes":[
+            "Application by appointment only",
+            "All copies of your application have to be in Din A4 size, complete, readable, and not stapled"
+         ],
+         "min_income_threshold":null,
+         "min_education_level":null,
+         "min_age":null,
+         "max_age":null,
+         "required_language_test":null,
+         "min_language_score":null,
+         "points_required":null,
+         "mandatory_prerequisites":[
+            "Name declaration"
+         ],
+         "total_estimated_cost":null,
+         "cost_currency":null,
+         "processing_time_days_min":null,
+         "processing_time_days_max":null,
+         "pr_pathway_available":null,
+         "pr_pathway_years":null,
+         "last_verified_date":null,
+         "extra_information":{},
+         "source_tier":3
+      }
+   ]
+}

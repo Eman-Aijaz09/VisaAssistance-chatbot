@@ -1,0 +1,68 @@
+{
+  "entities":[
+      {
+         "country":"Germany",
+         "source_url":"https://pakistan.diplo.de/pk-en/service/2593356-2593356",
+         "page_title":"EU Blue Card",
+         "purpose":"work",
+         "topic":"EU Blue Card",
+         "visa_type":"EU Blue Card",
+         "title":"EU Blue Card",
+         "summary":"The EU Blue Card is a residence and work permit for highly skilled workers from outside the EU. To apply, you need a valid employment contract with a company in Germany, a recognized university degree, and to fulfill one of the salary requirements.",
+         "eligibility":[
+            "Valid employment contract with a company in Germany",
+            "Recognized university degree",
+            "Yearly gross salary of at least €48,300 (as per 2025) or €43,759.80 (as per 2025) with specific conditions"
+         ],
+         "required_documents":[
+            "Valid employment contract",
+            "Recognized university degree",
+            "Statement of Comparability (if necessary)"
+         ],
+         "application_process":[
+            "Familiarize yourself with the visa category and its requirements",
+            "Prepare your visa application using the provided checklist"
+         ],
+         "processing_time":null,
+         "application_fee":null,
+         "validity":null,
+         "official_links":[
+            "https://www.make-it-in-germany.com/en/visa-residence/types/eu-blue-card",
+            "https://pakistan.diplo.de/resource/blob/2582880/797f5cdeb94793eaab61aa14ab185c47/eu-blue-card-pdf-data.pdf"
+         ],
+         "important_notes":[
+            "Check if you might qualify for another category if you do not meet the requirements for the EU Blue Card",
+            "A list of understaffed professions can be found on the make-it-in-germany website"
+         ],
+         "min_income_threshold":{
+            "threshold_type":"fixed_numeric",
+            "value":48300,
+            "unit":"EUR/year",
+            "verified":false,
+            "source_url":"https://pakistan.diplo.de/pk-en/service/2593356-2593356",
+            "effective_date":"2025",
+            "notes":"Lower threshold of €43,759.80 applies under certain conditions"
+         },
+         "min_education_level":"bachelor",
+         "min_age":null,
+         "max_age":null,
+         "required_language_test":null,
+         "min_language_score":null,
+         "points_required":null,
+         "mandatory_prerequisites":[
+            "Valid employment contract",
+            "Recognized university degree"
+         ],
+         "total_estimated_cost":null,
+         "cost_currency":null,
+         "processing_time_days_min":null,
+         "processing_time_days_max":null,
+         "pr_pathway_available":null,
+         "pr_pathway_years":null,
+         "last_verified_date":null,
+         "extra_information":{
+
+         }
+      }
+   ]
+}

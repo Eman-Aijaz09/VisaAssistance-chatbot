@@ -1,0 +1,56 @@
+{
+  "entities":[
+      {
+         "country":"Germany",
+         "source_url":"https://pakistan.diplo.de/pk-en/service/2593478-2593478",
+         "page_title":"Employment for Skilled Workers with Vocational Qualification",
+         "purpose":"work",
+         "topic":"Employment for Skilled Workers with Vocational Qualification",
+         "visa_type":"Employment Visa",
+         "title":"Employment for Skilled Workers with Vocational Qualification",
+         "summary":"This page contains information for applications at the German Consulate-General Karachi for skilled workers with vocational qualifications.",
+         "eligibility":[
+            "Valid employment contract with a company in Germany",
+            "Vocational qualification recognized by the competent German authority"
+         ],
+         "required_documents":[
+            "Valid employment contract",
+            "Vocational qualification certificate"
+         ],
+         "application_process":[
+            "Familiarize yourself with the visa category and its requirements",
+            "Prepare your visa application as explained in the checklist"
+         ],
+         "processing_time":null,
+         "application_fee":null,
+         "validity":null,
+         "official_links":[
+            "https://pakistan.diplo.de/pk-en/service/4-work-jobseeker-1676106",
+            "https://www.make-it-in-germany.com/en/visa-residence/types/work-qualified-professionals"
+         ],
+         "important_notes":[
+            "Applications at the German Embassy Islamabad are handled via the Consular Services Portal"
+         ],
+         "min_income_threshold":null,
+         "min_education_level":null,
+         "min_age":null,
+         "max_age":null,
+         "required_language_test":null,
+         "min_language_score":null,
+         "points_required":null,
+         "mandatory_prerequisites":[
+            "Valid employment contract",
+            "Vocational qualification"
+         ],
+         "total_estimated_cost":null,
+         "cost_currency":null,
+         "processing_time_days_min":null,
+         "processing_time_days_max":null,
+         "pr_pathway_available":null,
+         "pr_pathway_years":null,
+         "last_verified_date":null,
+         "extra_information":{},
+         "source_tier":3
+      }
+   ]
+}

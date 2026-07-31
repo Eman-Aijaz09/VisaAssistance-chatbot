@@ -1,0 +1,57 @@
+{
+  "entities": [
+       {
+           "country": "Germany",
+           "source_url": "https://pakistan.diplo.de/pk-en/service/4-rueckreisedokument-seite-1677828",
+           "page_title": "Travel document to return to Germany",
+           "purpose": null,
+           "topic": "Travel document",
+           "visa_type": null,
+           "title": "Travel document to return to Germany",
+           "summary": "This page provides information on how to obtain a travel document to return to Germany if you are staying in Pakistan temporarily and have lost your passport.",
+           "eligibility": [],
+           "required_documents": [
+               "application form",
+               "3 passport photos",
+               "proof of identity",
+               "first information report",
+               "flight booking"
+           ],
+           "application_process": [
+               "Report to the Pakistani police station",
+               "Apply for a travel document to return to Germany",
+               "Seek approval for a new Pakistani visa with the Pakistani Ministry of Interior",
+               "Visit the Pakistani Passport Office"
+           ],
+           "processing_time": "usually issued on the same day",
+           "application_fee": "21.00 €",
+           "validity": "valid for one month only",
+           "official_links": [
+               "https://pakistan.diplo.de/resource/blob/1673172/bc4816e6d35a461aa180cff991f016e1/passantrag-data.pdf",
+               "https://pakistan.diplo.de/resource/blob/1673176/6e3eee9fd4d86e16aaefe0e92d809332/photos-samples-data.pdf",
+               "https://pakistan.diplo.de/resource/blob/1673152/c393eabfec3c202ce1016a50d3d841d9/passbildschablone-data.pdf"
+           ],
+           "important_notes": [
+               "The travel document is only valid for one month",
+               "The application fee is 21.00 €"
+           ],
+           "min_income_threshold": null,
+           "min_education_level": null,
+           "min_age": null,
+           "max_age": null,
+           "required_language_test": null,
+           "min_language_score": null,
+           "points_required": null,
+           "mandatory_prerequisites": [],
+           "total_estimated_cost": 21.00,
+           "cost_currency": "EUR",
+           "processing_time_days_min": null,
+           "processing_time_days_max": null,
+           "pr_pathway_available": null,
+           "pr_pathway_years": null,
+           "last_verified_date": null,
+           "extra_information": {},
+           "source_tier": 3
+       }
+   ]
+}

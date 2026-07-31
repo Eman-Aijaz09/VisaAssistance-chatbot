@@ -1,0 +1,54 @@
+{
+  "entities":[
+      {
+         "country":"Germany",
+         "source_url":"https://pakistan.diplo.de/pk-en/service/legal-uess-1680522",
+         "page_title":"Consular Services",
+         "purpose":null,
+         "topic":"Consular Services",
+         "visa_type":null,
+         "title":"Consular Services",
+         "summary":"The German Embassy in Islamabad and the German Consulate in Karachi provide various consular services, including notarizations, attestations, and certification of documents.",
+         "eligibility":[],
+         "required_documents":[
+            "Valid passport",
+            "Confirmation letter for blocked account",
+            "Fee (cash in PKR) for issuing the Blocked Account Release Letter",
+            "Visa refusal letter (if applicable)",
+            "Proof of an expired/cancelled visa (if applicable)",
+            "Withdrawn admission letter (certificate of registration) from the University in Germany (if applicable)"
+         ],
+         "application_process":[
+            "Book an appointment via the online link",
+            "Submit required documents"
+         ],
+         "processing_time":null,
+         "application_fee":"36€ (around 12,000 PKR depending on the current exchange rate of the Embassy)",
+         "validity":null,
+         "official_links":[
+            "https://service2.diplo.de/rktermin/extern/choose_realmList.do?locationCode=isla&request_locale=en"
+         ],
+         "important_notes":[
+            "The Embassy can give no guarantee for the content, quality or cost of translations",
+            "Prior contact to the bank is recommended to confirm that the Consular Attestation is necessary"
+         ],
+         "min_income_threshold":null,
+         "min_education_level":null,
+         "min_age":null,
+         "max_age":null,
+         "required_language_test":null,
+         "min_language_score":null,
+         "points_required":null,
+         "mandatory_prerequisites":[],
+         "total_estimated_cost":null,
+         "cost_currency":null,
+         "processing_time_days_min":null,
+         "processing_time_days_max":null,
+         "pr_pathway_available":null,
+         "pr_pathway_years":null,
+         "last_verified_date":null,
+         "extra_information":{},
+         "source_tier":3
+      }
+   ]
+}

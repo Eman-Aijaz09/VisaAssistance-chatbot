@@ -1,5 +1,7 @@
+#llm_utils.py
 import json
 import os
+from datetime import date
 
 from groq import Groq
 from pydantic import ValidationError
@@ -7,20 +9,32 @@ from pydantic import ValidationError
 from models.page_extraction import PageExtraction
 from utils.prompts_utils import EXTRACTION_PROMPT
 from config import MODEL
-
+from utils.storage_utils import save_raw_json
 
 def get_groq_client():
-    """
-    Returns a configured Groq client.
-    """
-
     api_key = os.getenv("GROQ_API_KEY")
-
     if not api_key:
         raise ValueError("GROQ_API_KEY not found in environment variables.")
-
     return Groq(api_key=api_key)
 
+
+def _normalize_empty_strings(obj):
+    """
+    Recursively convert empty strings to None throughout the parsed
+    JSON before Pydantic validation. Groq's JSON mode doesn't reliably
+    emit `null` for every unpopulated field despite the prompt asking
+    for it — it often returns "" instead, which fails validation
+    against typed Optional[int]/Optional[bool]/Optional[EligibilityGate]
+    fields.
+    """
+    if isinstance(obj, dict):
+        return {k: _normalize_empty_strings(v) for k, v in obj.items()}
+    elif isinstance(obj, list):
+        return [_normalize_empty_strings(v) for v in obj]
+    elif obj == "":
+        return None
+    else:
+        return obj
 
 def extract_entities(
     markdown: str,
@@ -28,31 +42,41 @@ def extract_entities(
     source_url: str,
     page_title: str,
     model: str = MODEL,
+    cached_raw_response: str = None,
 ):
-    """
-    Extract structured immigration knowledge from webpage markdown.
-    """
+    content = cached_raw_response
 
+    if content is not None:
+        try:
+            parsed = json.loads(content)
+            parsed = _normalize_empty_strings(parsed)
+            extraction = PageExtraction.model_validate(parsed)
+
+            today = date.today().isoformat()
+            for entity in extraction.entities:
+                entity.country = country
+                entity.source_url = source_url
+                entity.page_title = page_title
+                entity.last_verified_date = today
+
+            print(f"\nUsing cached raw LLM response for {source_url} (no Groq call made).\n")
+            return extraction   # early return — cached path succeeded
+
+        except (json.JSONDecodeError, ValidationError):
+            print(f"Cached raw JSON for {source_url} invalid — falling back to fresh LLM call.")
+            content = None   # fall through to the fresh-call branch below
+
+    # ---- Fresh Groq call (runs if no cache was given, or cache was invalid) ----
     client = get_groq_client()
-
-    prompt = EXTRACTION_PROMPT.replace(
-    "{{CONTENT}}",
-    markdown
-)
+    prompt = EXTRACTION_PROMPT.replace("{{CONTENT}}", markdown)
 
     response = client.chat.completions.create(
         model=model,
         temperature=0,
         response_format={"type": "json_object"},
         messages=[
-            {
-                "role": "system",
-                "content": "You are a highly accurate information extraction system.",
-            },
-            {
-                "role": "user",
-                "content": prompt,
-            },
+            {"role": "system", "content": "You are a highly accurate information extraction system."},
+            {"role": "user", "content": prompt},
         ],
     )
 
@@ -61,31 +85,29 @@ def extract_entities(
     print(content)
     print("\n======================================\n")
 
-    try:
+    save_raw_json(content, source_url, country)
 
+    try:
         parsed = json.loads(content)
+        parsed = _normalize_empty_strings(parsed)
 
         extraction = PageExtraction.model_validate(parsed)
 
-        #
-        # Fill deterministic metadata ourselves.
-        #
+        today = date.today().isoformat()
         for entity in extraction.entities:
-
             entity.country = country
             entity.source_url = source_url
             entity.page_title = page_title
+            entity.last_verified_date = today
 
         return extraction
 
     except json.JSONDecodeError as e:
-
         print("Failed to parse JSON.")
         print(content)
         raise e
 
     except ValidationError as e:
-
         print("Pydantic validation failed.")
         print(e)
         raise e

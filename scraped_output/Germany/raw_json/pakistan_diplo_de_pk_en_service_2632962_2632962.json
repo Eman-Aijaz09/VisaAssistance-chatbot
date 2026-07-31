@@ -1,0 +1,56 @@
+{
+  "entities":[
+      {
+         "country":"Germany",
+         "source_url":"https://pakistan.diplo.de/pk-en/service/2632962-2632962",
+         "page_title":"Self-Employment, Freelancing",
+         "purpose":"work",
+         "topic":"Self-Employment, Freelancing",
+         "visa_type":"Self-Employment Visa",
+         "title":"Self-Employment, Freelancing in Germany",
+         "summary":"To start a business or work as a freelancer in Germany, you need to fulfill certain requirements, including having a business idea that meets an economic interest or regional need and having personal capital or a loan undertaking.",
+         "eligibility":[
+            "Business idea meets an economic interest or regional need",
+            "Personal capital or loan undertaking"
+         ],
+         "required_documents":[
+            "Visa application",
+            "Business plan",
+            "Proof of personal capital or loan undertaking"
+         ],
+         "application_process":[
+            "Prepare visa application",
+            "Submit application"
+         ],
+         "processing_time":null,
+         "application_fee":null,
+         "validity":null,
+         "official_links":[
+            "https://www.make-it-in-germany.com/en/visa-residence/types/self-employment",
+            "https://pakistan.diplo.de/resource/blob/2582906/c9b498a6334f5526371b8b85ab4efc2f/self-employment-freelancing-mb-data.pdf"
+         ],
+         "important_notes":[
+            "Business idea must have positive effects on the economy in Germany"
+         ],
+         "min_income_threshold":null,
+         "min_education_level":null,
+         "min_age":null,
+         "max_age":null,
+         "required_language_test":null,
+         "min_language_score":null,
+         "points_required":null,
+         "mandatory_prerequisites":[
+            "Business plan"
+         ],
+         "total_estimated_cost":null,
+         "cost_currency":null,
+         "processing_time_days_min":null,
+         "processing_time_days_max":null,
+         "pr_pathway_available":null,
+         "pr_pathway_years":null,
+         "last_verified_date":null,
+         "extra_information":{},
+         "source_tier":3
+      }
+   ]
+}

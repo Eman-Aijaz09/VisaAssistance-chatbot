@@ -1,0 +1,67 @@
+{
+  "entities":[
+      {
+         "country":"Germany",
+         "source_url":"https://pakistan.diplo.de/pk-en/service/1995528-1995528",
+         "page_title":"How to finance your stay",
+         "purpose":null,
+         "topic":"Financing stay in Germany",
+         "visa_type":null,
+         "title":"Financing your stay in Germany",
+         "summary":"Information on how to show sufficient means to finance your stay in Germany, including blocked bank accounts, deeds of obligation, and scholarships.",
+         "eligibility":[
+            "Sufficient financial means"
+         ],
+         "required_documents":[
+            "Blocked bank account details",
+            "Deed of obligation",
+            "Scholarship award letter"
+         ],
+         "application_process":[
+            "Opening a blocked bank account",
+            "Signing a deed of obligation",
+            "Applying for a scholarship"
+         ],
+         "processing_time":null,
+         "application_fee":"25,- € (about 5400 PKR)",
+         "validity":null,
+         "official_links":[
+            "https://www.auswaertiges-amt.de/en/sperrkonto/388600"
+         ],
+         "important_notes":[
+            "The German Federal Foreign Office has no influence on decisions of financial institutions.",
+            "A scholarship awarded by a Pakistani University is not sufficient, only a scholarship awarded by HEC can be accepted."
+         ],
+         "min_income_threshold":{
+            "threshold_type":"fixed_numeric",
+            "value":11904,
+            "unit":"EUR/year",
+            "verified":false,
+            "source_url":"https://pakistan.diplo.de/pk-en/service/1995528-1995528",
+            "effective_date":"2025-01-01",
+            "notes":null
+         },
+         "min_education_level":null,
+         "min_age":null,
+         "max_age":null,
+         "required_language_test":null,
+         "min_language_score":null,
+         "points_required":null,
+         "mandatory_prerequisites":[
+            "Blocked bank account",
+            "Deed of obligation",
+            "Scholarship"
+         ],
+         "total_estimated_cost":null,
+         "cost_currency":null,
+         "processing_time_days_min":null,
+         "processing_time_days_max":null,
+         "pr_pathway_available":null,
+         "pr_pathway_years":null,
+         "last_verified_date":null,
+         "extra_information":{
+
+         }
+      }
+   ]
+}

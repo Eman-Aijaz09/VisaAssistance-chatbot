@@ -1,0 +1,499 @@
+{
+  "entities":[
+      {
+         "country":"Germany",
+         "source_url":"https://pakistan.diplo.de/pk-en/service/4-work-jobseeker-1676106",
+         "page_title":"Employment, Training or Jobseeker",
+         "purpose":"work",
+         "topic":"work visa",
+         "visa_type":"Blue Card EU",
+         "title":"Work Visa Categories and Checklists",
+         "summary":"Information on visa for working in Germany, including Blue Card EU, employment for skilled workers, vocational training, and more.",
+         "eligibility":[
+            "recognized university degree",
+            "recognized vocational qualification",
+            "minimum 2 years of practical experience"
+         ],
+         "required_documents":[
+            "passport",
+            "CV",
+            "diplomas and certificates",
+            "proof of language proficiency"
+         ],
+         "application_process":[
+            "register on the Consular Services Portal",
+            "upload application",
+            "attach family reunion applications (if applicable)"
+         ],
+         "processing_time":null,
+         "application_fee":null,
+         "validity":null,
+         "official_links":[
+            "https://www.make-it-in-germany.com/en/",
+            "https://digital.diplo.de/visa-ewt"
+         ],
+         "important_notes":[
+            "complete application in the Services Portal",
+            "attach all family reunion applications",
+            "follow guidelines and information on the family reunion page"
+         ],
+         "min_income_threshold":null,
+         "min_education_level":"bachelor",
+         "min_age":null,
+         "max_age":null,
+         "required_language_test":null,
+         "min_language_score":null,
+         "points_required":null,
+         "mandatory_prerequisites":[
+            "recognized qualification",
+            "language proficiency"
+         ],
+         "total_estimated_cost":null,
+         "cost_currency":null,
+         "processing_time_days_min":null,
+         "processing_time_days_max":null,
+         "pr_pathway_available":null,
+         "pr_pathway_years":null,
+         "last_verified_date":null,
+         "extra_information":{},
+         "source_tier":3
+      },
+      {
+         "country":"Germany",
+         "source_url":"https://pakistan.diplo.de/pk-en/service/4-work-jobseeker-1676106",
+         "page_title":"Employment, Training or Jobseeker",
+         "purpose":"work",
+         "topic":"employment for skilled workers",
+         "visa_type":"Employment for Skilled Workers Holding a University Degree",
+         "title":"Work Visa Categories and Checklists",
+         "summary":"Information on visa for working in Germany, including employment for skilled workers with a university degree.",
+         "eligibility":[
+            "recognized university degree",
+            "job offer in Germany"
+         ],
+         "required_documents":[
+            "passport",
+            "CV",
+            "diplomas and certificates",
+            "proof of language proficiency",
+            "job contract"
+         ],
+         "application_process":[
+            "register on the Consular Services Portal",
+            "upload application",
+            "attach family reunion applications (if applicable)"
+         ],
+         "processing_time":null,
+         "application_fee":null,
+         "validity":null,
+         "official_links":[
+            "https://www.make-it-in-germany.com/en/",
+            "https://digital.diplo.de/visa-ewt"
+         ],
+         "important_notes":[
+            "complete application in the Services Portal",
+            "attach all family reunion applications",
+            "follow guidelines and information on the family reunion page"
+         ],
+         "min_income_threshold":null,
+         "min_education_level":"bachelor",
+         "min_age":null,
+         "max_age":null,
+         "required_language_test":null,
+         "min_language_score":null,
+         "points_required":null,
+         "mandatory_prerequisites":[
+            "recognized qualification",
+            "language proficiency"
+         ],
+         "total_estimated_cost":null,
+         "cost_currency":null,
+         "processing_time_days_min":null,
+         "processing_time_days_max":null,
+         "pr_pathway_available":null,
+         "pr_pathway_years":null,
+         "last_verified_date":null,
+         "extra_information":{},
+         "source_tier":3
+      },
+      {
+         "country":"Germany",
+         "source_url":"https://pakistan.diplo.de/pk-en/service/4-work-jobseeker-1676106",
+         "page_title":"Employment, Training or Jobseeker",
+         "purpose":"work",
+         "topic":"vocational training",
+         "visa_type":"Vocational Training",
+         "title":"Work Visa Categories and Checklists",
+         "summary":"Information on visa for vocational training in Germany.",
+         "eligibility":[
+            "recognized vocational qualification",
+            "vocational training programme in Germany"
+         ],
+         "required_documents":[
+            "passport",
+            "CV",
+            "diplomas and certificates",
+            "proof of language proficiency",
+            "training contract"
+         ],
+         "application_process":[
+            "register on the Consular Services Portal",
+            "upload application",
+            "attach family reunion applications (if applicable)"
+         ],
+         "processing_time":null,
+         "application_fee":null,
+         "validity":null,
+         "official_links":[
+            "https://www.make-it-in-germany.com/en/",
+            "https://digital.diplo.de/visa-ewt"
+         ],
+         "important_notes":[
+            "complete application in the Services Portal",
+            "attach all family reunion applications",
+            "follow guidelines and information on the family reunion page"
+         ],
+         "min_income_threshold":null,
+         "min_education_level":null,
+         "min_age":null,
+         "max_age":null,
+         "required_language_test":null,
+         "min_language_score":null,
+         "points_required":null,
+         "mandatory_prerequisites":[
+            "recognized qualification",
+            "language proficiency"
+         ],
+         "total_estimated_cost":null,
+         "cost_currency":null,
+         "processing_time_days_min":null,
+         "processing_time_days_max":null,
+         "pr_pathway_available":null,
+         "pr_pathway_years":null,
+         "last_verified_date":null,
+         "extra_information":{},
+         "source_tier":3
+      },
+      {
+         "country":"Germany",
+         "source_url":"https://pakistan.diplo.de/pk-en/service/4-work-jobseeker-1676106",
+         "page_title":"Employment, Training or Jobseeker",
+         "purpose":"work",
+         "topic":"opportunity card",
+         "visa_type":"Opportunity Card",
+         "title":"Work Visa Categories and Checklists",
+         "summary":"Information on visa for jobseeking in Germany with an opportunity card.",
+         "eligibility":[
+            "recognized university degree or vocational qualification"
+         ],
+         "required_documents":[
+            "passport",
+            "CV",
+            "diplomas and certificates",
+            "proof of language proficiency"
+         ],
+         "application_process":[
+            "register on the Consular Services Portal",
+            "upload application",
+            "attach family reunion applications (if applicable)"
+         ],
+         "processing_time":null,
+         "application_fee":null,
+         "validity":null,
+         "official_links":[
+            "https://www.make-it-in-germany.com/en/",
+            "https://digital.diplo.de/visa-ewt"
+         ],
+         "important_notes":[
+            "complete application in the Services Portal",
+            "attach all family reunion applications",
+            "follow guidelines and information on the family reunion page"
+         ],
+         "min_income_threshold":null,
+         "min_education_level":"bachelor",
+         "min_age":null,
+         "max_age":null,
+         "required_language_test":null,
+         "min_language_score":null,
+         "points_required":null,
+         "mandatory_prerequisites":[
+            "recognized qualification",
+            "language proficiency"
+         ],
+         "total_estimated_cost":null,
+         "cost_currency":null,
+         "processing_time_days_min":null,
+         "processing_time_days_max":null,
+         "pr_pathway_available":null,
+         "pr_pathway_years":null,
+         "last_verified_date":null,
+         "extra_information":{},
+         "source_tier":3
+      },
+      {
+         "country":"Germany",
+         "source_url":"https://pakistan.diplo.de/pk-en/service/4-work-jobseeker-1676106",
+         "page_title":"Employment, Training or Jobseeker",
+         "purpose":"work",
+         "topic":"research",
+         "visa_type":"Research",
+         "title":"Work Visa Categories and Checklists",
+         "summary":"Information on visa for research in Germany.",
+         "eligibility":[
+            "hosting agreement or work contract with a research institute in Germany"
+         ],
+         "required_documents":[
+            "passport",
+            "CV",
+            "diplomas and certificates",
+            "proof of language proficiency",
+            "hosting agreement or work contract"
+         ],
+         "application_process":[
+            "register for an appointment",
+            "bring all required documents"
+         ],
+         "processing_time":null,
+         "application_fee":null,
+         "validity":null,
+         "official_links":[
+            "https://www.make-it-in-germany.com/en/",
+            "https://digital.diplo.de/visa-ewt"
+         ],
+         "important_notes":[
+            "register for an appointment",
+            "bring all required documents"
+         ],
+         "min_income_threshold":null,
+         "min_education_level":null,
+         "min_age":null,
+         "max_age":null,
+         "required_language_test":null,
+         "min_language_score":null,
+         "points_required":null,
+         "mandatory_prerequisites":[
+            "hosting agreement or work contract"
+         ],
+         "total_estimated_cost":null,
+         "cost_currency":null,
+         "processing_time_days_min":null,
+         "processing_time_days_max":null,
+         "pr_pathway_available":null,
+         "pr_pathway_years":null,
+         "last_verified_date":null,
+         "extra_information":{},
+         "source_tier":3
+      },
+      {
+         "country":"Germany",
+         "source_url":"https://pakistan.diplo.de/pk-en/service/4-work-jobseeker-1676106",
+         "page_title":"Employment, Training or Jobseeker",
+         "purpose":"work",
+         "topic":"self-employment",
+         "visa_type":"Self-Employment",
+         "title":"Work Visa Categories and Checklists",
+         "summary":"Information on visa for self-employment in Germany.",
+         "eligibility":[
+            "business plan",
+            "proof of financial resources"
+         ],
+         "required_documents":[
+            "passport",
+            "CV",
+            "business plan",
+            "proof of financial resources"
+         ],
+         "application_process":[
+            "register for an appointment",
+            "bring all required documents"
+         ],
+         "processing_time":null,
+         "application_fee":null,
+         "validity":null,
+         "official_links":[
+            "https://www.make-it-in-germany.com/en/",
+            "https://digital.diplo.de/visa-ewt"
+         ],
+         "important_notes":[
+            "register for an appointment",
+            "bring all required documents"
+         ],
+         "min_income_threshold":null,
+         "min_education_level":null,
+         "min_age":null,
+         "max_age":null,
+         "required_language_test":null,
+         "min_language_score":null,
+         "points_required":null,
+         "mandatory_prerequisites":[
+            "business plan",
+            "proof of financial resources"
+         ],
+         "total_estimated_cost":null,
+         "cost_currency":null,
+         "processing_time_days_min":null,
+         "processing_time_days_max":null,
+         "pr_pathway_available":null,
+         "pr_pathway_years":null,
+         "last_verified_date":null,
+         "extra_information":{},
+         "source_tier":3
+      },
+      {
+         "country":"Germany",
+         "source_url":"https://pakistan.diplo.de/pk-en/service/4-work-jobseeker-1676106",
+         "page_title":"Employment, Training or Jobseeker",
+         "purpose":"work",
+         "topic":"voluntary service",
+         "visa_type":"Voluntary Service",
+         "title":"Work Visa Categories and Checklists",
+         "summary":"Information on visa for voluntary service in Germany.",
+         "eligibility":[
+            "contract with a voluntary service organization in Germany"
+         ],
+         "required_documents":[
+            "passport",
+            "CV",
+            "contract with a voluntary service organization"
+         ],
+         "application_process":[
+            "register for an appointment",
+            "bring all required documents"
+         ],
+         "processing_time":null,
+         "application_fee":null,
+         "validity":null,
+         "official_links":[
+            "https://www.make-it-in-germany.com/en/",
+            "https://digital.diplo.de/visa-ewt"
+         ],
+         "important_notes":[
+            "register for an appointment",
+            "bring all required documents"
+         ],
+         "min_income_threshold":null,
+         "min_education_level":null,
+         "min_age":null,
+         "max_age":null,
+         "required_language_test":null,
+         "min_language_score":null,
+         "points_required":null,
+         "mandatory_prerequisites":[
+            "contract with a voluntary service organization"
+         ],
+         "total_estimated_cost":null,
+         "cost_currency":null,
+         "processing_time_days_min":null,
+         "processing_time_days_max":null,
+         "pr_pathway_available":null,
+         "pr_pathway_years":null,
+         "last_verified_date":null,
+         "extra_information":{},
+         "source_tier":3
+      },
+      {
+         "country":"Germany",
+         "source_url":"https://pakistan.diplo.de/pk-en/service/4-work-jobseeker-1676106",
+         "page_title":"Employment, Training or Jobseeker",
+         "purpose":"work",
+         "topic":"au-pair",
+         "visa_type":"Au-Pair",
+         "title":"Work Visa Categories and Checklists",
+         "summary":"Information on visa for au-pair in Germany.",
+         "eligibility":[
+            "au-pair contract with a host family in Germany"
+         ],
+         "required_documents":[
+            "passport",
+            "CV",
+            "au-pair contract"
+         ],
+         "application_process":[
+            "register for an appointment",
+            "bring all required documents"
+         ],
+         "processing_time":null,
+         "application_fee":null,
+         "validity":null,
+         "official_links":[
+            "https://www.make-it-in-germany.com/en/",
+            "https://digital.diplo.de/visa-ewt"
+         ],
+         "important_notes":[
+            "register for an appointment",
+            "bring all required documents"
+         ],
+         "min_income_threshold":null,
+         "min_education_level":null,
+         "min_age":null,
+         "max_age":null,
+         "required_language_test":null,
+         "min_language_score":null,
+         "points_required":null,
+         "mandatory_prerequisites":[
+            "au-pair contract"
+         ],
+         "total_estimated_cost":null,
+         "cost_currency":null,
+         "processing_time_days_min":null,
+         "processing_time_days_max":null,
+         "pr_pathway_available":null,
+         "pr_pathway_years":null,
+         "last_verified_date":null,
+         "extra_information":{},
+         "source_tier":3
+      },
+      {
+         "country":"Germany",
+         "source_url":"https://pakistan.diplo.de/pk-en/service/4-work-jobseeker-1676106",
+         "page_title":"Employment, Training or Jobseeker",
+         "purpose":"work",
+         "topic":"speciality cook",
+         "visa_type":"Employment for Speciality Cook",
+         "title":"Work Visa Categories and Checklists",
+         "summary":"Information on visa for speciality cook in Germany.",
+         "eligibility":[
+            "minimum 6 years of experience as a chef"
+         ],
+         "required_documents":[
+            "passport",
+            "CV",
+            "proof of experience"
+         ],
+         "application_process":[
+            "register on the Consular Services Portal",
+            "upload application",
+            "attach family reunion applications (if applicable)"
+         ],
+         "processing_time":null,
+         "application_fee":null,
+         "validity":null,
+         "official_links":[
+            "https://www.make-it-in-germany.com/en/",
+            "https://digital.diplo.de/visa-ewt"
+         ],
+         "important_notes":[
+            "complete application in the Services Portal",
+            "attach all family reunion applications",
+            "follow guidelines and information on the family reunion page"
+         ],
+         "min_income_threshold":null,
+         "min_education_level":null,
+         "min_age":null,
+         "max_age":null,
+         "required_language_test":null,
+         "min_language_score":null,
+         "points_required":null,
+         "mandatory_prerequisites":[
+            "proof of experience"
+         ],
+         "total_estimated_cost":null,
+         "cost_currency":null,
+         "processing_time_days_min":null,
+         "processing_time_days_max":null,
+         "pr_pathway_available":null,
+         "pr_pathway_years":null,
+         "last_verified_date":null,
+         "extra_information":{},
+         "source_tier":3
+      }]}

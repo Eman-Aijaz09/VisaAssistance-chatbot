@@ -1,0 +1,52 @@
+{
+  "entities": [
+       {
+           "country": "United States",
+           "source_url": "https://pk.usembassy.gov/expansion-of-interview-waiver-eligibility-for-u-s-visa-holders-from-pakistan/",
+           "page_title": "Expansion of Interview Waiver Eligibility for U.S. Visa Holders from Pakistan",
+           "purpose": "tourist",
+           "topic": "visa renewal",
+           "visa_type": "B1/B2",
+           "title": "Expansion of Interview Waiver Eligibility for U.S. Visa Holders from Pakistan",
+           "summary": "The United States Mission in Pakistan has expanded interview waiver eligibility for Pakistani citizens renewing B1/B2 tourist and business visas. Eligible applicants can renew their visas without an interview if they are 45 years or older and their previous visa is valid or has expired within the last 48 months.",
+           "eligibility": [
+               "Pakistani citizens",
+               "45 years or older",
+               "B1/B2 visa valid or expired within the last 48 months"
+           ],
+           "required_documents": [],
+           "application_process": [
+               "Submit application",
+               "Determine eligibility for interview waiver"
+           ],
+           "processing_time": null,
+           "application_fee": null,
+           "validity": null,
+           "official_links": [
+               "https://www.ustraveldocs.com/pk/pk-niv-visarenew.asp",
+               "https://www.ustraveldocs.com/pk/pk-gen-faq.asp"
+           ],
+           "important_notes": [
+               "Some eligible visa holders may still be required to appear for an interview",
+               "Applicants can check their eligibility for an interview waiver on the U.S. Embassy's website"
+           ],
+           "min_income_threshold": null,
+           "min_education_level": null,
+           "min_age": 45,
+           "max_age": null,
+           "required_language_test": null,
+           "min_language_score": null,
+           "points_required": null,
+           "mandatory_prerequisites": [],
+           "total_estimated_cost": null,
+           "cost_currency": null,
+           "processing_time_days_min": null,
+           "processing_time_days_max": null,
+           "pr_pathway_available": null,
+           "pr_pathway_years": null,
+           "last_verified_date": null,
+           "extra_information": {},
+           "source_tier": 3
+       }
+   ]
+}

@@ -1,0 +1,69 @@
+{
+  "entities":[
+      {
+         "country":"Germany",
+         "source_url":"https://pakistan.diplo.de/pk-en/service/re-entry-2573102",
+         "page_title":"Re-entry Visa (Wiedereinreise)",
+         "purpose":null,
+         "topic":"Re-entry Visa",
+         "visa_type":"Re-entry Visa",
+         "title":"Re-entry Visa",
+         "summary":"A re-entry visa is required for individuals whose residence permit has expired or was stolen during their stay in Pakistan.",
+         "eligibility":[
+            "residence permit expired or stolen"
+         ],
+         "required_documents":[
+            "Application form",
+            "Biometric passport photo",
+            "Certificate of residency in Germany",
+            "Copy of German residence permit and FIR report + German or English Translation",
+            "Current passport",
+            "Pre-approval of competent aliens' authority in Germany (if available)",
+            "Applicant's declaration",
+            "Information regarding legal representation"
+         ],
+         "application_process":[
+            "Contact the visa section of the embassy via e-mail to get an appointment",
+            "Submit the application and supporting documents"
+         ],
+         "processing_time":null,
+         "application_fee":{
+            "adults":"75 Euro",
+            "children":"37,50 Euro"
+         },
+         "validity":null,
+         "official_links":[
+            "https://videx.diplo.de/videx/visum-erfassung/videx-langfristiger-aufenthalt",
+            "https://pakistan.diplo.de/resource/blob/1673176/6e3eee9fd4d86e16aaefe0e92d809332/photos-samples-data.pdf",
+            "https://pakistan.diplo.de/blob/1673160/0df4cde708df0256522476388e30656a/applicants-declaration-e-ur-data.pdf",
+            "https://pakistan.diplo.de/resource/blob/2701206/34bd064cca2f89288af25fabec732d16/information-regarding-representation-data.pdf"
+         ],
+         "important_notes":[
+            "The diplomatic mission reserves the right to contact you even after the application has been submitted to request additional documents",
+            "Some applicants may be exempt from paying visa fees based on their residence permit"
+         ],
+         "min_income_threshold":null,
+         "min_education_level":null,
+         "min_age":null,
+         "max_age":null,
+         "required_language_test":null,
+         "min_language_score":null,
+         "points_required":null,
+         "mandatory_prerequisites":[
+            "Original documents",
+            "Completed application form"
+         ],
+         "total_estimated_cost":null,
+         "cost_currency":null,
+         "processing_time_days_min":null,
+         "processing_time_days_max":null,
+         "pr_pathway_available":null,
+         "pr_pathway_years":null,
+         "last_verified_date":null,
+         "extra_information":{
+
+         },
+         "source_tier":3
+      }
+   ]
+}

@@ -1,0 +1,71 @@
+{
+  "entities":[
+      {
+         "country":"Germany",
+         "source_url":"https://pakistan.diplo.de/pk-en/service/2-visitors-visa-seite-1673128",
+         "page_title":"Visiting friends and family",
+         "purpose":"family_reunion",
+         "topic":"Visitor's visa",
+         "visa_type":"Schengen visa",
+         "title":"Visitor's visa for visiting friends and family in Germany",
+         "summary":"This page provides information on the requirements and process for applying for a visitor's visa to visit friends and family in Germany.",
+         "eligibility":[
+            "The applicant must have a valid passport with at least three months' validity after the end of the desired visa.",
+            "The applicant must have health insurance that covers all Schengen countries with a minimum coverage of €30,000."
+         ],
+         "required_documents":[
+            "Current passport and copies of all previous passports and visa",
+            "Videx visa application form",
+            "Two biometrical passport photos",
+            "Health insurance policy",
+            "Invitation letter and assurances",
+            "Flight reservation",
+            "Confirmation of employment or university enrolment in Pakistan and NOC for the trip",
+            "All previous visa refusals",
+            "ID card (CNIC)",
+            "FRC (Family Registration Certificate), Marriage Certificate (if applicable), and Birth Certificate (for minor applicants)",
+            "List of children",
+            "List of relatives living abroad",
+            "Financial evidence",
+            "Appointment email"
+         ],
+         "application_process":[
+            "Fill out the Videx online application system and print out the signed original.",
+            "Submit the application with all required documents."
+         ],
+         "processing_time":null,
+         "application_fee":null,
+         "validity":null,
+         "official_links":[
+            "https://pakistan.diplo.de/pk-en/service/6-health-insurances-seite/1673134",
+            "https://videx.diplo.de/videx/visum-erfassung/videx-kurzfristiger-aufenthalt"
+         ],
+         "important_notes":[
+            "The applicant must provide all required documents in the correct order and format.",
+            "The applicant must disclose all previous visa refusals."
+         ],
+         "min_income_threshold":null,
+         "min_education_level":null,
+         "min_age":null,
+         "max_age":null,
+         "required_language_test":null,
+         "min_language_score":null,
+         "points_required":null,
+         "mandatory_prerequisites":[
+            "Valid passport",
+            "Health insurance"
+         ],
+         "total_estimated_cost":null,
+         "cost_currency":null,
+         "processing_time_days_min":null,
+         "processing_time_days_max":null,
+         "pr_pathway_available":null,
+         "pr_pathway_years":null,
+         "last_verified_date":null,
+         "extra_information":{
+
+         },
+         "source_tier":3
+      }
+   ]
+}

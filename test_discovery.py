@@ -1,13 +1,6 @@
 """
 test_discovery.py
-
-Standalone sanity check for the URL discovery step — runs discovery
-in isolation (no LLM calls, no CSV writes) so you can see exactly
-what the sitemap/BFS steps return, and whether the relevance filter
-is actually doing anything useful, before spending Groq API calls.
-
-Usage:
-    python test_discovery.py
+...
 """
 
 import asyncio
@@ -32,7 +25,6 @@ async def test_seed(crawler, seed_url: str, country: str):
     print(f"SEED:    {seed_url}")
     print("#" * 80)
 
-    # ---- Step 1: robots.txt ----
     allowed, sitemap_urls = check_robots_permission(seed_url)
 
     print(f"\n[robots.txt] allowed to crawl: {allowed}")
@@ -42,7 +34,6 @@ async def test_seed(crawler, seed_url: str, country: str):
         print("\nCrawling disallowed. Discovery would return [] here.")
         return
 
-    # ---- Step 2: sitemap discovery ----
     raw_urls = discover_via_sitemap(seed_url, sitemap_urls)
     print(f"\n[sitemap] raw URLs found: {len(raw_urls)}")
 
@@ -51,12 +42,13 @@ async def test_seed(crawler, seed_url: str, country: str):
         for url in raw_urls[:10]:
             print(f"    {url}")
 
-    # ---- Step 3: relevance filter on sitemap results ----
     if raw_urls:
-        filtered = filter_relevant_urls(raw_urls, country)
+        # CHANGED: country -> seed_url
+        filtered = filter_relevant_urls(raw_urls, seed_url)
         print(f"\n[filter] {len(filtered)} of {len(raw_urls)} sitemap URLs passed the relevance filter.")
 
-        filtered = filter_by_language(filtered, country)
+        # CHANGED: country -> seed_url
+        filtered = filter_by_language(filtered, seed_url)
         print(f"[filter] {len(filtered)} remain after language filtering.")
 
         if filtered:
@@ -71,7 +63,6 @@ async def test_seed(crawler, seed_url: str, country: str):
                 "manually to see what pattern they actually follow."
             )
 
-    # ---- Step 4: BFS fallback (only if sitemap gave nothing) ----
     if not raw_urls:
         print("\n[sitemap] No sitemap URLs at all. Running BFS fallback instead...")
         print("(This will open real browser pages — may take a minute.)\n")
@@ -84,10 +75,12 @@ async def test_seed(crawler, seed_url: str, country: str):
             for url in bfs_urls[:10]:
                 print(f"    {url}")
 
-            filtered_bfs = filter_relevant_urls(bfs_urls, country)
+            # CHANGED: country -> seed_url
+            filtered_bfs = filter_relevant_urls(bfs_urls, seed_url)
             print(f"\n[filter] {len(filtered_bfs)} of {len(bfs_urls)} BFS URLs passed the relevance filter.")
 
-            filtered_bfs = filter_by_language(filtered_bfs, country)
+            # CHANGED: country -> seed_url
+            filtered_bfs = filter_by_language(filtered_bfs, seed_url)
             print(f"[filter] {len(filtered_bfs)} remain after language filtering.")
 
             if filtered_bfs:

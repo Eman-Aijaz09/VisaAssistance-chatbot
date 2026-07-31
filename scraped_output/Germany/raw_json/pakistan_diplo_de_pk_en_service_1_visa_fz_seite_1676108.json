@@ -1,0 +1,72 @@
+{
+  "entities":[
+      {
+         "country":"Germany",
+         "source_url":"https://pakistan.diplo.de/pk-en/service/1-visa-fz-seite-1676108",
+         "page_title":"Visa: family reunion",
+         "purpose":"family_reunion",
+         "topic":"family reunion visa",
+         "visa_type":"Family Reunion Visa",
+         "title":"Family Reunion Visa for Germany",
+         "summary":"This page provides information on how to apply for a family reunion visa to join a family member in Germany.",
+         "eligibility":[
+            "Family members of German or EU citizens",
+            "Spouses of recognized asylum seekers or refugees"
+         ],
+         "required_documents":[
+            "Application form",
+            "Biometric passport photo",
+            "Certificate of residency in Germany",
+            "Residence permit of spouse/family member",
+            "Current passport and ID card",
+            "Previous passports",
+            "Birth certificate",
+            "Nikah Nama",
+            "Marriage registration certificate",
+            "Proof of previous marriages",
+            "Court order regarding legal guardianship",
+            "BAMF deed",
+            "Travel insurance policy",
+            "A1 language Certificate",
+            "C1 language Certificate",
+            "Additional proof of name, birthday and marriage/relationship"
+         ],
+         "application_process":[
+            "Submit application via Consular Services Portal",
+            "Book an appointment",
+            "Show original documents and pay application fee"
+         ],
+         "processing_time":null,
+         "application_fee":"75 Euros (payable in PKR) for adults, 37.50 Euros (payable in PKR) for children",
+         "validity":null,
+         "official_links":[
+            "https://digital.diplo.de/",
+            "https://pakistan.diplo.de/resource/blob/2751960/79cce75cc5ff84732d1a8b436981da09/guidelines-auslandsportal-data.pdf"
+         ],
+         "important_notes":[
+            "Due to long waiting times, some documents may no longer be valid at the time of application.",
+            "Applicants should only get new up-to-date documents once their appointment to apply for a visa is confirmed."
+         ],
+         "min_income_threshold":null,
+         "min_education_level":null,
+         "min_age":null,
+         "max_age":null,
+         "required_language_test":"A1 language Certificate",
+         "min_language_score":null,
+         "points_required":null,
+         "mandatory_prerequisites":[
+            "Application form",
+            "Biometric passport photo"
+         ],
+         "total_estimated_cost":null,
+         "cost_currency":null,
+         "processing_time_days_min":null,
+         "processing_time_days_max":null,
+         "pr_pathway_available":null,
+         "pr_pathway_years":null,
+         "last_verified_date":null,
+         "extra_information":{},
+         "source_tier":3
+      }
+   ]
+}

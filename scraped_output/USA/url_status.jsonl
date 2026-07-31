@@ -1,0 +1,19 @@
+{"url": "https://pk.usembassy.gov/expansion-of-interview-waiver-eligibility-for-pakistani-visa-holders/", "status": "scraped_ok", "reason": "", "timestamp": "2026-07-25T21:10:55.877748"}
+{"url": "https://pk.usembassy.gov/expansion-of-interview-waiver-eligibility-for-visa-applicants-from-pakistan/", "status": "scraped_ok", "reason": "", "timestamp": "2026-07-25T21:10:58.363559"}
+{"url": "https://pk.usembassy.gov/expansion-of-interview-waiver-eligibility-for-u-s-visa-holders-from-pakistan/", "status": "scraped_ok", "reason": "", "timestamp": "2026-07-25T21:11:06.183349"}
+{"url": "https://pk.usembassy.gov/form-ds-5535-supplemental-questions-for-visa-applicants/", "status": "scraped_ok", "reason": "", "timestamp": "2026-07-25T21:11:08.861958"}
+{"url": "https://pk.usembassy.gov/expansion-of-interview-waiver-eligibility-for-u-s-visa-holders-from-pakistan-2/", "status": "scraped_ok", "reason": "", "timestamp": "2026-07-25T21:11:17.094384"}
+{"url": "https://pk.usembassy.gov/expansion-of-interview-waiver-eligibility-for-u-s-visa-holders-from-pakistan-3/", "status": "scraped_ok", "reason": "", "timestamp": "2026-07-25T21:11:29.735727"}
+{"url": "https://pk.usembassy.gov/fiancee-visa/", "status": "scraped_ok", "reason": "", "timestamp": "2026-07-25T21:11:45.953976"}
+{"url": "https://pk.usembassy.gov/returning-resident-visa/", "status": "scraped_ok", "reason": "", "timestamp": "2026-07-25T21:12:03.707564"}
+{"url": "https://pk.usembassy.gov/diversity-visa/", "status": "scraped_ok", "reason": "", "timestamp": "2026-07-25T21:12:24.635568"}
+{"url": "https://pk.usembassy.gov/reducing-visa-appointment-wait-times-for-the-pakistani-people/", "status": "scraped_ok", "reason": "", "timestamp": "2026-07-25T21:12:34.535426"}
+{"url": "https://pk.usembassy.gov/pause-on-immigrant-visa-issuances-for-pakistani-citizens/", "status": "scraped_ok", "reason": "", "timestamp": "2026-07-25T21:12:47.157754"}
+{"url": "https://pk.usembassy.gov/immigrant-visa-navigator/", "status": "empty_content", "reason": "", "timestamp": "2026-07-25T21:12:47.947233"}
+{"url": "https://pk.usembassy.gov/nonimmigrant-visa-navigator/", "status": "empty_content", "reason": "", "timestamp": "2026-07-25T21:12:48.652072"}
+{"url": "https://pk.usembassy.gov/immigrant-visas/", "status": "empty_content", "reason": "", "timestamp": "2026-07-25T21:12:49.473947"}
+{"url": "https://pk.usembassy.gov/visas/important-visa-information/", "status": "empty_content", "reason": "", "timestamp": "2026-07-25T21:12:50.230751"}
+{"url": "https://pk.usembassy.gov/nonimmigrant-visas/", "status": "empty_content", "reason": "", "timestamp": "2026-07-25T21:12:50.945441"}
+{"url": "https://pk.usembassy.gov/visas/", "status": "empty_content", "reason": "", "timestamp": "2026-07-25T21:12:52.186533"}
+{"url": "https://pk.usembassy.gov/category/visas/", "status": "scraped_ok", "reason": "", "timestamp": "2026-07-25T21:13:05.668151"}
+{"url": "https://pk.usembassy.gov/tag/visa/", "status": "llm_failed", "reason": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01jw5tkxqbeyttx26pd63x62sc` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98736, Requested 3177. Please try again in 27m32.832s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}", "timestamp": "2026-07-25T21:13:08.062167"}

@@ -1,0 +1,17 @@
+<!-- Source: https://pk.usembassy.gov/reducing-visa-appointment-wait-times-for-the-pakistani-people/ -->
+<!-- Scraped: 2026-07-25T21:12:25.542189 -->
+
+Reducing Visa Appointment Wait Times for the Pakistani People 
+By [U.S. Mission Pakistan](https://pk.usembassy.gov/author/missionpk/)
+3 MINUTE READ
+[__](https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpk.usembassy.gov%2Freducing-visa-appointment-wait-times-for-the-pakistani-people%2F "Share on Facebook")[__](https://x.com/intent/tweet?text=Reducing%20Visa%20Appointment%20Wait%20Times%20for%20the%20Pakistani%20People&url=https%3A%2F%2Fpk.usembassy.gov%2Freducing-visa-appointment-wait-times-for-the-pakistani-people%2F "Share on x")[__](https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fpk.usembassy.gov%2Freducing-visa-appointment-wait-times-for-the-pakistani-people%2F "Share on LinkedIn")[__](https://pinterest.com/pin/create/bookmarklet/?url=https%3A%2F%2Fpk.usembassy.gov%2Freducing-visa-appointment-wait-times-for-the-pakistani-people%2F "Share on Pinterest")__[__](https://pk.usembassy.gov/reducing-visa-appointment-wait-times-for-the-pakistani-people/ "Print Page")[__](https://pk.usembassy.gov/reducing-visa-appointment-wait-times-for-the-pakistani-people/ "Copy URL")
+September 19, 2023
+Demand for U.S. visas is the highest it has ever been. We are processing more visa applications than ever before and are working hard to bring down visa appointment wait times.
+Today, the U.S. Mission to Pakistan is proud to announce three ways we are working to meet unprecedented demand:
+  * First, we have expedited thousands of non-immigrant visa appointments. More than ten thousand Pakistani visa applicants originally scheduled for 2024 at the U.S. Consulate General in Karachi are receiving notice that their appointments have been rescheduled in 2023, some as early as next week. If you have a visa appointment in the next few months at the U.S. Consulate General in Karachi, please check your e-mail and log-in to your account at our website, ustraveldocs.com/pk, to confirm your expedited appointment time.
+  * Second, to create added flexibility for Pakistani travelers, visa applicants can rebook appointments at either the Consulate General in Karachi or U.S. Embassy in Islamabad — whichever works best for them. Our hope is that this will allow applicants more freedom and flexibility to find a convenient date, time, and location.
+  * Finally, starting September 25, U.S. Consulate General Karachi will begin accepting new interview waiver applications for some applicants who have previously been issued U.S. visas. Applicants can check ustraveldocs.com/pk to determine whether they are eligible, print out a confirmation letter, and submit their application materials to a drop box without the need for an appointment. The U.S. Embassy in Islamabad is already accepting interview waiver applications for qualified applicants.
+
+
+Taken together, these steps demonstrate how deeply the United States values the relationship between our two countries. Our goal is to facilitate legitimate travel to the United States as quickly and efficiently as possible – because we know how important it is to stay connected with family, to strengthen business ties, study, and make cultural connections with the United States.
+For further details, visit [ustraveldocs.com/pk __](https://www.ustraveldocs.com/)or reach out to the Non-Immigrant Visa Call Center for help at +92-21-111-234-111.

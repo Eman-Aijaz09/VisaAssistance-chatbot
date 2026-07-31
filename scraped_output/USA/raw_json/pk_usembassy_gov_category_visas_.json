@@ -1,0 +1,52 @@
+{
+  "entities": [
+       {
+           "country": "United States",
+           "source_url": "https://pk.usembassy.gov/",
+           "page_title": "Visas",
+           "purpose": null,
+           "topic": "Visas",
+           "visa_type": null,
+           "title": "Visas",
+           "summary": "The U.S. Embassy in Pakistan provides information on various visa services, including schedules of fees for consular services and updates on consular services.",
+           "eligibility": [],
+           "required_documents": [],
+           "application_process": [],
+           "processing_time": null,
+           "application_fee": null,
+           "validity": null,
+           "official_links": [
+               "https://pk.usembassy.gov/schedule-of-fees-for-consular-services/",
+               "https://pk.usembassy.gov/consular-services-update-april-3-2026/",
+               "https://pk.usembassy.gov/consular-services-update-march-13-2026/",
+               "https://pk.usembassy.gov/consular-services-update-march-8-2026/",
+               "https://pk.usembassy.gov/message-to-u-s-citizens-expanded-online-fee-payment-option-for-u-s-citizen-minor-and-first-time-adult-passport-applicants/",
+               "https://pk.usembassy.gov/message-to-u-s-citizens-coming-soon-expanded-online-fee-payment-option-for-u-s-citizen-minor-and-first-time-adult-passport-applicants-january-11/",
+               "https://pk.usembassy.gov/expedite-age-out-follow-to-join-cases/",
+               "https://pk.usembassy.gov/lost-or-stolen-green-cards/",
+               "https://pk.usembassy.gov/fiancee-visa/"
+           ],
+           "important_notes": [
+               "The U.S. Embassy in Pakistan provides various visa services.",
+               "The embassy offers schedules of fees for consular services and updates on consular services."
+           ],
+           "min_income_threshold": null,
+           "min_education_level": null,
+           "min_age": null,
+           "max_age": null,
+           "required_language_test": null,
+           "min_language_score": null,
+           "points_required": null,
+           "mandatory_prerequisites": [],
+           "total_estimated_cost": null,
+           "cost_currency": null,
+           "processing_time_days_min": null,
+           "processing_time_days_max": null,
+           "pr_pathway_available": null,
+           "pr_pathway_years": null,
+           "last_verified_date": null,
+           "extra_information": {},
+           "source_tier": 3
+       }
+   ]
+}

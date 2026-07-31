@@ -1,0 +1,79 @@
+{
+  "entities":[
+      {
+         "country":"Germany",
+         "source_url":"https://pakistan.diplo.de/pk-en/service/3-tourist-visa-seite-1673122",
+         "page_title":"Tourist visa",
+         "purpose":"tourist",
+         "topic":"Tourist visa for Germany",
+         "visa_type":"Schengen visa",
+         "title":"Tourist visa for Germany",
+         "summary":"The German Embassy in Pakistan provides information on the requirements and process for obtaining a tourist visa for Germany.",
+         "eligibility":[
+            "Valid passport",
+            "Completed application form",
+            "Health insurance",
+            "Proof of accommodation",
+            "Flight reservation",
+            "Proof of financial resources"
+         ],
+         "required_documents":[
+            "Current passport",
+            "Copies of previous passports and visas",
+            "Videx visa application form",
+            "Biometrical passport photos",
+            "Health insurance policy",
+            "Proof of accommodation",
+            "Flight reservation",
+            "Confirmation of employment or university enrolment",
+            "ID card (CNIC)",
+            "Family Registration Certificate (FRC)",
+            "Marriage Certificate (if applicable)",
+            "Birth Certificate (for minor applicants)",
+            "List of children",
+            "List of relatives living abroad",
+            "Financial evidence",
+            "Appointment email"
+         ],
+         "application_process":[
+            "Fill out the application form on the Videx online application system",
+            "Print and sign the application form",
+            "Submit the application form and required documents"
+         ],
+         "processing_time":null,
+         "application_fee":null,
+         "validity":null,
+         "official_links":[
+            "https://videx.diplo.de/videx/visum-erfassung/videx-kurzfristiger-aufenthalt",
+            "https://pakistan.diplo.de/resource/blob/1673176/6e3eee9fd4d86e16aaefe0e92d809332/photos-samples-data.pdf",
+            "https://pakistan.diplo.de/pk-en/service/6-health-insurances-seite/1673134"
+         ],
+         "important_notes":[
+            "The application can be rejected if any document is missing",
+            "The Visa Section can request additional documents at any time",
+            "The passport must be valid for at least three months after the end of the desired visa"
+         ],
+         "min_income_threshold":null,
+         "min_education_level":null,
+         "min_age":null,
+         "max_age":null,
+         "required_language_test":null,
+         "min_language_score":null,
+         "points_required":null,
+         "mandatory_prerequisites":[
+            "Health insurance",
+            "Proof of accommodation",
+            "Flight reservation"
+         ],
+         "total_estimated_cost":null,
+         "cost_currency":null,
+         "processing_time_days_min":null,
+         "processing_time_days_max":null,
+         "pr_pathway_available":null,
+         "pr_pathway_years":null,
+         "last_verified_date":null,
+         "extra_information":{},
+         "source_tier":3
+      }
+   ]
+}

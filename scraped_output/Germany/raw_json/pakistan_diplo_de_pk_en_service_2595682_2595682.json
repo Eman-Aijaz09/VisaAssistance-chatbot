@@ -1,0 +1,56 @@
+{
+  "entities":[
+      {
+         "country":"Germany",
+         "source_url":"https://pakistan.diplo.de/pk-en/service/2595682-2595682",
+         "page_title":"Employment for Skilled Workers Holding a University Degree (NO EU Blue Card)",
+         "purpose":"work",
+         "topic":"Employment for Skilled Workers",
+         "visa_type":"Employment Visa",
+         "title":"Employment for Skilled Workers Holding a University Degree",
+         "summary":"This page contains information for applications at the German Consulate-General Karachi for skilled workers holding a university degree.",
+         "eligibility":[
+            "Valid employment contract with a company in Germany",
+            "University degree recognized in Germany"
+         ],
+         "required_documents":[
+            "Valid employment contract",
+            "University degree recognized in Germany"
+         ],
+         "application_process":[
+            "Familiarize yourself with the visa category and its requirements",
+            "Prepare your visa application as explained in the checklist"
+         ],
+         "processing_time":null,
+         "application_fee":null,
+         "validity":null,
+         "official_links":[
+            "https://www.make-it-in-germany.com/en/visa-residence/types/work-qualified-professionals",
+            "https://pakistan.diplo.de/resource/blob/2582902/b05e106540988e13eb8955ebb0aa2aad/sw-uni-degree-data.pdf"
+         ],
+         "important_notes":[
+            "Applications at the German Embassy Islamabad are handled via the Consular Services Portal"
+         ],
+         "min_income_threshold":null,
+         "min_education_level":"bachelor",
+         "min_age":null,
+         "max_age":null,
+         "required_language_test":null,
+         "min_language_score":null,
+         "points_required":null,
+         "mandatory_prerequisites":[
+            "Valid employment contract",
+            "University degree recognized in Germany"
+         ],
+         "total_estimated_cost":null,
+         "cost_currency":null,
+         "processing_time_days_min":null,
+         "processing_time_days_max":null,
+         "pr_pathway_available":null,
+         "pr_pathway_years":null,
+         "last_verified_date":null,
+         "extra_information":{},
+         "source_tier":3
+      }
+   ]
+}

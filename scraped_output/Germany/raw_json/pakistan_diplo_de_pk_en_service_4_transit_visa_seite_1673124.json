@@ -1,0 +1,66 @@
+{
+  "entities":[
+      {
+         "country":"Germany",
+         "source_url":"https://pakistan.diplo.de/pk-en/service/4-transit-visa-seite-1673124",
+         "page_title":"Transit visa",
+         "purpose":null,
+         "topic":"Transit visa",
+         "visa_type":"Airport transit visa",
+         "title":"Transit visa for Germany",
+         "summary":"Pakistani nationals may require a visa for the international transit area of a German airport. The transit visa allows stay within the transit area of a German airport.",
+         "eligibility":[
+            "Pakistani nationals"
+         ],
+         "required_documents":[
+            "Current passport and copies of all previous passports and visa",
+            "Videx visa application form",
+            "Two biometrical Passport Photos",
+            "Health insurance policy",
+            "Flight reservation",
+            "All previous visa refusals",
+            "ID card (CNIC)",
+            "FRC (Family Registration Certificate), Marriage Certificate (if applicable), Birth Certificate (for minor applicants)",
+            "List of children",
+            "List of relatives living abroad",
+            "Appointment email"
+         ],
+         "application_process":[
+            "Fill out the Videx visa application form online and print it",
+            "Sign the application form",
+            "Attach required documents"
+         ],
+         "processing_time":null,
+         "application_fee":null,
+         "validity":null,
+         "official_links":[
+            "https://pakistan.diplo.de/pk-en/service/4-transit-visa-seite-1673124"
+         ],
+         "important_notes":[
+            "No airport transit visa is required for holders of diplomatic passports, family members of an EU or UK citizen, or people who hold a residence permit or visa of a Schengen state, a non-Schengen EU state, Andorra, Canada, Japan, San Marino, the United Kingdom, the United States of America, or a Dutch Overseas Territory."
+         ],
+         "min_income_threshold":null,
+         "min_education_level":null,
+         "min_age":null,
+         "max_age":null,
+         "required_language_test":null,
+         "min_language_score":null,
+         "points_required":null,
+         "mandatory_prerequisites":[
+            "Valid passport",
+            "Completed application form"
+         ],
+         "total_estimated_cost":null,
+         "cost_currency":null,
+         "processing_time_days_min":null,
+         "processing_time_days_max":null,
+         "pr_pathway_available":null,
+         "pr_pathway_years":null,
+         "last_verified_date":null,
+         "extra_information":{
+
+         },
+         "source_tier":3
+      }
+   ]
+}
