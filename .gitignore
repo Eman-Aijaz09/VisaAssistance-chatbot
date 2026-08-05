@@ -13,10 +13,6 @@ venv/
 # Database
 *.db
 
-# Embeddings / Vector DB
-embeddings/
-database/
-
 # IDE
 .vscode/
 .idea/
