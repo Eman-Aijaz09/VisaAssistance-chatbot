@@ -15,16 +15,45 @@ user's question into exactly one category, and extract any relevant
 entities mentioned.
 
 CATEGORIES:
-- "factual": asks about a SPECIFIC, narrow detail of one visa/topic
-  (documents needed, fees, processing time, eligibility for one thing)
-- "recommendation": the user wants to know WHICH visa/country fits
-  their situation, goals, or qualifications — even if phrased as a
-  general statement of intent rather than a direct question
+- "factual": asks for ONE SPECIFIC, EXTRACTABLE DATA POINT about a
+  SINGLE named visa — a number, a yes/no, a specific list (fee,
+  processing time, points required, one eligibility criterion, one
+  document list). The answer is a short, concrete fact drawn from one
+  source.
+- "recommendation": the user states THEIR OWN qualifications,
+  constraints, or situation (education, budget, language, experience,
+  or an explicit personal intent like "I have X, I want Y") and wants
+  to know WHICH visa/country fits. The defining signal is a personal
+  detail to filter against — not just the topic of immigration options.
 - "comparison": explicitly or implicitly asks to compare two or more
   countries/visas against each other
-- "general": broad conceptual questions not tied to one specific
-  visa's procedural details (e.g. "what is the Opportunity Card",
-  "how does the German visa system work")
+- "general": asks to EXPLAIN, UNDERSTAND, or SYNTHESIZE how something
+  works, what a program/system/category consists of, or an overview
+  that likely spans MULTIPLE related visas/sources — even if it names
+  one visa or one country. Signal words: "how does X work", "what is
+  X" (for a program/system, not a single fact), "what options exist".
+  The answer requires explaining a concept or covering more than one
+  discrete fact, not just returning a single number or short list.
+  Mentioning specific countries does NOT make this "recommendation" —
+  unless the user also states something personal to filter against.
+
+FACTUAL vs GENERAL — the deciding question: could the answer be ONE
+short fact/number/list from ONE source? -> factual. Does answering
+well require explaining a system/concept, or drawing from MULTIPLE
+sources to give a fuller picture? -> general. "How does Australia's
+points-based system work" -> general (explaining a system, likely
+spans 189 + 190). "How many points does Australia's Subclass 189
+require" -> factual (one number, one source).
+
+CRITICAL DISTINCTION (recommendation vs general): "What research visa
+options exist in Germany and France?" -> general (no personal
+qualifications stated, just asking what exists). "I have a PhD, what
+research visa options exist in Germany and France?" -> recommendation
+(personal qualification stated: PhD). The presence of named countries
+or a topic keyword ("options", "visas for X") is NOT sufficient for
+recommendation on its own — look specifically for a stated personal
+attribute.
+
 - "is_refinement": true/false — true if the user is stating a NEW or CHANGED
 constraint about themselves (education, budget, language, country
 preference) rather than asking a question. Examples: "I also have a
@@ -56,6 +85,12 @@ Rules for the new fields:
   say "Master's", use "master". Do not invent other values.
 - "language_test" and "language_score" are usually mentioned together
   (e.g. "IELTS 7" -> language_test: "IELTS", language_score: "7").
+- "visa_type" must be a SPECIFIC named visa (e.g. "EU Blue Card",
+  "H-1B", "Subclass 189") — never a generic category phrase like
+  "family reunion visas", "work visas", or "student visas". If the
+  user only names a category/purpose rather than a specific visa,
+  leave "visa_type" null and let "purpose" carry that information
+  instead.
 - "budget_currency": only populate if the currency is explicit (symbol
   like "$", "€", "Rs", or a word/code like "dollars", "euros", "PKR",
   "rupees"). If the user states a bare number with NO currency
@@ -63,6 +98,13 @@ Rules for the new fields:
   that number but "budget_currency" to null — do NOT guess or default
   to any currency. A bare "$15,000" implies "USD". "Rs 50000" or
   "50000 rupees" implies "PKR".
+- "purpose" should be inferred from clearly work-related activities
+  even without the literal word "work" — e.g. "research work",
+  "doing research", "a research position", "a job in my field" all
+  imply purpose="work". Similarly "studying", "a degree program",
+  "attending university" imply purpose="study". Map the described
+  ACTIVITY to the closest purpose category, don't require an exact
+  keyword match.
 - USE THE RECENT CONVERSATION only to resolve genuine references in
   the CURRENT query (e.g. "how much does it cost" after discussing a
   specific visa → that visa; "compare it to Japan" → the country/visa
@@ -91,14 +133,26 @@ Query: "compare Germany and Canada for studying"
 Query: "what is the Opportunity Card"
 {"category": "general", "countries": [], "purpose": null, "visa_type": "Opportunity Card", "education_level": null, "language_test": null, "language_score": null, "budget": null}
 
+Query: "how does Australia's points-based skilled migration system work"
+{"category": "general", "countries": ["Australia"], "purpose": null, "visa_type": null, "education_level": null, "language_test": null, "language_score": null, "budget": null, "budget_currency": null}
+
 Query: "which countries can I apply to with a Bachelor's degree and IELTS 7"
 {"category": "recommendation", "countries": [], "purpose": null, "visa_type": null, "education_level": "bachelor", "language_test": "IELTS", "language_score": "7", "budget": null, "budget_currency": null}
+
+Query: "I have a PhD and want to do research work, which countries should I consider?"
+{"category": "recommendation", "countries": [], "purpose": "work", "visa_type": null, "education_level": "phd", "language_test": null, "language_score": null, "budget": null, "budget_currency": null}
 
 Query: "my budget is only 50000"
 {"category": "recommendation", "countries": [], "purpose": null, "visa_type": null, "education_level": null, "language_test": null, "language_score": null, "budget": 50000, "budget_currency": null}
 
 Query: "my budget is Rs 50000"
-{"category": "recommendation", "countries": [], "purpose": null, "visa_type": null, "education_level": null, "language_test": null, "language_score": null, "budget": 50000, "budget_currency": "PKR"}
+{"category": "recommendation", "countries": [], "purpose": null, "visa_type": null, "education_level": null, "language_test": null, "language_score": null, "budget": 50000, "budget_currency": null}
+
+Query: "what immigration options exist for researchers in Germany and France"
+{"category": "general", "countries": ["Germany", "France"], "purpose": "work", "visa_type": null, "education_level": null, "language_test": null, "language_score": null, "budget": null, "budget_currency": null}
+
+Query: "show me family reunion visas, my spouse has a bachelor's degree"
+{"category": "recommendation", "countries": [], "purpose": "family_reunion", "visa_type": null, "education_level": "bachelor", "language_test": null, "language_score": null, "budget": null, "budget_currency": null}
 
 Now classify this query:
 "{{QUERY}}"

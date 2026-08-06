@@ -25,11 +25,41 @@
 #     for r in rows:
 #         print(f"  - {r['title']}")
 
-from retrieval.query_classifier import classify_query_llm
+# from retrieval.query_classifier import classify_query_llm
 
-history = [
-    {"role": "user", "text": "tell me more about the EU Blue Card"},
-    {"role": "assistant", "text": "The EU Blue Card is a residence permit... [full answer text from turn 1]"},
-]
-result = classify_query_llm("how much does it cost?", history=history)
-print(result)
+# history = [
+#     {"role": "user", "text": "tell me more about the EU Blue Card"},
+#     {"role": "assistant", "text": "The EU Blue Card is a residence permit... [full answer text from turn 1]"},
+# ]
+# result = classify_query_llm("how much does it cost?", history=history)
+# print(result)
+
+from retrieval.shared_resource import get_connection
+from retrieval.recommendation_retrieval import _score_row
+
+conn = get_connection()
+cursor = conn.cursor()
+# cursor.execute("SELECT * FROM visa_knowledge WHERE country = %s AND purpose = %s", ("Germany", "work"))
+# rows = cursor.fetchall()
+
+# scored = sorted(rows, key=_score_row, reverse=True)
+# for r in scored:
+#     print(f"{_score_row(r):3d}  {r['visa_type']:30}  {r['title']}")
+
+# cursor.execute("SELECT * FROM visa_knowledge WHERE country = %s AND purpose = %s", ("France", "work"))
+# rows = cursor.fetchall()
+# scored = sorted(rows, key=_score_row, reverse=True)
+# for r in scored:
+#     print(f"{_score_row(r):3d}  {r['visa_type']:30}  {r['title']}  {r['source_url']}")
+
+from retrieval.shared_resource import get_connection
+from retrieval.recommendation_retrieval import _score_row
+
+conn = get_connection()
+cursor = conn.cursor()
+cursor.execute("SELECT * FROM visa_knowledge WHERE country = %s AND purpose = %s", ("Germany", "work"))
+rows = cursor.fetchall()
+
+ranked = sorted(rows, key=lambda r: (-_score_row(r), r["title"]))
+for r in ranked:
+    print(f"{_score_row(r):3d}  {r['title']:55}  {r['source_url']}")

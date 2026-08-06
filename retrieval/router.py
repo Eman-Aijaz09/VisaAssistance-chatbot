@@ -187,6 +187,8 @@ def route_query(
         if category in ("factual", "general") and isinstance(results, list):
             results = [r for r in results if r.get("score", 1.0) >= MIN_RELEVANCE_SCORE]
 
+            
+
     return {
         "category": category,
         "classifier_output": classifier_output,
