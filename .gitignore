@@ -1,7 +1,17 @@
+
+
+# Environment
+.env
+.venv/
+venv/
+virtual/
+
+
 # Python
 __pycache__/
 *.py[cod]
 *.pyo
+
 
 # Virtual environment
 .venv/
@@ -12,11 +22,32 @@ venv/
 
 # Database
 *.db
+=======
+*.pyd
+
+# CSV files
+*.csv
 
 # IDE
 .vscode/
 .idea/
 
+
 # OS
 .DS_Store
 Thumbs.db
+=======
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+germany_site_crawl.json
+main2.py
+testing-multiple.py
+debug-html
+recaptcha-test
+trial&error
+
