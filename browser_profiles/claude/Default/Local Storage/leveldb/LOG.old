@@ -1,0 +1,8 @@
+2026/08/11-01:07:41.828 6ae0 Reusing MANIFEST D:\ImmigrationAssistant\browser_profiles\claude\Default\Local Storage\leveldb/MANIFEST-000001
+2026/08/11-01:07:41.840 6ae0 Recovering log #51
+2026/08/11-01:07:41.840 6ae0 (ignoring error) D:\ImmigrationAssistant\browser_profiles\claude\Default\Local Storage\leveldb/000051.log: dropping 32768 bytes; Corruption: checksum mismatch
+2026/08/11-01:07:41.841 6ae0 (ignoring error) D:\ImmigrationAssistant\browser_profiles\claude\Default\Local Storage\leveldb/000051.log: dropping 368 bytes; Corruption: error in middle of record
+2026/08/11-01:07:41.841 6ae0 (ignoring error) D:\ImmigrationAssistant\browser_profiles\claude\Default\Local Storage\leveldb/000051.log: dropping 13248 bytes; Corruption: missing start of fragmented record(2)
+2026/08/11-01:07:41.841 6ae0 Level-0 table #55: started
+2026/08/11-01:07:41.849 6ae0 Level-0 table #55: 18481 bytes OK
+2026/08/11-01:07:41.856 6ae0 Delete type=0 #51
