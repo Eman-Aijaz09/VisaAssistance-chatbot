@@ -68,6 +68,76 @@ ImmigrationAssistant/
 │   ├── eval/                  # Golden-query evaluation harness
 │   ├── session_store.py       # In-memory per-session conversation state
 │   └── fast_api.py            # FastAPI layer exposing the full pipeline
+# ImmigrationAssistant
+
+**A Retrieval-Augmented Generation (RAG) system for grounded, cited answers to visa and immigration questions.**
+
+ImmigrationAssistant answers natural-language visa and immigration questions by retrieving information from a structured knowledge base built exclusively from **official government and embassy sources** — never third-party blogs or forums — and generating cited, natural-language answers via an LLM. Every claim in a generated answer is traceable back to a real source URL.
+
+Built over a 6-week internship by **Ayesha Bhatti** and **Eman Aijaz**.
+
+---
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Repository Structure](#repository-structure)
+- [Architecture](#architecture)
+- [How It Works — End to End](#how-it-works--end-to-end)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [API Reference](#api-reference)
+- [Evaluation](#evaluation)
+- [Current Status](#current-status)
+- [Known Limitations](#known-limitations)
+- [Roadmap](#roadmap)
+
+---
+
+## Overview
+
+A single visa question can be one of several fundamentally different problems:
+
+- A narrow factual lookup — *"What is the processing time for the France Airport Transit Visa?"*
+- A broad conceptual question — *"How does Germany's Opportunity Card work?"*
+- A personalized eligibility filter — *"I have a Bachelor's degree and IELTS 7, which countries can I apply to?"*
+- A side-by-side comparison — *"Compare Germany and Canada for studying."*
+
+Rather than forcing every query through one generic retrieval mechanism, ImmigrationAssistant classifies each query and dispatches it to a purpose-built retrieval strategy suited to that specific problem type — then generates an answer that never states a fact without citing where it came from.
+
+The project spans the full lifecycle of a production RAG application:
+
+```
+Official Websites → Crawling → Processing → Categorization (LLM extraction)
+    → Grouping & Merging → Structured Database (Postgres + pgvector)
+    → Query Classification → Retrieval → Generation → API → Frontend
+```
+
+---
+
+## Repository Structure
+
+```
+ImmigrationAssistant/
+├── DATA_INGESTION/            # Offline pipeline: raw web content → structured knowledge
+│   └── new_approach/
+│       ├── crawler/           # Discovers and downloads pages from official sites
+│       ├── processor/         # Filters and cleans downloaded pages into plain text
+│       ├── categorization/    # LLM-based structured extraction (in progress)
+│       ├── debug_html/        # Raw HTML output from the crawler
+│       ├── cleaned_text/      # Cleaned .txt output from the processor
+│       ├── queue_state/       # Resumable per-country/website crawl state
+│       └── reports/           # Audit trail of keep/skip decisions
+│
+├── RAG/                       # Online application: query → retrieval → generation
+│   ├── data/                  # Sample/seed data for local development
+│   ├── database/              # Supabase loading, content assembly, currency, stable IDs
+│   ├── embeddings/            # Vector embedding computation
+│   ├── retrieval/             # Query classification + four retrieval strategies
+│   ├── generation/            # Prompts, citation handling, LLM generation
+│   ├── eval/                  # Golden-query evaluation harness
+│   ├── session_store.py       # In-memory per-session conversation state
+│   └── fast_api.py            # FastAPI layer exposing the full pipeline
 │
 ├── frontend/                  # User-facing web app (built with Lovable)
 │
@@ -105,7 +175,7 @@ User Query → fast_api.py → router.py → [retrieval path] → generator.py �
 | **Recommendation** | Did the user state something personal about themselves to filter against? | Direct structured SQL filtering + soft scoring — **not** vector search |
 | **Comparison** | Explicit or implicit request to compare 2+ countries/visas? | Deterministic per-country fetch — **not** vector search |
 
-Query classification is handled by an LLM call (not keyword rules — see [Design Principles](#design-principles)) that also extracts structured entities (country, purpose, education level, budget, etc.) in the same pass.
+Query classification is handled by an LLM call (not keyword rules) that also extracts structured entities (country, purpose, education level, budget, etc.) in the same pass.
 
 ---
 
@@ -172,6 +242,11 @@ Query classification is handled by an LLM call (not keyword rules — see [Desig
 
 ### Installation
 
+```bash
+git clone <repo-url>
+cd ImmigrationAssistant
+pip install -r requirements.txt
+```
 ```bash
 git clone <repo-url>
 cd ImmigrationAssistant
