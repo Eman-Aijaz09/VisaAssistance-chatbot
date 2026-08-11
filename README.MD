@@ -148,7 +148,7 @@ ImmigrationAssistant/
 └── README.md
 ```
 
-> **Note:** `DATA_INGESTION/` and `RAG/` are intentionally decoupled. Crawling produces raw HTML independent of how it will later be cleaned; processing produces clean text independent of how it will later be structured; retrieval is independent of which category a query falls into. This separation makes the system easier to debug and extend one stage at a time.
+**Note:** `DATA_INGESTION/` and `RAG/` are intentionally decoupled. Crawling produces raw HTML independent of how it will later be cleaned; processing produces clean text independent of how it will later be structured; retrieval is independent of which category a query falls into. This separation makes the system easier to debug and extend one stage at a time.
 
 ---
 
