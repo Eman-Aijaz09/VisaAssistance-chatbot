@@ -105,7 +105,7 @@ User Query → fast_api.py → router.py → [retrieval path] → generator.py �
 | **Recommendation** | Did the user state something personal about themselves to filter against? | Direct structured SQL filtering + soft scoring — **not** vector search |
 | **Comparison** | Explicit or implicit request to compare 2+ countries/visas? | Deterministic per-country fetch — **not** vector search |
 
-Query classification is handled by an LLM call (not keyword rules — see [Design Principles](#design-principles)) that also extracts structured entities (country, purpose, education level, budget, etc.) in the same pass.
+Query classification is handled by an LLM call (not keyword rules) that also extracts structured entities (country, purpose, education level, budget, etc.) in the same pass.
 
 ---
 
