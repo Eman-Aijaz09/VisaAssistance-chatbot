@@ -48,7 +48,7 @@ export interface RecommendationData {
 
 export interface FormData {
   purpose: string;
-  countriesInput: string;
+  countries: string[];
   education_level: string;
   // language_test: string;
   // language_score: string;
@@ -60,4 +60,17 @@ export interface AskResponse {
   answer: string;
   sources: Source[];
   updated_recommendations?: VisaRecommendation[];
+}
+
+export interface Session {
+  id: string;
+  label: string;
+  createdAt: number;
+  view: View;
+  formData: FormData;
+  recommendationData: RecommendationData;
+  activeCardId: string | null;
+  cardDetails: Record<string, VisaDetail>;
+  activeContext: ActiveContext;
+  chatMessages: ChatMessage[];
 }

@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ImmigrationAssistantApp } from "@/components/ImmigrationAssistantApp";
 
 export const Route = createFileRoute("/")({
+  ssr: false,
   head: () => ({
     meta: [
       { title: "Immigration Assistant — Find Your Visa Pathway" },

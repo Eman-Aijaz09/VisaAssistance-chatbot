@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import type { FormData } from "@/types";
 
 const inputClass =
@@ -18,6 +19,108 @@ const highlights = [
   { label: "Budget aware", detail: "Fees in your currency" },
   { label: "Live guidance", detail: "Ask follow-up questions" },
 ];
+
+const COUNTRY_OPTIONS = ["USA", "Germany", "Finland", "France", "Australia", "Japan"];
+
+function CountryMultiSelect({
+  selected,
+  onChange,
+}: {
+  selected: string[];
+  onChange: (countries: string[]) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (rootRef.current && !rootRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const toggleCountry = (country: string) => {
+    if (selected.includes(country)) {
+      onChange(selected.filter((c) => c !== country));
+    } else {
+      onChange([...selected, country]);
+    }
+  };
+
+  const summaryText =
+    selected.length === 0
+      ? "Any country"
+      : selected.length === COUNTRY_OPTIONS.length
+        ? "All countries"
+        : selected.length <= 2
+          ? selected.join(", ")
+          : `${selected.length} countries selected`;
+
+  return (
+    <div className="relative" ref={rootRef}>
+      <button
+        type="button"
+        className={`${inputClass} flex items-center justify-between text-left`}
+        onClick={() => setOpen((o) => !o)}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+      >
+        <span className={selected.length === 0 ? "text-muted-foreground/70" : ""}>{summaryText}</span>
+        <svg
+          className={`w-4 h-4 text-muted-foreground transition-transform ${open ? "rotate-180" : ""}`}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      {open && (
+        <div className="absolute z-20 mt-2 w-full rounded-xl border border-border bg-surface shadow-[var(--shadow-soft)] overflow-hidden">
+          <div className="flex items-center justify-between border-b border-border px-3 py-2">
+            <button
+              type="button"
+              className="text-xs font-semibold text-primary hover:underline"
+              onClick={() => onChange(COUNTRY_OPTIONS)}
+            >
+              Select all
+            </button>
+            <button
+              type="button"
+              className="text-xs font-semibold text-muted-foreground hover:underline"
+              onClick={() => onChange([])}
+            >
+              Clear
+            </button>
+          </div>
+
+          <ul role="listbox" className="max-h-56 overflow-y-auto py-1">
+            {COUNTRY_OPTIONS.map((country) => {
+              const checked = selected.includes(country);
+              return (
+                <li key={country}>
+                  <label className="flex items-center gap-2.5 px-3.5 py-2 text-sm text-foreground hover:bg-muted/50 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={checked}
+                      onChange={() => toggleCountry(country)}
+                      className="h-4 w-4 rounded border-input accent-primary"
+                    />
+                    {country}
+                  </label>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export function RecommendationForm({ formData, loading, error, onChange, onSubmit }: Props) {
   return (
@@ -72,16 +175,12 @@ export function RecommendationForm({ formData, loading, error, onChange, onSubmi
                   <label className={labelClass} htmlFor="countries">
                     Target countries
                   </label>
-                  <input
-                    id="countries"
-                    type="text"
-                    className={inputClass}
-                    placeholder="Canada, Germany, Australia"
-                    value={formData.countriesInput}
-                    onChange={(e) => onChange({ countriesInput: e.target.value })}
+                  <CountryMultiSelect
+                    selected={formData.countries}
+                    onChange={(countries) => onChange({ countries })}
                   />
                   <p className="mt-1.5 text-[11px] text-muted-foreground">
-                    Separate multiple countries with commas.
+                    Leave empty to match any country.
                   </p>
                 </div>
               </div>
@@ -133,34 +232,6 @@ export function RecommendationForm({ formData, loading, error, onChange, onSubmi
                     />
                   </div>
                 </div>
-
-                {/* <div>
-                  <label className={labelClass} htmlFor="language_test">
-                    Language test
-                  </label>
-                  <input
-                    id="language_test"
-                    type="text"
-                    className={inputClass}
-                    placeholder="IELTS, TOEFL, TEF"
-                    value={formData.language_test}
-                    onChange={(e) => onChange({ language_test: e.target.value })}
-                  />
-                </div>
-
-                <div>
-                  <label className={labelClass} htmlFor="language_score">
-                    Language score
-                  </label>
-                  <input
-                    id="language_score"
-                    type="text"
-                    className={inputClass}
-                    placeholder="8.0 or CLB 9"
-                    value={formData.language_score}
-                    onChange={(e) => onChange({ language_score: e.target.value })}
-                  />
-                </div> */}
               </div>
             </fieldset>
 
