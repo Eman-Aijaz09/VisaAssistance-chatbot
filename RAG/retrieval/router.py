@@ -29,19 +29,6 @@ def _wrap_as_source_rows(rows: list[dict]) -> list[dict]:
         }
         for row in rows
     ]
-
-
-# def route_query(
-#     query: str,
-#     context_country: str | None = None,
-#     context_visa_type: str | None = None,
-#     recommendation_context: list | None = None,   # NEW
-#     user_profile: dict | None = None,               # NEW
-# ) -> dict:
-
-#     t0 = time.monotonic()
-#     classifier_output = classify_query_llm(query)
-#     t1 = time.monotonic()
 def route_query(
     query: str,
     context_country: str | None = None,
@@ -123,6 +110,38 @@ def route_query(
                 budget_usd = convert_to_usd(stated_budget, stated_currency)
                 if budget_usd is None:
                     needs_currency_clarification = True
+
+        # NEW — guard against an implausibly small budget matching a
+        # coincidental $0/near-$0 row for reasons unrelated to the
+        # applicant's actual affordability (e.g. an administrative
+        # filing with no fee, not a genuinely cheap visa option).
+        # Cheapest real visa fees in the dataset are still tens of
+        # dollars at minimum — anything below this floor almost
+        # certainly means a currency mismatch or a typo, not a real
+        # budget constraint worth filtering on.
+        MIN_PLAUSIBLE_BUDGET_USD = 20.0
+        budget_too_low = (
+            budget_usd is not None and budget_usd < MIN_PLAUSIBLE_BUDGET_USD
+        )
+
+        if budget_too_low:
+            return {
+                "category": category,
+                "classifier_output": classifier_output,
+                "results": [],
+                "missing_countries": [],
+                "relaxed": False,
+                "relaxed_message": (
+                    f"A budget of {stated_budget} {stated_currency} converts to "
+                    f"roughly ${budget_usd:.2f} USD, which is far below what any "
+                    f"visa typically costs. Could you double-check the amount or "
+                    f"currency you meant?"
+                ),
+                "is_refinement": is_refinement,
+                "updated_recommendations": None,
+                "needs_currency_clarification": False,
+            }
+
 
         recommendation_output = recommend(
             countries=merged_profile.get("countries") or countries or None,

@@ -11,13 +11,23 @@ import csv
 import json
 import os
 import sys
+from pathlib import Path
 import psycopg2
 from psycopg2.extras import Json
 from dotenv import load_dotenv
 
+# ---- FIX: make RAG importable from any working directory ----
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 from RAG.database.id_utils import compute_stable_id
 from RAG.database.exchange_rates import convert_to_usd
-from RAG.retrieval.normalization import EDUCATION_ALIASES, LANGUAGE_TEST_ALIASES, PURPOSE_ALIASES
+from RAG.retrieval.normalization import (
+    EDUCATION_ALIASES,
+    LANGUAGE_TEST_ALIASES,
+    PURPOSE_ALIASES,
+)
 
 load_dotenv()
 SUPABASE_URL = os.getenv("SUPABASE_DB_URL")
@@ -44,6 +54,13 @@ def validate_row(row: dict, row_num: int) -> list:
         errors.append("missing country")
     if not row.get("source_url", "").strip():
         errors.append("missing source_url")
+
+    # NEW — visa_key is now the primary component of stable_id.
+    # A missing visa_key means compute_stable_id() silently falls back
+    # to the old, less stable key — better to catch this loudly at
+    # validation time than have it happen invisibly at hash time.
+    if not row.get("visa_key", "").strip():
+        errors.append("missing visa_key")
 
     entry_type = (row.get("entry_type") or "").strip().lower()
     if entry_type not in VALID_ENTRY_TYPE:
@@ -86,7 +103,8 @@ def load_csv(csv_path: str):
     inserted, skipped, duplicate, already_existed = 0, 0, 0, 0
     seen_stable_ids_this_run = set()
 
-    with open(csv_path, newline="", encoding="utf-8") as f:
+    # with open(csv_path, newline="", encoding="utf-8") as f:
+    with open(csv_path, newline="", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
 
         for row_num, row in enumerate(reader, start=2):  # row 1 = header
@@ -111,6 +129,7 @@ def load_csv(csv_path: str):
             values = {
                 "stable_id": stable_id,
                 "country": row["country"].strip(),
+                "visa_key": (row.get("visa_key") or "").strip().lower(),  # NEW
                 "source_url": row["source_url"].strip(),
                 "page_title": row.get("page_title"),
                 "purpose": (row.get("purpose") or "").strip().lower() or None,

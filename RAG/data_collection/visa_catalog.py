@@ -1,19 +1,25 @@
 """
-discover_visa_catalog.py
+visa_catalog.py
 
-Phase 1 of the new ingestion strategy: for each of the 6 target
-countries, asks Claude (via the browser automation session, with web
-search enabled) to search official sources and enumerate every real
-visa/immigration category it can find — NOT from memory.
+Phase 1 of the new ingestion strategy: for each of the target countries,
+asks Claude or ChatGPT (via browser automation) to search official sources
+and enumerate every real visa/immigration category it can find — NOT from
+memory.
 
 Output: visa_catalog/<Country>.json — one file per country, a list of
 draft visa entries. This file is meant to be reviewed BY HAND before
-phase 2 (per-visa extraction) is built from it, since a hallucinated
-or omitted visa type here would silently propagate into every
-downstream extraction prompt.
+phase 2 (per-visa extraction) is built from it.
 
-Usage:
-    python discover_visa_catalog.py --output_dir "DATA_INGESTION/new_approach/visa_catalog"
+Usage examples:
+
+    # Claude (default)
+    python visa_catalog.py --output_dir "visa_catalog"
+
+    # ChatGPT (requires manual web‑search enabled)
+    python visa_catalog.py --service chatgpt --profile chatgpt --output_dir "visa_catalog_chatgpt"
+
+    # Specific countries with a different Claude profile
+    python visa_catalog.py --countries Germany USA --profile claude2 --output_dir "visa_catalog"
 """
 
 import argparse
@@ -25,48 +31,65 @@ from pathlib import Path
 from browser_for_data import BrowserManager
 
 
-COUNTRIES = ["Germany", "USA", "France", "Australia", "Japan", "Qatar","Canada","Turkey","Italy"]
-
+COUNTRIES = ["Germany", "USA", "France", "Australia", "Japan","Finland"]
+BASE_PROFILE_DIR = Path(r"D:\ImmigrationAssistant\browser_profiles")
 
 # ============================================================
 # CATALOG DISCOVERY PROMPT
 # ============================================================
 
 CATALOG_PROMPT = """
-You are an expert immigration research assistant.
+You are an expert immigration research assistant. Your audience is
+Pakistani citizens / residents who want to apply for visas to {{COUNTRY}}.
 
-TASK: Use web search to find the official government or embassy
-immigration website(s) for {{COUNTRY}}, and enumerate EVERY distinct
-visa or immigration category that country actually offers.
+TASK: Use web search to find ONLY official government or embassy
+immigration websites for {{COUNTRY}} (domains like .gov, .gob,
+.mofa.go.jp, .admin.ch, .diplo.de, .usa.gov, etc.). From those
+official sources, enumerate EVERY distinct visa subclass, category,
+or immigration pathway that {{COUNTRY}} offers — no matter how
+specialised or obscure — and list them all.
 
 CRITICAL RULES:
 
-1. You MUST use web search for this. Do NOT list visa types from your
-   own memory/training knowledge. Only include a visa type if you can
-   point to an actual official source page you found via search that
-   confirms it exists.
+1. YOU MUST USE WEB SEARCH. Do NOT list anything from your own
+   training data unless you can back it up with a real, official
+   web page you found right now. If you cannot find an official
+   page for a visa, do NOT include it.
 
-2. If you are not confident a visa type is real and currently offered
-   (based on what you found via search), DO NOT include it. Omitting
-   a real visa type is a much smaller problem than inventing one that
-   doesn't exist — when in doubt, leave it out.
+2. STRICT SOURCE REQUIREMENTS:
+   - ONLY official government/embassy websites. Examples:
+     * .gov / .gob
+     * .diplo.de
+     * .mofa.go.jp
+     * .homeaffairs.gov.au
+     * travel.state.gov
+     * canada.ca
+     * qatar.embassy.gov
+     * etc.
+   - EXCLUDE COMPLETELY: Wikipedia, blogs, forums, commercial
+     visa agencies, travel guides, news articles, unofficial
+     summaries. If the URL is not clearly official, set
+     "source_url" to null and explain in "notes".
 
-3. Cover all major purposes if they exist for this country: work,
-   study, tourist, family_reunion, business, permanent_residency.
-   Not every country will have a distinct visa for every purpose —
-   only include what you actually found.
+3. EXHAUSTIVE COVERAGE: For the USA, list every visa class
+   A-1, A-2, B-1, B-2, C-1, D, E-1, E-2, F-1, F-2, G-1, etc.
+   For other countries, list every distinct visa type they have
+   (e.g. work, study, visitor, family, investor, talent,
+   holiday‑working, etc.). Do NOT group them into broad headings
+   — treat each separate visa subclass as its own entry.
 
-4. For each visa type, include the specific official source URL where
-   you found it. Never guess, estimate, or reconstruct a URL — if you
-   found the visa mentioned but can't pin an exact URL for it, set
-   "source_url" to null and explain in "notes".
+4. FOR PAKISTANI APPLICANTS: If there are any special conditions,
+   additional documents, or restrictions that apply specifically
+   to Pakistani nationals, note them in the "notes" field for that
+   visa. Otherwise leave notes empty.
 
-5. "visa_key" is a short, canonical, machine-readable identifier:
-   lowercase, underscores instead of spaces, no country name in it.
-   Examples: "eu_blue_card", "job_seeker_visa", "student_visa_type_d".
+5. "visa_key" must be a short, lowercase, underscore‑separated
+   machine‑readable identifier. Do NOT include the country name
+   in the key unless necessary to avoid ambiguity (e.g.
+   "eu_blue_card" is fine; for US A-1, use "a1_visa").
 
-6. Return ONLY valid JSON. No markdown fences. No explanation text
-   outside the JSON. Return in text, in chat, no json-code format.
+6. Return ONLY valid JSON. No markdown fences. No explanations
+   outside the JSON.
 
 JSON SCHEMA:
 
@@ -85,9 +108,11 @@ JSON SCHEMA:
 }
 
 "purpose" must be exactly one of: "study", "work", "tourist",
-"family_reunion", "business", "permanent_residency".
+"family_reunion", "business", "permanent_residency". If a visa
+doesn't clearly fit, pick the closest match.
 
-Begin your search now for {{COUNTRY}}'s official visa categories.
+Begin your search now for {{COUNTRY}}'s complete official visa
+catalogue from the perspective of a Pakistani applicant.
 """
 
 
@@ -130,41 +155,6 @@ def extract_json_from_text(raw: str) -> dict:
 # importing from test.py to avoid coupling phase 1 and phase 2
 # scripts together prematurely.
 # ============================================================
-
-async def wait_for_stable_response(page, p_locator, code_locator, old_text: str,
-                                    max_wait_ms: int = 180_000,
-                                    stable_polls: int = 3,
-                                    poll_ms: int = 1000) -> str:
-    elapsed = 0
-    last_seen = old_text
-    stable_count = 0
-
-    while elapsed < max_wait_ms:
-        await page.wait_for_timeout(poll_ms)
-        elapsed += poll_ms
-
-        try:
-            if await code_locator.count() > 0:
-                current = (await code_locator.last.text_content()).strip()
-            elif await p_locator.count() > 0:
-                current = (await p_locator.last.text_content()).strip()
-            else:
-                current = ""
-        except Exception:
-            current = last_seen
-
-        if current != last_seen:
-            last_seen = current
-            stable_count = 0
-            continue
-
-        if current != old_text:
-            stable_count += 1
-            if stable_count >= stable_polls:
-                return current
-
-    return last_seen
-
 
 async def get_claude_response_via_copy(page, prompt: str, max_wait_ms: int = 300_000) -> str:
     """
@@ -293,11 +283,112 @@ async def get_claude_response_via_copy(page, prompt: str, max_wait_ms: int = 300
         )
 
     return new_text
+
+async def get_chatgpt_response_via_copy(page, prompt: str, max_wait_ms: int = 240_000) -> str:
+    """
+    Sends a prompt to ChatGPT and extracts the response.
+    Does NOT depend on the Copy button or clipboard.
+    Waits for the assistant message text to stabilise, then reads:
+      1. code viewer text (if JSON code block exists)
+      2. whole assistant message text (fallback)
+    """
+    # 1. Prompt box
+    prompt_box = page.locator(
+        'div[contenteditable="true"][aria-label="Chat with ChatGPT"]'
+    )
+    await prompt_box.wait_for(state="visible", timeout=30000)
+
+    # 2. State before sending
+    assistant_msg_locator = page.locator('div[data-message-author-role="assistant"]')
+    msg_count_before = await assistant_msg_locator.count()
+    old_text = ""
+    if msg_count_before > 0:
+        try:
+            old_text = (await assistant_msg_locator.last.text_content()).strip()
+        except Exception:
+            pass
+
+    # 3. Insert prompt via clipboard paste
+    await prompt_box.click()
+    await prompt_box.evaluate("el => el.textContent = ''")
+    try:
+        await page.evaluate("async text => await navigator.clipboard.writeText(text)", prompt)
+        await page.keyboard.press("Control+V")
+    except Exception:
+        await prompt_box.evaluate("(el, val) => el.textContent = val", prompt)
+        await prompt_box.dispatch_event("input", {})
+    await asyncio.sleep(0.5)
+
+    # 4. Send
+    await page.keyboard.press("Enter")
+    print("  ✅ Prompt sent. Waiting for ChatGPT to respond...")
+
+    # 5. Wait for a new assistant message to appear
+    try:
+        await assistant_msg_locator.nth(msg_count_before).wait_for(state="attached", timeout=30000)
+        print("  ✅ New assistant message detected.")
+    except Exception:
+        raise RuntimeError("New assistant message never appeared (possible rate limit).")
+
+    # 6. Poll until the text stops changing
+    last_assistant = assistant_msg_locator.last
+    last_text = old_text
+    stable_count = 0
+    stable_required = 3
+    poll_ms = 2000
+    elapsed = 0
+
+    while elapsed < max_wait_ms:
+        await asyncio.sleep(poll_ms / 1000)
+        elapsed += poll_ms
+
+        try:
+            current_text = (await last_assistant.text_content()).strip()
+        except Exception:
+            current_text = ""
+
+        if current_text == last_text and current_text != old_text:
+            stable_count += 1
+            if stable_count >= stable_required:
+                print(f"  ✅ Response stable after {elapsed/1000:.0f}s.")
+                break
+        else:
+            stable_count = 0
+            last_text = current_text
+            print(f"  ⏳ Still generating... ({elapsed/1000:.0f}s, {len(current_text)} chars)")
+    else:
+        print(f"  ⚠ Timed out after {max_wait_ms/1000:.0f}s – using best available text.")
+
+    # 7. Extract text
+    raw_text = ""
+
+    # 7a. Try code block (most reliable for JSON)
+    code_viewer = last_assistant.locator('div[id="code-block-viewer"]')
+    if await code_viewer.count() > 0:
+        raw_text = (await code_viewer.text_content()).strip()
+        print("  ✅ Extracted JSON from code block.")
+        return raw_text
+
+    # 7b. Try <pre><code>
+    pre_code = last_assistant.locator('pre code')
+    if await pre_code.count() > 0:
+        raw_text = (await pre_code.last.text_content()).strip()
+        print("  ✅ Extracted from <pre><code>.")
+        return raw_text
+
+    # 7c. Fallback: whole message text
+    raw_text = (await last_assistant.text_content()).strip()
+    if raw_text and raw_text != old_text:
+        print("  ⚠ Using full assistant message text (plain text response).")
+        return raw_text
+
+    raise RuntimeError("Could not extract any response from ChatGPT.")
+
 # ============================================================
 # PROCESS ONE COUNTRY
 # ============================================================
 
-async def process_country(country: str, output_dir: Path, page) -> bool:
+async def process_country(country: str, output_dir: Path, page, response_handler) -> bool:
     output_path = output_dir / f"{country}.json"
     error_path = output_dir / f"{country}_FAILED.txt"
 
@@ -305,14 +396,14 @@ async def process_country(country: str, output_dir: Path, page) -> bool:
         error_path.unlink()
 
     prompt = CATALOG_PROMPT.replace("{{COUNTRY}}", country)
-
+    
     print()
     print("=" * 70)
     print(f"Discovering visa catalog for: {country}")
     print("=" * 70)
 
     try:
-        raw_response = await get_claude_response_via_copy(page, prompt)
+        raw_response = await response_handler(page, prompt)
         try:
             parsed = clean_json_response(raw_response)
         except json.JSONDecodeError:
@@ -355,6 +446,17 @@ async def main():
     parser.add_argument("--output_dir", required=True)
     parser.add_argument("--countries", nargs="*", default=COUNTRIES,
                          help="Override the default 6-country list, e.g. --countries Germany USA")
+    parser.add_argument(
+    "--profile",
+    default="claude",
+    help="Browser profile name (folder under browser_profiles). Default: claude"
+)
+    parser.add_argument(
+    "--service",
+    default="claude",
+    choices=["claude", "chatgpt"],
+    help="Which LLM service to use. Default: claude"
+)
     args = parser.parse_args()
 
     output_dir = Path(args.output_dir)
@@ -372,33 +474,36 @@ async def main():
         print("Nothing to do — all countries already have saved catalogs.")
         return
 
-    browser = BrowserManager()
-    page = await browser.start()
-
+    browser = BrowserManager(service=args.service)   # not just BrowserManager()
+    # page = await browser.start()
+    profile_dir = str(BASE_PROFILE_DIR / args.profile)
+    page = await browser.start(profile_dir=profile_dir)
     succeeded, failed = 0, 0
 
-    for country in countries_to_run:
-        # One fresh chat per country — catalog discovery for one
-        # country shouldn't be influenced by context from another.
-        await browser.goto("https://claude.ai/new")
-        print(f"\nClaude opened for {country}.")
+    # Determine the new‑chat URL and response handler based on service
+    if args.service == "claude":
+        new_chat_url = "https://claude.ai/new"
+        response_handler = get_claude_response_via_copy
+        prompt_box_locator = 'div[contenteditable="true"][aria-label="Write your prompt to Claude"]'
+    else:  # chatgpt
+        new_chat_url = "https://chat.openai.com"
+        response_handler = get_chatgpt_response_via_copy
+        prompt_box_locator = 'div[contenteditable="true"][aria-label="Chat with ChatGPT"]'
 
-        prompt_box = page.locator(
-            'div[contenteditable="true"][aria-label="Write your prompt to Claude"]'
-        )
+    for country in countries_to_run:
+        await browser.goto(new_chat_url)
+        print(f"\n{args.service.title()} opened for {country}.")
+
+        prompt_box = page.locator(prompt_box_locator)
         try:
             await prompt_box.wait_for(state="visible", timeout=30000)
         except Exception:
-            print("\nERROR: Claude prompt box was not found. Check login/session.")
+            print(f"\nERROR: {args.service} prompt box was not found. Check login/session.")
             return
 
-        # Reminder: confirm web search is toggled ON in this browser
-        # profile/session before running for real — this script does
-        # not (and reliably cannot) toggle it via DOM injection.
-        ok = await process_country(country, output_dir, page)
+        ok = await process_country(country, output_dir, page, response_handler)
         succeeded += int(ok)
         failed += int(not ok)
-
         await page.wait_for_timeout(3000)
 
     print("\n" + "=" * 70)
