@@ -78,7 +78,7 @@ def generate_answer(query: str, routed: dict, user_profile: dict = None) -> dict
     template = get_prompt_template(category)
 
     # Build the effective query text — with profile info folded in, if relevant
-    if category == "recommendation" and user_profile:
+    if user_profile:
         profile_summary = ", ".join(f"{k}: {v}" for k, v in user_profile.items() if v)
         effective_query = f"{query}\n\n(User's stated profile so far: {profile_summary})"
     else:

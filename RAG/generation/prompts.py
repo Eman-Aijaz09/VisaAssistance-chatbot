@@ -90,7 +90,6 @@ If a currency comparison is genuinely needed, say plainly that the
 amounts are in different currencies and a direct comparison would
 require checking a current exchange rate elsewhere — do not supply
 one yourself.
-</parameter>
 """
 
 
@@ -99,11 +98,18 @@ The user asked a specific factual question. Answer directly and
 concisely in a short paragraph, citing sources per the citation style
 rules above — not after every sentence.
 
+If the user's stated profile is included below and the sources shown
+were already matched/filtered against it (e.g. this is their current
+recommended list), treat that filtering as settled — you do not need
+to re-derive or re-justify their eligibility, only answer their actual
+question using what's already been matched.
+
+
 SOURCES:
 {sources}
 
 QUESTION: {query}
-"""
+""" 
 
 
 GENERAL_PROMPT = BASE_RULES + """
@@ -111,6 +117,12 @@ The user asked a broad, conceptual question. Synthesize an explanation
 from the sources below — it's fine to draw on multiple sources for one
 coherent answer, citing each as appropriate per the citation style
 rules above.
+
+If the user's stated profile is included below and the sources shown
+were already matched/filtered against it (e.g. this is their current
+recommended list), treat that filtering as settled — you do not need
+to re-derive or re-justify their eligibility, only answer their actual
+question using what's already been matched.
 
 SOURCES:
 {sources}
