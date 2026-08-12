@@ -1,0 +1,131 @@
+{
+  "country": "France",
+  "visa_types": [
+    {
+      "visa_key": "short_stay_schengen_visa_type_c",
+      "visa_type_name": "Short-stay (Schengen) visa - Type C / visa de court séjour",
+      "purpose": "tourist",
+      "source_url": "https://www.france-visas.gouv.fr/en/visa-de-court-sejour",
+      "notes": "Uniform Schengen visa for stays up to 90 days in any 180-day period; used for tourism, short business trips, family visits."
+    },
+    {
+      "visa_key": "long_stay_visa_type_d",
+      "visa_type_name": "Long-stay visa - Type D (visa de long séjour / VLS-TS)",
+      "purpose": "work",
+      "source_url": "https://www.france-visas.gouv.fr/web/france-visas/activite-salariee",
+      "notes": "General national long-stay visa category (over 90 days), taking different 'mention' sub-types depending on purpose (salarié, visiteur, étudiant, etc.). Listed here under work since the salaried-employment page confirms this category."
+    },
+    {
+      "visa_key": "salaried_employee_visa",
+      "visa_type_name": "Salaried employment long-stay visa (salarié / travailleur temporaire)",
+      "purpose": "work",
+      "source_url": "https://www.france-visas.gouv.fr/en/activite-salariee",
+      "notes": "For foreign nationals recruited by a French employer on fixed or indefinite contract, or as a temporary/seasonal worker."
+    },
+    {
+      "visa_key": "ict_intra_corporate_transfer_visa",
+      "visa_type_name": "ICT (Intra-Corporate Transferee) posted employee / trainee visa",
+      "purpose": "work",
+      "source_url": "https://france-visas.gouv.fr/web/france-visas/activite-salariee",
+      "notes": "'Salarié détaché ICT' and 'stagiaire ICT' mentions for intra-group mobility transfers and trainees, confirmed on the France-Visas salaried activity page."
+    },
+    {
+      "visa_key": "self_employed_liberal_activity_visa",
+      "visa_type_name": "Self-employed / liberal profession long-stay visa (activité non salariée ou libérale)",
+      "purpose": "work",
+      "source_url": "https://france-visas.gouv.fr/en/activite-non-salariee-ou-liberale",
+      "notes": "For those wishing to run a self-employed or liberal-profession activity in France."
+    },
+    {
+      "visa_key": "talent_passport_visa",
+      "visa_type_name": "Talent Passport (Passeport Talent) long-stay visa",
+      "purpose": "work",
+      "source_url": "https://france-visas.gouv.fr/en/talents-internationaux-et-attractivite-economique",
+      "notes": "Multi-category visa/residence permit for highly skilled workers, entrepreneurs, investors, and other qualifying 'international talents'; includes EU Blue Card sub-category per secondary sources."
+    },
+    {
+      "visa_key": "researcher_talent_passport_visa",
+      "visa_type_name": "Researcher-Talent Passport long-stay visa",
+      "purpose": "work",
+      "source_url": "https://www.campusfrance.org/en/the-researcher-talent-passport-long-stay-visa",
+      "notes": "Sub-category of Talent Passport for Master's-degree holders conducting research or university teaching under a hosting agreement; confirmed on Campus France (official partner site referencing france-visas.gouv.fr)."
+    },
+    {
+      "visa_key": "talent_family_visa",
+      "visa_type_name": "Talent Passport - Family accompanying visa (Talent - Famille)",
+      "purpose": "family_reunion",
+      "source_url": null,
+      "notes": "Spouses/children of Talent Passport holders apply for a visa marked 'Talent – Famille' via France-Visas; found referenced by multiple sources describing France-Visas procedure but no single official France-Visas URL was pinned down in this search."
+    },
+    {
+      "visa_key": "student_visa_vls_ts",
+      "visa_type_name": "Student long-stay visa (VLS-TS étudiant)",
+      "purpose": "study",
+      "source_url": "https://www.campusfrance.org/en/the-different-types-of-visas",
+      "notes": "For Bachelor's and Master's level study; Campus France is the official partner platform of France-Visas for student visa applications."
+    },
+    {
+      "visa_key": "internship_visa_vls_ts",
+      "visa_type_name": "Internship long-stay visa (VLS-TS stage)",
+      "purpose": "study",
+      "source_url": "https://www.campusfrance.org/en/the-different-types-of-visas",
+      "notes": "For doing an internship in France as part of an enrolled program abroad."
+    },
+    {
+      "visa_key": "short_stay_student_visa",
+      "visa_type_name": "Short-stay student visa (études, under 90 days)",
+      "purpose": "study",
+      "source_url": null,
+      "notes": "Referenced on Campus France page ('the student visa short stay') for study-related stays under 90 days; specific France-Visas URL not confirmed in this search."
+    },
+    {
+      "visa_key": "visitor_visa",
+      "visa_type_name": "Visitor long-stay visa (visa 'Visiteur')",
+      "purpose": "business",
+      "source_url": null,
+      "notes": "Mentioned repeatedly on official France-Visas Brexit and volunteering pages (e.g. VLS-T/VLS-TS 'Visiteur') for stays without work authorization living on own resources; a dedicated single official page URL was not isolated in this search, though the mention is confirmed across multiple France-Visas pages such as france-visas.gouv.fr/en/brexit."
+    },
+    {
+      "visa_key": "family_reunification_visa",
+      "visa_type_name": "Family reunification long-stay visa (regroupement familial)",
+      "purpose": "family_reunion",
+      "source_url": "https://france-visas.gouv.fr/fr_FR/web/france-visas/famille-des-etrangers-residant-en-france",
+      "notes": "For family members joining a foreign national already legally residing in France, processed via OFII and the prefecture."
+    },
+    {
+      "visa_key": "french_national_spouse_visa",
+      "visa_type_name": "Spouse of French national long-stay visa (conjoint de Français)",
+      "purpose": "family_reunion",
+      "source_url": "https://france-visas.gouv.fr/en/brexit",
+      "notes": "Confirmed as a distinct visa mention ('conjoint de Français') on the official France-Visas Brexit guidance page listing visa categories."
+    },
+    {
+      "visa_key": "eu_citizen_family_member_visa",
+      "visa_type_name": "Family member of an EU/EEA citizen visa (famille de citoyen européen)",
+      "purpose": "family_reunion",
+      "source_url": "https://france-visas.gouv.fr/web/france-visas/famille-de-citoyen-europeen",
+      "notes": "For family members (spouse, direct descendants, etc.) of EU/EEA citizens residing in or moving to France."
+    },
+    {
+      "visa_key": "adoption_visa",
+      "visa_type_name": "Adoption visa (adoption)",
+      "purpose": "family_reunion",
+      "source_url": "https://france-visas.gouv.fr/web/france-visas/familial-adoption",
+      "notes": "For internationally adopted children joining their adoptive family in France."
+    },
+    {
+      "visa_key": "volunteer_visa",
+      "visa_type_name": "Volunteer long-stay visa (Volontariat / Volontaire)",
+      "purpose": "work",
+      "source_url": "https://france-visas.gouv.fr/web/france-visas/volontariat",
+      "notes": "Covers European Voluntary Service ('Volontaire') and other volunteering stays, with visa mention varying by duration."
+    },
+    {
+      "visa_key": "business_travel_visa",
+      "visa_type_name": "Business travel visa (venir en France pour affaires)",
+      "purpose": "business",
+      "source_url": "https://www.france-visas.gouv.fr/web/france-visas/motif-professionnel",
+      "notes": "Covers coming to France for business/commercial relations under the 'Travailler en France' professional-motive page, which enumerates business, ICT mobility, employment, and internship pathways."
+    }
+  ]
+}

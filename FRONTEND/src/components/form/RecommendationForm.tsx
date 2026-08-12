@@ -134,7 +134,7 @@ export function RecommendationForm({ formData, loading, error, onChange, onSubmi
                   </div>
                 </div>
 
-                <div>
+                {/* <div>
                   <label className={labelClass} htmlFor="language_test">
                     Language test
                   </label>
@@ -160,7 +160,7 @@ export function RecommendationForm({ formData, loading, error, onChange, onSubmi
                     value={formData.language_score}
                     onChange={(e) => onChange({ language_score: e.target.value })}
                   />
-                </div>
+                </div> */}
               </div>
             </fieldset>
 

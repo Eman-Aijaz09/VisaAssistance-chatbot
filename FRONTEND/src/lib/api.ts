@@ -52,6 +52,7 @@ export interface AskPayload {
   query: string;
   context_country: string | null;
   context_visa_type: string | null;
+   context_visa_id: string | null;   // NEW
 }
 
 export function postAsk(payload: AskPayload) {

@@ -1,0 +1,96 @@
+{
+  "country": "Italy",
+  "visa_types": [
+    {
+      "visa_key": "tourism_visa",
+      "visa_type_name": "Tourism (Schengen/short-term visa, Type C)",
+      "purpose": "tourist",
+      "source_url": "https://conschicago.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-categories-and-requirements/lavoro-subordinato-work-national-long-term-visa/",
+      "notes": "Listed as a distinct Schengen short-term visa category by Consulate General of Italy Chicago."
+    },
+    {
+      "visa_key": "study_visa_short_term",
+      "visa_type_name": "Study visa (short-term, Type C)",
+      "purpose": "study",
+      "source_url": "https://consadelaide.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/",
+      "notes": "Confirmed by Consulate of Italy Adelaide and ICTP visa guidance describing Schengen study visas."
+    },
+    {
+      "visa_key": "study_visa_long_term",
+      "visa_type_name": "Study visa (long-term/National, Type D)",
+      "purpose": "study",
+      "source_url": "https://conschicago.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-categories-and-requirements/lavoro-subordinato-work-national-long-term-visa/",
+      "notes": "Listed by Consulate General of Italy Chicago as 'Study (either short or long term visa)'."
+    },
+    {
+      "visa_key": "work_employed",
+      "visa_type_name": "Lavoro Subordinato / Employed Work (National/long-term visa)",
+      "purpose": "work",
+      "source_url": "https://conschicago.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-categories-and-requirements/lavoro-subordinato-work-national-long-term-visa/",
+      "notes": "Official page from Consulate General of Italy Chicago."
+    },
+    {
+      "visa_key": "work_self_employed",
+      "visa_type_name": "Lavoro Autonomo / Self-Employment visa",
+      "purpose": "work",
+      "source_url": "https://conschicago.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-categories-and-requirements/lavoro-subordinato-work-national-long-term-visa/",
+      "notes": "Listed alongside employed-work visa category on the same official consular page."
+    },
+    {
+      "visa_key": "italia_startup_visa",
+      "visa_type_name": "Italia Start-up Visa",
+      "purpose": "work",
+      "source_url": "https://conschicago.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-categories-and-requirements/lavoro-subordinato-work-national-long-term-visa/",
+      "notes": "Listed as a distinct National/long-term visa category by Consulate General of Italy Chicago."
+    },
+    {
+      "visa_key": "digital_nomad_visa",
+      "visa_type_name": "Digital Nomad Visa (self-employed)",
+      "purpose": "work",
+      "source_url": "https://conslondra.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/digital-nomad-visa-for-self-employed-only/",
+      "notes": "Confirmed on official Consulate General of Italy London page; also documented by Consulate General of Italy New York and Embassy of Italy Pristina under Legislative Decree 286/98 art. 27-quater."
+    },
+    {
+      "visa_key": "remote_worker_visa",
+      "visa_type_name": "Remote Worker Visa (employed)",
+      "purpose": "work",
+      "source_url": "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visas-to-enter-italy/digital-nomad-remote-worker-visa/",
+      "notes": "Confirmed as a sub-category distinct from digital nomad (self-employed) by Consulate General of Italy New York."
+    },
+    {
+      "visa_key": "family_reasons_visa",
+      "visa_type_name": "Family Reasons visa (for spouse/family member of non-EU/EEA citizen)",
+      "purpose": "family_reunion",
+      "source_url": "https://conschicago.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-categories-and-requirements/lavoro-subordinato-work-national-long-term-visa/",
+      "notes": "Official Consulate General of Italy Chicago visa category list."
+    },
+    {
+      "visa_key": "elective_residence_visa",
+      "visa_type_name": "Elective Residence Visa (Visto per Residenza Elettiva)",
+      "purpose": "permanent_residency",
+      "source_url": "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visas-to-enter-italy/elective-residency/",
+      "notes": "Confirmed by Consulate General of Italy New York, Los Angeles, Chicago, and Houston pages. For self-sufficient individuals; work not permitted."
+    },
+    {
+      "visa_key": "working_holiday_visa",
+      "visa_type_name": "Working Holiday Visa",
+      "purpose": "work",
+      "source_url": "https://consadelaide.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/",
+      "notes": "Confirmed by Consulate of Italy Adelaide; reciprocal agreement-based, e.g. for Australian citizens."
+    },
+    {
+      "visa_key": "mission_visa",
+      "visa_type_name": "Mission Visa",
+      "purpose": "business",
+      "source_url": "https://conschicago.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-categories-and-requirements/lavoro-subordinato-work-national-long-term-visa/",
+      "notes": "Listed by Consulate General of Italy Chicago, including sub-categories for military family and civil contractors."
+    },
+    {
+      "visa_key": "business_visa",
+      "visa_type_name": "Business/Conference Visa",
+      "purpose": "business",
+      "source_url": "https://conshouston.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/__trashed/",
+      "notes": "Listed as a distinct visa category by Consulate General of Italy Houston."
+    }
+  ]
+}

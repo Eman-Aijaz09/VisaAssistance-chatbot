@@ -17,6 +17,11 @@ GENERATION_MODEL = "llama-3.3-70b-versatile"
 
 DISCLAIMER = "For the most current information, please verify details directly with official sources, as visa policies can change."
 
+IRRELEVANT_RESPONSES = {
+    "greeting": "Hi! I'm here to help with visa and immigration questions — eligibility, required documents, costs, processing times, and comparisons between countries. What would you like to know?",
+    "about_assistant": "I'm an immigration information assistant — I don't have a name or personal identity, I just help answer visa and immigration questions using verified official sources. What can I help you with?",
+    "off_topic": "That's outside what I can help with — I'm focused specifically on visa and immigration questions. Happy to help if you have a question about visa requirements, costs, eligibility, or comparing countries.",
+}
 
 def get_groq_client():
     return Groq(api_key=os.getenv("GROQ_API_KEY"))
@@ -24,6 +29,22 @@ def get_groq_client():
 
 def generate_answer(query: str, routed: dict, user_profile: dict = None) -> dict:
     category = routed["category"]
+
+    # NEW — handled entirely without an LLM call or sources list
+    if category == "irrelevant":
+        ql = query.lower().strip()
+        if any(g in ql for g in ["hi", "hello", "hey", "how are you", "how r u", "how are u"]):
+            answer = IRRELEVANT_RESPONSES["greeting"]
+        elif any(g in ql for g in ["your name", "who are you", "introduce yourself", "what are you"]):
+            answer = IRRELEVANT_RESPONSES["about_assistant"]
+        else:
+            answer = IRRELEVANT_RESPONSES["off_topic"]
+        return {
+            "answer": answer,
+            "category": "irrelevant",
+            "sources": [],
+        }
+
     results = routed["results"]
     missing_countries = routed.get("missing_countries", [])
 

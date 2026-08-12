@@ -9,6 +9,12 @@ export interface VisaRecommendation {
   source_url: string | null;
 }
 
+export interface ActiveContext {
+  country: string | null;
+  visa_type: string | null;
+  visa_id: string | null;   // NEW — matches VisaRecommendation.id (string)
+}
+
 export interface VisaDetail {
   eligibility: string[];
   required_documents: string[];
@@ -44,8 +50,8 @@ export interface FormData {
   purpose: string;
   countriesInput: string;
   education_level: string;
-  language_test: string;
-  language_score: string;
+  // language_test: string;
+  // language_score: string;
   budget: number | null;
   budget_currency: string;
 }

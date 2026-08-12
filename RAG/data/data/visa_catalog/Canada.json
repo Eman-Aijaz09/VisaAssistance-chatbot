@@ -1,0 +1,124 @@
+{
+  "country": "Canada",
+  "visa_types": [
+    {
+      "visa_key": "visitor_visa_trv",
+      "visa_type_name": "Temporary Resident Visa (Visitor Visa)",
+      "purpose": "tourist",
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada.html",
+      "notes": "Required for citizens of visa-required countries to enter Canada for tourism, family visits, or short business; confirmed via IRCC eTA/TRV pages found in search."
+    },
+    {
+      "visa_key": "eta_electronic_travel_authorization",
+      "visa_type_name": "Electronic Travel Authorization (eTA)",
+      "purpose": "tourist",
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta/facts.html",
+      "notes": "Entry requirement for visa-exempt foreign nationals flying to Canada for short stays; confirmed on official canada.ca eTA page."
+    },
+    {
+      "visa_key": "super_visa",
+      "visa_type_name": "Super Visa for Parents and Grandparents",
+      "purpose": "family_reunion",
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/parent-grandparent-super-visa/eligibility.html",
+      "notes": "Multiple-entry visitor visa for parents/grandparents of citizens or PRs, valid up to 5 years (extendable); confirmed on canada.ca."
+    },
+    {
+      "visa_key": "study_permit",
+      "visa_type_name": "Study Permit",
+      "purpose": "study",
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit.html",
+      "notes": "Required for programs of study longer than 6 months at a designated learning institution; referenced across canada.ca and educanada.ca sources found in search."
+    },
+    {
+      "visa_key": "work_permit_employer_specific",
+      "visa_type_name": "Employer-Specific (Closed) Work Permit",
+      "purpose": "work",
+      "source_url": null,
+      "notes": "Confirmed to exist via secondary sources describing IRCC's two main work permit types (tied to a specific employer/job/location); could not confirm the exact canada.ca URL in this search session."
+    },
+    {
+      "visa_key": "open_work_permit",
+      "visa_type_name": "Open Work Permit",
+      "purpose": "work",
+      "source_url": null,
+      "notes": "Confirmed to exist as IRCC's non-employer-tied work permit category (includes spousal open work permit, PGWP, bridging open work permit); exact canada.ca landing page URL not confirmed in this search session."
+    },
+    {
+      "visa_key": "post_graduation_work_permit",
+      "visa_type_name": "Post-Graduation Work Permit (PGWP)",
+      "purpose": "work",
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship.html",
+      "notes": "Listed directly on the official IRCC homepage navigation ('Post-graduation work permit (PGWP)'); dedicated program page URL not separately confirmed."
+    },
+    {
+      "visa_key": "international_experience_canada",
+      "visa_type_name": "International Experience Canada (IEC)",
+      "purpose": "work",
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship.html",
+      "notes": "Listed directly on the official IRCC homepage navigation; a working-holiday/young-worker exchange program."
+    },
+    {
+      "visa_key": "express_entry_federal_skilled_worker",
+      "visa_type_name": "Express Entry: Federal Skilled Worker Program",
+      "purpose": "permanent_residency",
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html",
+      "notes": "One of the 3 federal economic programs managed through Express Entry, confirmed on canada.ca."
+    },
+    {
+      "visa_key": "express_entry_federal_skilled_trades",
+      "visa_type_name": "Express Entry: Federal Skilled Trades Program",
+      "purpose": "permanent_residency",
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html",
+      "notes": "One of the 3 federal economic programs managed through Express Entry, confirmed on canada.ca."
+    },
+    {
+      "visa_key": "express_entry_canadian_experience_class",
+      "visa_type_name": "Express Entry: Canadian Experience Class",
+      "purpose": "permanent_residency",
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/canadian-experience-class.html",
+      "notes": "Confirmed on dedicated canada.ca eligibility page found via search."
+    },
+    {
+      "visa_key": "provincial_nominee_program",
+      "visa_type_name": "Provincial Nominee Program (PNP)",
+      "purpose": "permanent_residency",
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada.html",
+      "notes": "Confirmed as a listed PR pathway on canada.ca's 'Live in Canada permanently' page; province-specific stream URLs not individually confirmed."
+    },
+    {
+      "visa_key": "spousal_common_law_partner_sponsorship",
+      "visa_type_name": "Spouse or Common-Law Partner Sponsorship",
+      "purpose": "family_reunion",
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada.html",
+      "notes": "Confirmed as part of canada.ca's family sponsorship PR pathways; dedicated program sub-page URL not individually confirmed."
+    },
+    {
+      "visa_key": "parents_and_grandparents_sponsorship",
+      "visa_type_name": "Parents and Grandparents Program (PGP) Sponsorship",
+      "purpose": "family_reunion",
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/parent-grandparent-super-visa/eligibility.html",
+      "notes": "Referenced on the official Super Visa eligibility page (which distinguishes it from the sponsorship application route); intake is periodic/lottery-based per secondary sources."
+    },
+    {
+      "visa_key": "dependent_child_sponsorship",
+      "visa_type_name": "Dependent Child Sponsorship",
+      "purpose": "family_reunion",
+      "source_url": null,
+      "notes": "Referenced across multiple secondary immigration-law sources as an official IRCC sponsorship category; exact canada.ca URL not confirmed in this search session."
+    },
+    {
+      "visa_key": "start_up_visa_program",
+      "visa_type_name": "Start-Up Visa (SUV) Program",
+      "purpose": "business",
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/news/notices/immigration-measures-entrepreneurs.html",
+      "notes": "Official canada.ca notice confirms the program exists but IRCC stopped accepting new SUV applications as of Dec 31, 2025, with a redesigned entrepreneur pathway expected in 2026. Included since it's an official, currently-referenced category, though intake is closed."
+    },
+    {
+      "visa_key": "self_employed_persons_program",
+      "visa_type_name": "Self-Employed Persons Program",
+      "purpose": "business",
+      "source_url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/self-employed.html",
+      "notes": "Confirmed official canada.ca program page. Note: IRCC paused new application intake as of April 30, 2024, and the pause remains in effect indefinitely per official notice."
+    }
+  ]
+}

@@ -27,6 +27,7 @@ CATEGORIES:
   detail to filter against — not just the topic of immigration options.
 - "comparison": explicitly or implicitly asks to compare two or more
   countries/visas against each other
+
 - "general": asks to EXPLAIN, UNDERSTAND, or SYNTHESIZE how something
   works, what a program/system/category consists of, or an overview
   that likely spans MULTIPLE related visas/sources — even if it names
@@ -153,6 +154,13 @@ Query: "what immigration options exist for researchers in Germany and France"
 
 Query: "show me family reunion visas, my spouse has a bachelor's degree"
 {"category": "recommendation", "countries": [], "purpose": "family_reunion", "visa_type": null, "education_level": "bachelor", "language_test": null, "language_score": null, "budget": null, "budget_currency": null}
+
+Query: "how is weather today?"
+{"category": "irrelevant", "countries": [], "purpose": null, "visa_type": null, "education_level": null, "language_test": null, "language_score": null, "budget": null, "budget_currency": null, "is_refinement": false}
+
+Query: "tell me the recipe of chocolate cake"
+{"category": "irrelevant", "countries": [], "purpose": null, "visa_type": null, "education_level": null, "language_test": null, "language_score": null, "budget": null, "budget_currency": null, "is_refinement": false}
+
 
 Now classify this query:
 "{{QUERY}}"

@@ -8,6 +8,7 @@ interface Props {
   input: string;
   contextCountry: string | null;
   contextVisaType: string | null;
+  contextVisaId: string | null;      // NEW
   onInputChange: (value: string) => void;
   onSend: () => void;
 }
@@ -24,6 +25,7 @@ export function ChatPanel({
   input,
   contextCountry,
   contextVisaType,
+  contextVisaId,                     
   onInputChange,
   onSend,
 }: Props) {

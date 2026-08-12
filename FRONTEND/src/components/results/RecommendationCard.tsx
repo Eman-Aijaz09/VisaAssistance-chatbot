@@ -48,7 +48,9 @@ export function RecommendationCard({ item, active, loadingDetail, detail, onTogg
         </div>
 
         <h3 className="mt-3 font-display text-base font-bold text-foreground">{item.title}</h3>
-        <p className="mt-1 text-xs leading-relaxed text-muted-foreground line-clamp-2">{item.summary}</p>
+        <p className={`mt-1 text-xs leading-relaxed text-muted-foreground ${active ? "" : "line-clamp-2"}`}>
+          {item.summary}
+        </p>
 
         <div className="mt-4 pt-3 border-t border-border flex items-center justify-between text-xs w-full">
           <span className="text-primary font-semibold">

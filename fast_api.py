@@ -19,7 +19,7 @@ from RAG.database.exchange_rates import convert_to_usd
 app = FastAPI(title="Visa Assistant API")
 
 from fastapi.middleware.cors import CORSMiddleware
-app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:8081"], allow_methods=["*"], allow_headers=["*"])
 # import sqlite3
 
 # from session_store import update_session, get_session, append_turn
@@ -38,6 +38,7 @@ class QueryRequest(BaseModel):
     # Optional context from the recommendation page
     context_country: str | None = None
     context_visa_type: str | None = None
+    context_visa_id: int | None = None   # NEW
 
 
 class AskResponse(BaseModel):
@@ -92,28 +93,16 @@ def ask(request: QueryRequest):
         raise HTTPException(status_code=400, detail="Query cannot be empty.")
 
     session = get_session(request.session_id)
+    prev_selected = session.get("selected_visa") or {}
 
     t0 = time.monotonic()
-
-    # try:
-    #     routed = route_query(
-    #         query=query,
-    #         context_country=request.context_country or (session.get("selected_visa") or {}).get("country"),
-    #         context_visa_type=request.context_visa_type or (session.get("selected_visa") or {}).get("visa_type"),
-    #         recommendation_context=session.get("recommendation_context"),
-    #         user_profile=session.get("user_profile"),
-    #     )
-    #     t1 = time.monotonic()
-    #     result = generate_answer(query, routed, user_profile=session.get("user_profile"))
-    #     t2 = time.monotonic()
-    # except Exception as e:
-    #     raise HTTPException(status_code=500, detail=f"Pipeline error: {e}")
 
     try:
         routed = route_query(
             query=query,
             context_country=request.context_country or (session.get("selected_visa") or {}).get("country"),
             context_visa_type=request.context_visa_type or (session.get("selected_visa") or {}).get("visa_type"),
+            context_visa_id=request.context_visa_id or prev_selected.get("id"),   # NEW
             recommendation_context=session.get("recommendation_context"),
             user_profile=session.get("user_profile"),
             history=session.get("history"),   # NEW
@@ -141,12 +130,14 @@ def ask(request: QueryRequest):
 
     # NEW — if this turn selected/updated a specific visa (e.g. context
     # passed in this request), remember it for the NEXT follow-up too
-    if request.context_country or request.context_visa_type:
+    # NEW — persist id alongside country/visa_type
+    if request.context_country or request.context_visa_type or request.context_visa_id:
         update_session(
             request.session_id,
             selected_visa={
-                "country": request.context_country or session.get("selected_visa", {}).get("country"),
-                "visa_type": request.context_visa_type or session.get("selected_visa", {}).get("visa_type"),
+                "country": request.context_country or prev_selected.get("country"),
+                "visa_type": request.context_visa_type or prev_selected.get("visa_type"),
+                "id": request.context_visa_id or prev_selected.get("id"),
             },
         )
 

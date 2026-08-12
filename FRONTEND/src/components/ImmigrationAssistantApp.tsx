@@ -6,6 +6,7 @@ import { RecommendationList } from "@/components/results/RecommendationList";
 import { ChatPanel } from "@/components/chat/ChatPanel";
 import { getVisaDetail, postAsk, postRecommend } from "@/lib/api";
 import type {
+  ActiveContext,  
   ChatMessage,
   FormData,
   RecommendationData,
@@ -36,8 +37,8 @@ export function ImmigrationAssistantApp() {
     purpose: "Work",
     countriesInput: "Canada, Germany",
     education_level: "master",
-    language_test: "IELTS",
-    language_score: "8.0",
+    // language_test: "IELTS",
+    // language_score: "8.0",
     budget: 25000,
     budget_currency: "PKR",
   });
@@ -50,10 +51,11 @@ export function ImmigrationAssistantApp() {
 
   const [activeCardId, setActiveCardId] = useState<string | null>(null);
   const [cardDetails, setCardDetails] = useState<Record<string, VisaDetail>>({});
-  const [activeContext, setActiveContext] = useState<{
-    country: string | null;
-    visa_type: string | null;
-  }>({ country: null, visa_type: null });
+  const [activeContext, setActiveContext] = useState<ActiveContext>({
+    country: null,
+    visa_type: null,
+    visa_id: null,   // NEW
+  });
 
   const [chatInput, setChatInput] = useState("");
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
@@ -61,7 +63,7 @@ export function ImmigrationAssistantApp() {
   const resetToForm = useCallback(() => {
     setView("form");
     setActiveCardId(null);
-    setActiveContext({ country: null, visa_type: null });
+    setActiveContext({ country: null, visa_type: null, visa_id: null });   // NEW
   }, []);
 
   const submitForm = async () => {
@@ -86,8 +88,8 @@ export function ImmigrationAssistantApp() {
         countries: countriesArr && countriesArr.length > 0 ? countriesArr : null,
         purpose: formData.purpose || null,
         education_level: formData.education_level || null,
-        language_test: formData.language_test || null,
-        language_score: formData.language_score || null,
+        language_test:  null,
+        language_score:  null,
         budget: formData.budget ?? null,
         budget_currency: formData.budget_currency || null,
       });
@@ -95,6 +97,7 @@ export function ImmigrationAssistantApp() {
       setRecommendationData(data);
       setCardDetails({});
       setActiveCardId(null);
+      setActiveContext({ country: null, visa_type: null, visa_id: null });   // NEW
       setChatMessages([
         {
           role: "assistant",
@@ -113,27 +116,27 @@ export function ImmigrationAssistantApp() {
   };
 
   const toggleCard = async (item: VisaRecommendation) => {
-    if (activeCardId === item.id) {
-      setActiveCardId(null);
-      setActiveContext({ country: null, visa_type: null });
-      return;
-    }
+  if (activeCardId === item.id) {
+    setActiveCardId(null);
+    setActiveContext({ country: null, visa_type: null, visa_id: null });   // NEW
+    return;
+  }
 
-    setActiveCardId(item.id);
-    setActiveContext({ country: item.country, visa_type: item.visa_type });
+  setActiveCardId(item.id);
+  setActiveContext({ country: item.country, visa_type: item.visa_type, visa_id: item.id });   // NEW
 
-    if (!cardDetails[item.id]) {
-      setLoadingCardDetail(true);
-      try {
-        const detail = await getVisaDetail(item.id);
-        setCardDetails((prev) => ({ ...prev, [item.id]: detail }));
-      } catch (err) {
-        console.error("Failed to fetch visa details:", err);
-      } finally {
-        setLoadingCardDetail(false);
-      }
+  if (!cardDetails[item.id]) {
+    setLoadingCardDetail(true);
+    try {
+      const detail = await getVisaDetail(item.id);
+      setCardDetails((prev) => ({ ...prev, [item.id]: detail }));
+    } catch (err) {
+      console.error("Failed to fetch visa details:", err);
+    } finally {
+      setLoadingCardDetail(false);
     }
-  };
+  }
+};
 
   const sendChat = async (rawQuery: string) => {
     const query = rawQuery.trim();
@@ -149,6 +152,7 @@ export function ImmigrationAssistantApp() {
         query,
         context_country: activeContext.country,
         context_visa_type: activeContext.visa_type,
+        context_visa_id: activeContext.visa_id,   // NEW
       });
 
       setChatMessages((prev) => [
@@ -226,6 +230,7 @@ export function ImmigrationAssistantApp() {
               input={chatInput}
               contextCountry={activeContext.country}
               contextVisaType={activeContext.visa_type}
+              contextVisaId={activeContext.visa_id}   // NEW — this line is missing
               onInputChange={setChatInput}
               onSend={() => sendChat(chatInput)}
             />

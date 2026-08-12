@@ -46,9 +46,10 @@ def route_query(
     query: str,
     context_country: str | None = None,
     context_visa_type: str | None = None,
+    context_visa_id: int | None = None,   # NEW
     recommendation_context: list | None = None,
     user_profile: dict | None = None,
-    history: list | None = None,   # NEW — real conversation turns
+    history: list | None = None,
 ) -> dict:
 
     t0 = time.monotonic()
@@ -60,23 +61,23 @@ def route_query(
     countries = classifier_output["countries"]
     purpose = classifier_output["purpose"]
 
-    # NEW — a refinement always routes to recommendation, regardless of
-    # what category the classifier's primary guess landed on
     is_refinement = classifier_output.get("is_refinement", False)
     if is_refinement:
         category = "recommendation"
 
-    # if not countries and context_country:
-    #     countries = [context_country]
-    #     classifier_output["countries"] = countries
+    if category == "irrelevant":
+        return {
+            "category": "irrelevant",
+            "classifier_output": classifier_output,
+            "results": [],
+            "missing_countries": [],
+            "relaxed": False,
+            "relaxed_message": None,
+            "is_refinement": False,
+            "updated_recommendations": None,
+            "needs_currency_clarification": False,
+        }
 
-    # if not classifier_output.get("visa_type") and context_visa_type:
-    #     classifier_output["visa_type"] = context_visa_type
-
-    # NEW — only fall back to card-click context for FACTUAL/GENERAL
-    # queries (e.g. "what documents do I need" right after opening a
-    # card), never for recommendation/comparison, where blind context
-    # injection has repeatedly caused wrong-country/wrong-visa filtering.
     if category in ("factual", "general"):
         if not countries and context_country:
             countries = [context_country]
@@ -86,36 +87,29 @@ def route_query(
 
     visa_type = classifier_output.get("visa_type")
 
-    # NEW: defined up front, always safe to reference in the final return
     missing_countries = []
     relaxed = False
     relaxed_message = None
     needs_currency_clarification = False
 
     if category == "factual":
-        # NEW: if the classifier found no country/visa AND no single card
-        # is selected, but a recommendation set IS in scope — assume the
-        # question is about that shown set, not the whole corpus.
-        if not countries and not context_country and recommendation_context:
+        # NEW — a specific card is open: answer from exactly that
+        # record, no search, no ambiguity across other recommendations
+        if context_visa_id:
+            results = _wrap_as_source_rows(fetch_by_ids([context_visa_id]))
+        elif not countries and not context_country and recommendation_context:
             ids = [item["id"] for item in recommendation_context]
             results = _wrap_as_source_rows(fetch_by_ids(ids))
         else:
             results = retrieve_factual(query, countries=countries or None, purpose=purpose)
 
     elif category == "recommendation":
-        # NEW: merge classifier-extracted fields into the carried-over
-        # profile, so a refinement ("I also have a Master's") doesn't
-        # discard previously stated constraints.
         merged_profile = dict(user_profile) if user_profile else {}
         for field in ["countries", "purpose", "education_level", "language_test", "language_score", "budget", "budget_currency"]:
             classifier_value = classifier_output.get(field)
             if classifier_value:
                 merged_profile[field] = classifier_value
 
-        # NEW — never silently filter on an unconverted/ambiguous-currency
-        # budget. If a budget is stated but we don't know its currency
-        # (this turn or a prior one), skip the budget filter entirely
-        # and surface a flag so generator.py can ask instead of guessing.
         needs_currency_clarification = False
         budget_usd = None
 
@@ -128,8 +122,8 @@ def route_query(
             else:
                 budget_usd = convert_to_usd(stated_budget, stated_currency)
                 if budget_usd is None:
-                    needs_currency_clarification = True  # unsupported currency code
-        
+                    needs_currency_clarification = True
+
         recommendation_output = recommend(
             countries=merged_profile.get("countries") or countries or None,
             purpose=merged_profile.get("purpose") or purpose,
@@ -151,8 +145,6 @@ def route_query(
             if missing_countries:
                 print(f"WARNING: no data available for: {missing_countries}")
         elif recommendation_context:
-            # NEW: "which one is cheapest" / "compare these" — no countries
-            # named, but a recommendation set is in scope. Compare THAT set.
             ids = [item["id"] for item in recommendation_context]
             rows = fetch_by_ids(ids)
             results = {}
@@ -163,12 +155,11 @@ def route_query(
             results = retrieve_factual(query, countries=countries or None, purpose=purpose)
             category = "factual"
 
-
     else:  # general, or any unexpected category value
-        if recommendation_context and not countries:
-            # "which is the best one" / "tell me more about these" — no
-            # specific country/visa named, but a recommendation set is in
-            # scope. Answer about THAT set, not the whole corpus.
+        # NEW — same specific-card-first priority as factual
+        if context_visa_id:
+            results = _wrap_as_source_rows(fetch_by_ids([context_visa_id]))
+        elif recommendation_context and not countries:
             ids = [item["id"] for item in recommendation_context]
             results = _wrap_as_source_rows(fetch_by_ids(ids))
         elif not countries:
@@ -176,18 +167,9 @@ def route_query(
         else:
             results = retrieve_general(query, countries=countries, visa_type=visa_type)
 
-        # NEW — guard against grounding an answer in near-irrelevant
-        # matches. Vector search always returns its top-k nearest
-        # neighbors even if NONE of them are actually relevant (e.g.
-        # gibberish or off-topic queries) — a low score means "least
-        # bad match," not "relevant." Filtering these out means such
-        # queries correctly fall through to "no information" rather
-        # than being answered using unrelated sources as if grounded.
         MIN_RELEVANCE_SCORE = 0.3
         if category in ("factual", "general") and isinstance(results, list):
             results = [r for r in results if r.get("score", 1.0) >= MIN_RELEVANCE_SCORE]
-
-            
 
     return {
         "category": category,
@@ -196,12 +178,10 @@ def route_query(
         "missing_countries": missing_countries,
         "relaxed": relaxed,
         "relaxed_message": relaxed_message,
-        "is_refinement": is_refinement,          # NEW
-        "updated_recommendations": results if is_refinement else None,  # NEW
+        "is_refinement": is_refinement,
+        "updated_recommendations": results if is_refinement else None,
         "needs_currency_clarification": needs_currency_clarification,
     }
-
-
 if __name__ == "__main__":
     test_queries = [
         "I want to work in tech in the US",

@@ -1,0 +1,75 @@
+{
+  "country": "Turkey",
+  "visa_types": [
+    {
+      "visa_key": "e_visa_tourist_business",
+      "visa_type_name": "e-Visa (Electronic Visa)",
+      "purpose": "tourist",
+      "source_url": "https://www.mfa.gov.tr/visa-information-for-foreigners.en.mfa",
+      "notes": "Official electronic visa system launched by the Ministry of Foreign Affairs, applied for via evisa.gov.tr; used for short-term tourism and trade/business visits, not valid for work or study."
+    },
+    {
+      "visa_key": "short_term_residence_permit",
+      "visa_type_name": "Short-Term Residence Permit",
+      "purpose": "tourist",
+      "source_url": "https://en.goc.gov.tr/residence-permit-types",
+      "notes": "Issued under Law No. 6458 to foreigners staying beyond the 90-day visa/e-Visa limit for purposes such as tourism, property ownership, or other short-term reasons; administered via e-ikamet.goc.gov.tr."
+    },
+    {
+      "visa_key": "student_residence_permit",
+      "visa_type_name": "Student Residence Permit",
+      "purpose": "study",
+      "source_url": "https://en.goc.gov.tr/residence-permit-types",
+      "notes": "Issued to foreigners enrolled in higher education or accredited programs at Turkish institutions, per the DGMM's official residence-permit-types page."
+    },
+    {
+      "visa_key": "family_residence_permit",
+      "visa_type_name": "Family Residence Permit",
+      "purpose": "family_reunion",
+      "source_url": "https://en.goc.gov.tr/residence-permit-types",
+      "notes": "Granted to spouses and dependent children of Turkish citizens or of foreigners holding a valid residence/work permit, per the official DGMM page."
+    },
+    {
+      "visa_key": "long_term_residence_permit",
+      "visa_type_name": "Long-Term Residence Permit",
+      "purpose": "permanent_residency",
+      "source_url": "https://en.goc.gov.tr/residence-permit-types",
+      "notes": "Regulated by Articles 41-42 of Law No. 6458, granted after continuous lawful residence (commonly cited as 8 years), listed on the official DGMM residence-permit-types page."
+    },
+    {
+      "visa_key": "humanitarian_residence_permit",
+      "visa_type_name": "Humanitarian Residence Permit",
+      "purpose": "family_reunion",
+      "source_url": "https://en.goc.gov.tr/residence-permit-types",
+      "notes": "Regulated by Articles 46-47 of Law No. 6458, per the official DGMM page. Classified here as closest to family_reunion/other since it doesn't fit the standard purpose set cleanly; it's a humanitarian protection-related permit, not tied to work, study, tourism, business, or standard PR."
+    },
+    {
+      "visa_key": "work_permit_temporary",
+      "visa_type_name": "Temporary Work Permit",
+      "purpose": "work",
+      "source_url": "https://www.csgb.gov.tr/uigm/en/calisma-izni/calisma-izni-turleri/",
+      "notes": "One of the standard work permit types issued by the Ministry of Labour and Social Security under International Labour Force Law No. 6735; substitutes for a residence permit."
+    },
+    {
+      "visa_key": "work_permit_permanent",
+      "visa_type_name": "Permanent Work Permit",
+      "purpose": "work",
+      "source_url": "https://www.csgb.gov.tr/uigm/en/calisma-izni/calisma-izni-turleri/",
+      "notes": "Available to foreigners with 8 years of legal residence/work in Turkey, per the Ministry of Labour's official work-permit-types page."
+    },
+    {
+      "visa_key": "work_permit_independent",
+      "visa_type_name": "Independent Work Permit",
+      "purpose": "work",
+      "source_url": "https://www.csgb.gov.tr/uigm/en/calisma-izni/calisma-izni-turleri/",
+      "notes": "For self-employed foreigners, evaluated based on education, professional experience, and economic contribution, per the official Ministry of Labour page."
+    },
+    {
+      "visa_key": "turquoise_card",
+      "visa_type_name": "Turquoise Card",
+      "purpose": "work",
+      "source_url": "https://www.csgb.gov.tr/uigm/en/calisma-izni/calisma-izni-turleri/",
+      "notes": "A distinct work-permit category for highly qualified foreigners (based on education, experience, investment impact); grants rights similar to a permanent work permit. Confirmed on the official Ministry of Labour work-permit-types page."
+    }
+  ]
+}

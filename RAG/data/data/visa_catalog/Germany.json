@@ -1,0 +1,117 @@
+{
+  "country": "Germany",
+  "visa_types": [
+    {
+      "visa_key": "schengen_visa_tourist_business_visit",
+      "visa_type_name": "Schengen (Type C) Visa – Business/Tourism/Visitor",
+      "purpose": "tourist",
+      "source_url": "https://www.germany.info/us-en/service/visa/business-visa-963542",
+      "notes": "Official German Missions in the USA page confirms a single Schengen short-stay visa category covering business, visitor and tourist purposes for stays up to 90 days."
+    },
+    {
+      "visa_key": "schengen_visa_business",
+      "visa_type_name": "Schengen (Type C) Visa – Business",
+      "purpose": "business",
+      "source_url": "https://www.germany.info/us-en/service/visa/business-visa-963542",
+      "notes": "Same official page as tourist Schengen visa; business is one of the listed purposes for the Schengen short-stay visa."
+    },
+    {
+      "visa_key": "national_visa_type_d",
+      "visa_type_name": "National (Type D) Visa – long-stay entry visa",
+      "purpose": "work",
+      "source_url": "https://www.auswaertiges-amt.de/en/visa-service/215870-215870",
+      "notes": "Federal Foreign Office confirms the D-visa is the entry visa for stays over 90 days, later converted into a purpose-specific residence permit; listed under 'work' as it is the umbrella entry visa for most long-term purposes."
+    },
+    {
+      "visa_key": "eu_blue_card",
+      "visa_type_name": "EU Blue Card",
+      "purpose": "work",
+      "source_url": "https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Migrathek/BlaueKarteEU/blauekarteeu-node.html",
+      "notes": "Confirmed on the official Federal Office for Migration and Refugees (BAMF) site: temporary residence permit for highly-qualified employment, generally issued for up to 4 years."
+    },
+    {
+      "visa_key": "skilled_worker_visa_university_degree",
+      "visa_type_name": "Skilled Worker Visa (university degree holders)",
+      "purpose": "work",
+      "source_url": "https://www.germany.info/us-en/service/visa/residence-visa-922288",
+      "notes": "Official German Missions in the USA page lists a distinct document checklist for 'Skilled Workers holding a university degree' as a national visa category."
+    },
+    {
+      "visa_key": "skilled_worker_visa_vocational_training",
+      "visa_type_name": "Skilled Worker Visa (vocational training qualification)",
+      "purpose": "work",
+      "source_url": "https://www.germany.info/us-en/service/visa/residence-visa-922288",
+      "notes": "Same official page lists a separate checklist for 'Skilled Workers with vocational training' as its own visa category."
+    },
+    {
+      "visa_key": "opportunity_card",
+      "visa_type_name": "Opportunity Card (Chancenkarte) – job seeking",
+      "purpose": "work",
+      "source_url": "https://addis-abeba.diplo.de/et-en/service/visa-einreise/opportunity-card-2662324",
+      "notes": "Official German Embassy (diplo.de) page confirms the points-based Opportunity Card, in force since 1 June 2024, allowing up to one year to search for qualified employment."
+    },
+    {
+      "visa_key": "ict_visa",
+      "visa_type_name": "Intra-Corporate Transfer (ICT) Visa",
+      "purpose": "work",
+      "source_url": "https://www.germany.info/us-en/service/visa/residence-visa-922288",
+      "notes": "Official checklist page lists 'ICT' as a distinct national visa category for intra-company transferees."
+    },
+    {
+      "visa_key": "research_visa",
+      "visa_type_name": "Research Visa (for researchers/scientists)",
+      "purpose": "work",
+      "source_url": "https://www.germany.info/us-en/service/visa/residence-visa-922288",
+      "notes": "Listed separately on the official checklist page as 'Research Visa'."
+    },
+    {
+      "visa_key": "au_pair_visa",
+      "visa_type_name": "Au Pair Visa",
+      "purpose": "work",
+      "source_url": "https://www.germany.info/us-en/service/visa/residence-visa-922288",
+      "notes": "Listed as its own checklist category ('Au Pair') on the official German Missions site."
+    },
+    {
+      "visa_key": "self_employment_freelance_visa",
+      "visa_type_name": "Self-Employment / Freelance Visa",
+      "purpose": "business",
+      "source_url": "https://www.make-it-in-germany.com/en/working-in-germany/setting-up-business/visa/freelance",
+      "notes": "make-it-in-germany.com is the official portal of Germany's Federal Ministry for Economic Affairs and BAMF; page describes the residence permit for freelance/self-employed work, distinct from the general skilled-worker visas."
+    },
+    {
+      "visa_key": "student_visa",
+      "visa_type_name": "Student Visa (university study)",
+      "purpose": "study",
+      "source_url": "https://www.germany.info/us-en/service/visa/residence-visa-922288",
+      "notes": "Official checklist page lists 'Study' as its own national visa category, separate from PhD Study."
+    },
+    {
+      "visa_key": "phd_study_visa",
+      "visa_type_name": "PhD Study Visa",
+      "purpose": "study",
+      "source_url": "https://www.germany.info/us-en/service/visa/residence-visa-922288",
+      "notes": "Listed distinctly from the general Study visa on the official checklist page as 'PhD Study'."
+    },
+    {
+      "visa_key": "family_reunion_german_spouse_child",
+      "visa_type_name": "Family Reunion Visa – with a German Spouse/Child",
+      "purpose": "family_reunion",
+      "source_url": "https://www.germany.info/us-en/service/visa/residence-visa-922288",
+      "notes": "Official checklist page distinguishes this from family reunion with a foreign spouse/child as a separate visa category."
+    },
+    {
+      "visa_key": "family_reunion_foreign_spouse_child",
+      "visa_type_name": "Family Reunion Visa – with a Foreign Spouse/Child",
+      "purpose": "family_reunion",
+      "source_url": "https://www.germany.info/us-en/service/visa/residence-visa-922288",
+      "notes": "Listed as a separate checklist category from family reunion with a German spouse/child."
+    },
+    {
+      "visa_key": "settlement_permit",
+      "visa_type_name": "Settlement Permit (Niederlassungserlaubnis) – permanent residence",
+      "purpose": "permanent_residency",
+      "source_url": "https://www.make-it-in-germany.com/en/visa-residence/skilled-immigration-act",
+      "notes": "Official make-it-in-germany.com page (run by the Federal Ministry for Economic Affairs/BAMF) describes the settlement permit as one of Germany's residence titles, granting indefinite residence and unrestricted employment."
+    }
+  ]
+}

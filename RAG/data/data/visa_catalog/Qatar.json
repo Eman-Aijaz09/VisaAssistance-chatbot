@@ -1,0 +1,89 @@
+{
+  "country": "Qatar",
+  "visa_types": [
+    {
+      "visa_key": "tourist_visa_on_arrival",
+      "visa_type_name": "Tourist Visa (Visa on Arrival / Hayya-based entry)",
+      "purpose": "tourist",
+      "source_url": "https://portal.www.gov.qa/wps/wcm/connect/Hukoomi+Web+Content/Hukoomi/Topics/Visas+and+Official+Documents/visas",
+      "notes": "Hukoomi's official visas page confirms visitors from 33 countries with travel arrangements receive a visa on arrival for tourism purposes."
+    },
+    {
+      "visa_key": "joint_tourist_visa_qatar_oman",
+      "visa_type_name": "Joint Tourist Visa (Qatar-Oman)",
+      "purpose": "tourist",
+      "source_url": "https://portal.www.gov.qa/wps/wcm/connect/Hukoomi+Web+Content/Hukoomi/Topics/Visas+and+Official+Documents/visas",
+      "notes": "Confirmed on the official Hukoomi visas page: citizens of the 33 approved countries can apply for a one-month Joint Tourist Visa allowing travel between Qatar and Oman."
+    },
+    {
+      "visa_key": "transit_visa",
+      "visa_type_name": "Transit Visa",
+      "purpose": "tourist",
+      "source_url": "https://portal.www.gov.qa/wps/wcm/connect/Hukoomi+Web+Content/Hukoomi/Topics/Visas+and+Official+Documents/visas",
+      "notes": "Listed on the official Hukoomi visas page; valid for 24 hours, used for airport transfers and short stays (e.g., seamen, truck drivers)."
+    },
+    {
+      "visa_key": "business_visa_72_hour",
+      "visa_type_name": "72-Hour Business Visa",
+      "purpose": "business",
+      "source_url": "https://portal.www.gov.qa/wps/wcm/connect/Hukoomi+Web+Content/Hukoomi/Topics/Visas+and+Official+Documents/visas",
+      "notes": "Confirmed on the official Hukoomi visas page as one of two business visa types, issued on arrival and extendable."
+    },
+    {
+      "visa_key": "business_visa_standard",
+      "visa_type_name": "Business Visa (standard, up to 3 months)",
+      "purpose": "business",
+      "source_url": "https://portal.www.gov.qa/wps/wcm/connect/hukoomi+web+content/hukoomi/topics/visas+and+official+documents/visas",
+      "notes": "Official Hukoomi page describes a business visa for expatriate workers/short-term contractual work, valid up to three months, arranged in advance by an approved Qatari company or institution."
+    },
+    {
+      "visa_key": "gcc_resident_visit_visa",
+      "visa_type_name": "GCC Resident Visit Visa",
+      "purpose": "tourist",
+      "source_url": "https://portal.www.gov.qa/wps/wcm/connect/hukoomi+web+content/hukoomi/topics/visas+and+official+documents/visas",
+      "notes": "Official Hukoomi visas page notes GCC residents of approved professions (and accompanying persons) may obtain a one-month GCC Resident Visit Visa."
+    },
+    {
+      "visa_key": "work_residence_permit",
+      "visa_type_name": "Work Residence Permit (RP)",
+      "purpose": "work",
+      "source_url": "https://portal.www.gov.qa/wps/wcm/connect/Hukoomi+Web+Content/Hukoomi/Topics/Visas+and+Official+Documents/residenceandworkpermits",
+      "notes": "Official Hukoomi page dedicated to the Work Residence Permit, required for all newcomers wishing to work and live in Qatar, sponsored by a Qatari employer."
+    },
+    {
+      "visa_key": "family_residence_visa",
+      "visa_type_name": "Family Residence Visa",
+      "purpose": "family_reunion",
+      "source_url": "https://hukoomi.gov.qa/en/service/family-applications-service",
+      "notes": "Confirmed via official Hukoomi 'Family Applications Service' and described on the Work Residence Permit page as the visa allowing RP holders to sponsor spouse/children."
+    },
+    {
+      "visa_key": "educational_residence_visa",
+      "visa_type_name": "Educational (Student) Residence Visa",
+      "purpose": "study",
+      "source_url": null,
+      "notes": "Referenced as an Apply for Educational Residence Visa service on the Hukoomi portal (hukoomi.gov.qa) via a secondary source; could not directly confirm the exact URL through search, so source_url is null."
+    },
+    {
+      "visa_key": "investor_visa",
+      "visa_type_name": "Investor Visa (residency without employer sponsorship for qualifying investors)",
+      "purpose": "business",
+      "source_url": "https://portal.www.gov.qa/wps/wcm/connect/hukoomi+web+content/hukoomi/topics/visas+and+official+documents/visas",
+      "notes": "Official Hukoomi visas page states expatriates who invest in selected business ventures are eligible for residency without employer sponsorship, and that authorized personnel may complete the Investor Visa procedure online."
+    },
+    {
+      "visa_key": "permanent_residency_card",
+      "visa_type_name": "Permanent Residency Card (Law No. 10 of 2018)",
+      "purpose": "permanent_residency",
+      "source_url": "https://portal.moi.gov.qa/wps/portal/MOIInternet/departmentcommittees/permanentresidency",
+      "notes": "Confirmed on the official Ministry of Interior (MOI) page describing Law No. 10 of 2018 on Permanent Residence and the Permanent Residence Card Granting Committee. Hukoomi also has a related eligibility-inquiry service (https://hukoomi.gov.qa/en/service/inquire-about-the-eligibility-for-permanent-residency/1000)."
+    },
+    {
+      "visa_key": "property_based_residency",
+      "visa_type_name": "Property-Related Residency Permit (real estate investment, QAR 730,000+ / QAR 3,650,000+ for PR benefits)",
+      "purpose": "permanent_residency",
+      "source_url": "https://www.moj.gov.qa/en/departments/Pages/nqo.aspx",
+      "notes": "Confirmed on the official Ministry of Justice page: a residency permit without sponsor for real estate purchases of at least QAR 730,000, and permanent-residency-card benefits (health, education, investment) for purchases of at least QAR 3,650,000."
+    }
+  ]
+}
