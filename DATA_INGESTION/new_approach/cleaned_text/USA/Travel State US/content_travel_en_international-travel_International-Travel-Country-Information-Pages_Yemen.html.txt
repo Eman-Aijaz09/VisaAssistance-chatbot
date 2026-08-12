@@ -1,7 +1,0 @@
-- Unrest (U)
-- Crime (C)
-- Health (H)
-- Kidnapping or Hostage Taking (K)
-- Terrorism (T)
-- Other (O)
-The Department of State renewed its Travel Advisory for Yemen on December 19, 2025. There were no changes to the advisory level or risk indicators. Advisory summary was updated.
