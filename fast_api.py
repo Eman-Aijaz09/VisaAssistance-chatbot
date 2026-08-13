@@ -19,7 +19,7 @@ from RAG.database.exchange_rates import convert_to_usd
 app = FastAPI(title="Visa Assistant API")
 
 from fastapi.middleware.cors import CORSMiddleware
-app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:8080"], allow_methods=["*"], allow_headers=["*"])
+app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:8081"], allow_methods=["*"], allow_headers=["*"])
 # import sqlite3
 
 # from session_store import update_session, get_session, append_turn

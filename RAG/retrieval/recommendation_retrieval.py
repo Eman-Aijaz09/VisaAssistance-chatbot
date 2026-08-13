@@ -67,7 +67,7 @@ def recommend(
     language_test: str = None,
     language_score: str = None,
     max_budget: float = None,   # MUST be in USD — convert at the caller before passing in
-    top_k: int = 8,
+    top_k: int = 5,
 ) -> dict:
     relaxed = False
     message = None
