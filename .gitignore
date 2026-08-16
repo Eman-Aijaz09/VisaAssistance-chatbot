@@ -54,3 +54,9 @@ browser_profiles
 
 DATA_INGESTION/
 data
+README.MD
+eval
+ui test pages
+full.html
+test.py
+test_llm.py

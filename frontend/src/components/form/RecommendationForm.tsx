@@ -21,7 +21,7 @@ const highlights = [
 ];
 
 const COUNTRY_OPTIONS = ["USA", "Germany", "Finland", "France", "Australia", "Japan"];
-
+const MIN_PLAUSIBLE_BUDGET_PKR = 20000; // roughly $20 USD — visas rarely cost less than this
 function CountryMultiSelect({
   selected,
   onChange,
@@ -123,7 +123,10 @@ function CountryMultiSelect({
 }
 
 export function RecommendationForm({ formData, loading, error, onChange, onSubmit }: Props) {
-  return (
+  const budgetTooLow =
+    formData.budget !== null && formData.budget > 0 && formData.budget < MIN_PLAUSIBLE_BUDGET_PKR;
+
+  return  (
     <main className="flex-1 overflow-y-auto mist-backdrop w-full">
       <div className="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
         <div className="text-center mb-9">
@@ -145,7 +148,8 @@ export function RecommendationForm({ formData, loading, error, onChange, onSubmi
             className="space-y-7"
             onSubmit={(e) => {
               e.preventDefault();
-              onSubmit();
+              if (budgetTooLow) return;
+                onSubmit();
             }}
           >
             <fieldset className="space-y-5">
@@ -180,7 +184,7 @@ export function RecommendationForm({ formData, loading, error, onChange, onSubmi
                     onChange={(countries) => onChange({ countries })}
                   />
                   <p className="mt-1.5 text-[11px] text-muted-foreground">
-                    Leave empty to match any country.
+                    Select one or more countries or Leave empty to match any country.
                   </p>
                 </div>
               </div>
@@ -223,14 +227,23 @@ export function RecommendationForm({ formData, loading, error, onChange, onSubmi
                       id="budget"
                       type="number"
                       min={0}
-                      className="w-full rounded-xl border border-input bg-surface py-3 pl-10 pr-4 text-foreground text-sm placeholder:text-muted-foreground/70 transition focus:border-ring focus:outline-none focus:ring-4 focus:ring-ring/15"
+                      className={`w-full rounded-xl border ${
+                        budgetTooLow ? "border-destructive/60" : "border-input"
+                      } bg-surface py-3 pl-10 pr-4 text-foreground text-sm placeholder:text-muted-foreground/70 transition focus:border-ring focus:outline-none focus:ring-4 focus:ring-ring/15`}
                       placeholder="25000"
                       value={formData.budget ?? ""}
                       onChange={(e) =>
                         onChange({ budget: e.target.value === "" ? null : Number(e.target.value) })
                       }
+                      aria-invalid={budgetTooLow}
+                      aria-describedby={budgetTooLow ? "budget-error" : undefined}
                     />
                   </div>
+                  {budgetTooLow && (
+                    <p id="budget-error" className="mt-1.5 text-[11px] text-destructive">
+                      That's too low for any visa's typical cost — try at least Rs {MIN_PLAUSIBLE_BUDGET_PKR.toLocaleString()}.
+                    </p>
+                  )}
                 </div>
               </div>
             </fieldset>
@@ -247,7 +260,7 @@ export function RecommendationForm({ formData, loading, error, onChange, onSubmi
             <div className="pt-1">
               <button
                 type="submit"
-                disabled={loading}
+                disabled={loading || budgetTooLow}
                 className="w-full canopy-gradient text-primary-foreground font-semibold py-4 px-6 rounded-2xl shadow-[var(--shadow-soft)] transition-all hover:brightness-110 disabled:opacity-60 flex items-center justify-center gap-2 text-base focus:outline-none focus-visible:ring-4 focus-visible:ring-ring/30"
               >
                 {loading ? (
