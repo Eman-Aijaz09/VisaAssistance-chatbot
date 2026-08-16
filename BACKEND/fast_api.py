@@ -10,12 +10,12 @@ for a full LLM generation call each time.
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
-from RAG.retrieval.router import route_query
-from RAG.generation.generator import generate_answer
-from RAG.retrieval.recommendation_retrieval import recommend
+from retrieval.router import route_query
+from generation.generator import generate_answer
+from retrieval.recommendation_retrieval import recommend
 import time, json
-from RAG.session_store import update_session, get_session
-from RAG.database.exchange_rates import convert_to_usd
+from session_store import update_session, get_session
+from database.exchange_rates import convert_to_usd
 app = FastAPI(title="Visa Assistant API")
 
 from fastapi.middleware.cors import CORSMiddleware
@@ -25,8 +25,8 @@ app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:8081"], allo
 # from session_store import update_session, get_session, append_turn
 
 # DATABASE_NAME = "visa_assistant.db"
-from RAG.retrieval.shared_resource import get_connection
-from RAG.session_store import update_session, get_session, append_turn
+from retrieval.shared_resource import get_connection
+from session_store import update_session, get_session, append_turn
 # -----------------------------
 # Request/response models
 # -----------------------------

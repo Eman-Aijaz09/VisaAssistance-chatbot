@@ -10,8 +10,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from groq import Groq
-from RAG.generation.prompts import get_prompt_template
-from RAG.generation.citation_utils import build_source_list, format_sources_for_prompt, resolve_citations
+from generation.prompts import get_prompt_template
+from generation.citation_utils import build_source_list, format_sources_for_prompt, resolve_citations
 
 GENERATION_MODEL = "llama-3.3-70b-versatile"
 
@@ -121,7 +121,7 @@ def generate_answer(query: str, routed: dict, user_profile: dict = None) -> dict
     }
 
 if __name__ == "__main__":
-    from RAG.retrieval.router import route_query
+    from BACKEND.retrieval.router import route_query
 
     test_queries = [
         "how do I bring my spouse to Germany",

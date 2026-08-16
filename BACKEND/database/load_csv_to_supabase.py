@@ -16,14 +16,14 @@ import psycopg2
 from psycopg2.extras import Json
 from dotenv import load_dotenv
 
-# ---- FIX: make RAG importable from any working directory ----
+# ---- FIX: make BACKEND importable from any working directory ----
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from RAG.database.id_utils import compute_stable_id
-from RAG.database.exchange_rates import convert_to_usd
-from RAG.retrieval.normalization import (
+from BACKEND.database.id_utils import compute_stable_id
+from BACKEND.database.exchange_rates import convert_to_usd
+from BACKEND.retrieval.normalization import (
     EDUCATION_ALIASES,
     LANGUAGE_TEST_ALIASES,
     PURPOSE_ALIASES,

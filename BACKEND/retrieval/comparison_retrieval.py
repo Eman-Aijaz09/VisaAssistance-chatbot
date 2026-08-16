@@ -3,9 +3,9 @@ comparison_retrieval.py — Postgres version. Logic unchanged.
 """
 
 
-from RAG.retrieval.shared_resource import get_connection
-from RAG.retrieval.normalization import normalize_country, normalize_purpose
-from RAG.retrieval.recommendation_retrieval import _score_row
+from retrieval.shared_resource import get_connection
+from retrieval.normalization import normalize_country, normalize_purpose
+from retrieval.recommendation_retrieval import _score_row
 
 
 def _fetch_for_country(cursor, country: str, purpose: str = None, limit: int = 3) -> list:

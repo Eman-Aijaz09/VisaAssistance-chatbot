@@ -6,7 +6,7 @@ the diversity-aware round-robin variant, now using a SQL query per
 country instead of a Chroma where-filtered query per country.
 """
 
-from RAG.retrieval.shared_resource import get_model, get_connection
+from retrieval.shared_resource import get_model, get_connection
 
 QUERY_PREFIX = "Represent this sentence for searching relevant passages: "
 TOP_K = 7

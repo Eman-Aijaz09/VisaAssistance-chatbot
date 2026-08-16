@@ -6,8 +6,8 @@ only the connection layer and placeholder syntax (%s instead of ?)
 changed. Filters directly on total_estimated_cost_usd, same as before.
 """
 
-from RAG.retrieval.shared_resource import get_connection
-from RAG.retrieval.normalization import (
+from retrieval.shared_resource import get_connection
+from retrieval.normalization import (
     normalize_education_level, normalize_language_test,
     normalize_countries, normalize_purpose,
 )

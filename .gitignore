@@ -60,3 +60,5 @@ ui test pages
 full.html
 test.py
 test_llm.py
+
+chroma_db/

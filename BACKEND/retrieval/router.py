@@ -1,11 +1,11 @@
 # retrieval/router.py
 
-from RAG.retrieval.query_classifier import classify_query_llm
-from RAG.retrieval.factual_retrieval import retrieve_factual
-from RAG.retrieval.recommendation_retrieval import recommend, fetch_by_ids
-from RAG.retrieval.comparison_retrieval import compare
-from RAG.retrieval.general_retrieval import retrieve_general, retrieve_general_diverse
-from RAG.database.exchange_rates import convert_to_usd
+from retrieval.query_classifier import classify_query_llm
+from retrieval.factual_retrieval import retrieve_factual
+from retrieval.recommendation_retrieval import recommend, fetch_by_ids
+from retrieval.comparison_retrieval import compare
+from retrieval.general_retrieval import retrieve_general, retrieve_general_diverse
+from database.exchange_rates import convert_to_usd
 import time
 
 

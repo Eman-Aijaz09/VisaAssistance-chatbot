@@ -9,7 +9,7 @@ Safe to re-run (idempotent) — skips rows that already have a stable_id.
 """
 
 import sqlite3
-from RAG.database.id_utils import compute_stable_id
+from BACKEND.database.id_utils import compute_stable_id
 
 DATABASE_NAME = "visa_assistant.db"
 

@@ -7,7 +7,7 @@ SQL WHERE clause combined with the vector ORDER BY in one query,
 instead of Chroma's separate `where` dict mechanism.
 """
 
-from RAG.retrieval.shared_resource import get_model, get_connection
+from retrieval.shared_resource import get_model, get_connection
 
 QUERY_PREFIX = "Represent this sentence for searching relevant passages: "
 TOP_K = 5

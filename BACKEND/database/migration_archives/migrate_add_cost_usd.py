@@ -9,7 +9,7 @@ so if USD_RATES changes later, re-running this refreshes every row.
 """
 
 import sqlite3
-from RAG.database.exchange_rates import convert_to_usd
+from BACKEND.database.exchange_rates import convert_to_usd
 
 DATABASE_NAME = "visa_assistant.db"
 
