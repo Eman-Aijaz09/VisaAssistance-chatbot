@@ -1,0 +1,5 @@
+ERROR:
+DEBUG: inspect Claude response element
+
+--- RAW RESPONSE ---
+NO RESPONSE

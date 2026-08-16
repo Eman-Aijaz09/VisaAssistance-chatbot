@@ -1,0 +1,88 @@
+{
+  "entities": [
+    {
+      "page_title": "Family Reunion Visa - German Missions in Pakistan",
+      "purpose": "family_reunion",
+      "topic": "Family Reunion Visa",
+      "visa_type": "Family Reunion Visa",
+      "visa_key": "family_reunion_visa",
+      "entry_type": "detailed",
+      "title": "How to apply for a family reunion visa",
+      "summary": "This page describes the process for applying for a German family reunion visa for family members joining a recognised refugee, a German citizen, or an EU citizen residing in Germany. It details required documents, language certificate exemptions, and appointment procedures for applicants in Pakistan.",
+      "eligibility": [
+        "Applicant must be joining a spouse or family member residing in Germany",
+        "To apply for a spouse visa, both partners have to be at least 18 years old",
+        "Family members of recognised refugees must submit a timely notice (\"fristwahrende Anzeige\") within 3 months of recognition"
+      ],
+      "required_documents": [
+        "Application form (Videx)",
+        "One biometric passport photo of each applicant and reference person",
+        "Certificate of residency in Germany (\"Meldebescheinigung\") of spouse/family member",
+        "Copy of spouse's/family member's residence permit",
+        "Applicant's current passport and ID card (CNIC)",
+        "Copies of previous passports",
+        "Copies of spouse's/family member's valid and previous passports",
+        "Original NADRA computerized birth certificate",
+        "Original Nikah Nama (Urdu with English translation)",
+        "Original NADRA computerized marriage registration certificate",
+        "Proof of previous marriages for both spouses (if applicable)",
+        "Court order regarding legal guardianship (if applicable)",
+        "BAMF deed (if applicable)",
+        "Travel insurance policy valid for one year",
+        "A1 language certificate (with exemptions)",
+        "C1 language certificate (with exemptions)",
+        "Additional proof of name, birthday and relationship as a family",
+        "Appointment confirmation e-mail (for Islamabad applicants)",
+        "Applicant's declaration",
+        "Information regarding legal representation"
+      ],
+      "application_process": [
+        "Register at the appropriate visa section based on citizenship/residence (Afghanistan, Karachi for Sindh/Balochistan residents, or Islamabad)",
+        "Starting 15.01.2026, Islamabad applications only accepted via Consular Services Portal (www.digital.diplo.de)",
+        "Submit documents for embassy review",
+        "Receive link to book appointment if application is in order",
+        "Attend appointment to show original documents, pay fee, and submit biometrics",
+        "Embassy may request additional documents or PKR 75,000 for document verification"
+      ],
+      "processing_time": null,
+      "application_fee": "75 Euros for adults, 37.50 Euros for children 0-17, payable in PKR; no fee if joining a German or EU national",
+      "validity": null,
+      "official_links": [
+        "www.fap.diplo.de",
+        "www.digital.diplo.de"
+      ],
+      "important_notes": [
+        "Original documents including passports must be presented; travel passport remains at the mission during processing",
+        "All document copies must be DIN A4 size, complete, legible, and not stapled",
+        "Due to long waiting times, some documents may expire before application; recommended to obtain updated documents once appointment is confirmed",
+        "Registering on the waiting list does not count as a timely notice or visa application"
+      ],
+      "min_income_threshold": null,
+      "min_education_level": null,
+      "min_age": 18,
+      "max_age": null,
+      "required_language_test": "A1/C1 (Goethe-Institut, ÖSD, telc GmbH, or TestDaF)",
+      "min_language_score": "A1 (adults), C1 (applicants 16-17 years old)",
+      "points_required": null,
+      "mandatory_prerequisites": [
+        "spouse_18_plus",
+        "language_certificate",
+        "biometric_photo",
+        "travel_insurance"
+      ],
+      "total_estimated_cost": null,
+      "cost_currency": null,
+      "processing_time_days_min": null,
+      "processing_time_days_max": null,
+      "pr_pathway_available": null,
+      "pr_pathway_years": null,
+      "last_verified_date": null,
+      "extra_information": {
+        "special_cases": "Additional documents required if marrying in Germany or joining a non-German EU citizen",
+        "document_verification_fee": "PKR 75,000 if requested by the mission"
+      },
+      "country": "Germany",
+      "source_url": "pk-en_service_2-passantrag-kind-seite-1677830"
+    }
+  ]
+}

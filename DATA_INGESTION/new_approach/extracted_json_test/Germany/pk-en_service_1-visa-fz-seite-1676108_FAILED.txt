@@ -1,0 +1,5 @@
+ERROR:
+New assistant message never started (possible rate limit).
+
+--- RAW RESPONSE ---
+NO RESPONSE

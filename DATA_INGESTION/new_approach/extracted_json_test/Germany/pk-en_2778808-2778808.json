@@ -1,0 +1,212 @@
+{
+  "entities": [
+    {
+      "page_title": "German Nationality Law and Naturalisation",
+      "purpose": "permanent_residency",
+      "topic": "German Citizenship / Naturalisation",
+      "visa_type": null,
+      "visa_key": "naturalisation_germany",
+      "entry_type": "detailed",
+      "title": "Naturalisation in Germany",
+      "summary": "As a general rule, non-Germans have the right to become naturalised after five years of legal residence in Germany (reduced from eight years by the 2024 reform), provided they meet certain additional conditions. Requires sufficient German language knowledge, passing a naturalisation test, a clean criminal record, financial self-sufficiency, and commitment to the Basic Law.",
+      "eligibility": [
+        "Five years of legal residence in Germany (reduced from eight years as of 27 June 2024)",
+        "Sufficient knowledge of the German language",
+        "Pass the naturalisation test (legal system, society, way of life)",
+        "Clean criminal record",
+        "Commitment to the tenets of the Basic Law",
+        "Able to support themselves financially",
+        "Shorter minimum residence period for spouses of German citizens",
+        "Not possible following conviction for antisemitic, racist, xenophobic or other crimes evidencing contempt for humanity"
+      ],
+      "required_documents": [],
+      "application_process": [
+        "Contact the nationality authority in your town/city or district for naturalisation procedure information"
+      ],
+      "processing_time": null,
+      "application_fee": null,
+      "validity": null,
+      "official_links": [],
+      "important_notes": [
+        "Since 27 June 2024, citizens of all countries naturalised in Germany are allowed to hold multiple citizenship (previously only EU/Switzerland citizens since 28 August 2007)",
+        "Applicants must find out in advance whether their country of origin permits multiple citizenship",
+        "New law introduces simpler naturalisation path for the 'guest worker' (Gastarbeiter) generation from 27 June 2024"
+      ],
+      "min_income_threshold": {
+        "threshold_type": "case_by_case",
+        "value": null,
+        "unit": null,
+        "points_required": null,
+        "verified": false,
+        "source_url": "pk-en_2778808-2778808",
+        "effective_date": null,
+        "notes": "Applicants must be able to support themselves financially, but no fixed numeric threshold is stated"
+      },
+      "min_education_level": null,
+      "min_age": null,
+      "max_age": null,
+      "required_language_test": null,
+      "min_language_score": null,
+      "points_required": null,
+      "mandatory_prerequisites": [
+        "clean_criminal_record",
+        "german_language_proficiency",
+        "naturalisation_test",
+        "financial_self_sufficiency",
+        "commitment_to_basic_law"
+      ],
+      "total_estimated_cost": null,
+      "cost_currency": null,
+      "processing_time_days_min": null,
+      "processing_time_days_max": null,
+      "pr_pathway_available": null,
+      "pr_pathway_years": null,
+      "last_verified_date": null,
+      "extra_information": {
+        "legal_basis": "Nationality Act (StAG), Basic Law (GG)",
+        "reform_effective_date": "27 June 2024 (Act to Modernise Nationality Law - StARModG)"
+      },
+      "country": "Germany",
+      "source_url": "pk-en_2778808-2778808"
+    },
+    {
+      "page_title": "German Nationality Law and Naturalisation",
+      "purpose": "permanent_residency",
+      "topic": "Acquisition of German Citizenship by Children Born in Germany (ius soli)",
+      "visa_type": null,
+      "visa_key": "citizenship_by_birth_ius_soli",
+      "entry_type": "detailed",
+      "title": "German Citizenship for Children Born in Germany to Non-German Parents",
+      "summary": "Since 2000, children born in Germany to non-German parents acquire German citizenship at birth if one parent has been legally resident in Germany for a qualifying period and has a permanent right of residence. This period was reduced from eight years to five years with the entry into force of the new nationality law on 27 June 2024.",
+      "eligibility": [
+        "One parent legally resident in Germany for at least five years (reduced from eight years on 27 June 2024)",
+        "That parent must have a permanent right of residence"
+      ],
+      "required_documents": [],
+      "application_process": [],
+      "processing_time": null,
+      "application_fee": null,
+      "validity": null,
+      "official_links": [],
+      "important_notes": [
+        "Children born in Germany to non-German parents are no longer required to opt for one citizenship (Optionspflicht) as of 27 June 2024"
+      ],
+      "min_income_threshold": null,
+      "min_education_level": null,
+      "min_age": null,
+      "max_age": null,
+      "required_language_test": null,
+      "min_language_score": null,
+      "points_required": null,
+      "mandatory_prerequisites": [
+        "parent_permanent_residence",
+        "parent_five_years_legal_residence"
+      ],
+      "total_estimated_cost": null,
+      "cost_currency": null,
+      "processing_time_days_min": null,
+      "processing_time_days_max": null,
+      "pr_pathway_available": null,
+      "pr_pathway_years": null,
+      "last_verified_date": null,
+      "extra_information": {},
+      "country": "Germany",
+      "source_url": "pk-en_2778808-2778808"
+    },
+    {
+      "page_title": "German Nationality Law and Naturalisation",
+      "purpose": "permanent_residency",
+      "topic": "Acquisition of German Nationality by Declaration (Gender-Discrimination Cases)",
+      "visa_type": null,
+      "visa_key": "citizenship_by_declaration_section_5",
+      "entry_type": "detailed",
+      "title": "Acquisition by Declaration Pursuant to Section 5 of the Nationality Act",
+      "summary": "A ten-year right of declaration created by the Fourth Act Amending the Nationality Act (effective 20 August 2021) allows persons born to a German parent after 23 May 1949, who were excluded from acquiring German citizenship by birth due to gender-discriminating law, to obtain German citizenship by simple declaration. Their descendants also have this option.",
+      "eligibility": [
+        "Born after 23 May 1949 to a German parent and did not acquire German citizenship by birth (e.g. children born in wedlock prior to 1 January 1975 to a German mother and foreign father, or born out of wedlock prior to 1 July 1993 to a German father and foreign mother)",
+        "Children born after 23 May 1949 to a mother who lost German citizenship before their birth through marriage to a foreigner prior to 1 April 1953",
+        "Children who acquired German citizenship by birth but subsequently lost it prior to 1 April 1953 through legitimisation by a foreigner",
+        "Descendants of the above categories"
+      ],
+      "required_documents": [],
+      "application_process": [
+        "Submit declaration directly to the Federal Office of Administration or the competent German mission (for persons resident abroad)",
+        "Declaration takes effect upon receipt by the competent nationality authority if all other conditions are fulfilled"
+      ],
+      "processing_time": null,
+      "application_fee": null,
+      "validity": null,
+      "official_links": [],
+      "important_notes": [
+        "This is a ten-year right of declaration created by the Fourth Act Amending the Nationality Act, effective 20 August 2021"
+      ],
+      "min_income_threshold": null,
+      "min_education_level": null,
+      "min_age": null,
+      "max_age": null,
+      "required_language_test": null,
+      "min_language_score": null,
+      "points_required": null,
+      "mandatory_prerequisites": [],
+      "total_estimated_cost": null,
+      "cost_currency": null,
+      "processing_time_days_min": null,
+      "processing_time_days_max": null,
+      "pr_pathway_available": null,
+      "pr_pathway_years": null,
+      "last_verified_date": null,
+      "extra_information": {},
+      "country": "Germany",
+      "source_url": "pk-en_2778808-2778808"
+    },
+    {
+      "page_title": "German Nationality Law and Naturalisation",
+      "purpose": "permanent_residency",
+      "topic": "Naturalisation/Renaturalisation for Victims of Nazi Persecution and Descendants",
+      "visa_type": null,
+      "visa_key": "renaturalisation_nazi_persecution_victims",
+      "entry_type": "detailed",
+      "title": "Naturalisation of Victims of Nazi Persecution and Their Descendants",
+      "summary": "Victims of persecution by the Nazi regime who were forcibly deprived of their German citizenship between 30 January 1933 and 8 May 1945 on political, racial or religious grounds, and their descendants, are entitled to naturalisation through restoration of citizenship under Article 116 (2) of the Basic Law or restitution under Section 15 of the Nationality Act.",
+      "eligibility": [
+        "Gave up or lost German citizenship prior to 26 February 1955 (e.g. through acquisition of foreign citizenship, release on application, or marriage to a foreigner)",
+        "Excluded from lawfully acquiring German citizenship through marriage, legitimisation or collective naturalisation of ethnic Germans",
+        "Not naturalised upon application or generally excluded from naturalisation that would otherwise have been possible",
+        "Gave up or lost ordinary residence in Germany if established prior to 30 January 1933 (or after that date if a child at the time)",
+        "Descendants of the above are also entitled to naturalisation",
+        "Includes children born in wedlock prior to 1 April 1953 to a mother forcibly deprived of citizenship and a foreign father, and children born out of wedlock prior to 1 July 1993 to a father forcibly deprived of citizenship and a foreign mother"
+      ],
+      "required_documents": [],
+      "application_process": [
+        "Persons rejected previously under prior legislation can submit a new application; no special form required",
+        "German mission responsible for the applicant will assist"
+      ],
+      "processing_time": null,
+      "application_fee": null,
+      "validity": null,
+      "official_links": [],
+      "important_notes": [
+        "Fourth Act Amending the Nationality Act (effective 20 August 2021) created a new legal entitlement to naturalisation on grounds of restitution",
+        "Federal Constitutional Court decision 2 BvR 2628/18 of 20 May 2020 expanded eligible 'descendants' categories"
+      ],
+      "min_income_threshold": null,
+      "min_education_level": null,
+      "min_age": null,
+      "max_age": null,
+      "required_language_test": null,
+      "min_language_score": null,
+      "points_required": null,
+      "mandatory_prerequisites": [],
+      "total_estimated_cost": null,
+      "cost_currency": null,
+      "processing_time_days_min": null,
+      "processing_time_days_max": null,
+      "pr_pathway_available": null,
+      "pr_pathway_years": null,
+      "last_verified_date": null,
+      "extra_information": {},
+      "country": "Germany",
+      "source_url": "pk-en_2778808-2778808"
+    }
+  ]
+}
