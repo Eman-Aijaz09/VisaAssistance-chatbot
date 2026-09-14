@@ -4,7 +4,7 @@
 
 ImmigrationAssistant answers natural-language visa and immigration questions by retrieving information from a structured knowledge base built exclusively from **official government and embassy sources** — never third-party blogs or forums — and generating cited, natural-language answers via an LLM. Every claim in a generated answer is traceable back to a real source URL.
 
-Built over a 6-week internship by **Ayesha Bhatti** and **Eman Aijaz**.
+Built over a 6-week internship by **Eman Aijaz** and **Ayesha Bhatti**.
 
 ---
 
