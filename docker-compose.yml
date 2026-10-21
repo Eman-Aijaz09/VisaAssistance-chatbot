@@ -1,0 +1,29 @@
+# Runs all containers on one host: locally on your laptop, and later on EC2.
+# Only "web" is published; "app" and "frontend" are reachable only
+# inside Docker's private network.
+
+services:
+  app:                                   # Application tier
+    build: ./BACKEND
+    image: ghcr.io/eman-aijaz09/visa-app:latest
+    env_file: .env                       # secrets come from .env, never baked into the image
+    expose:
+      - "8000"
+    restart: unless-stopped
+
+  frontend:                              # Web tier: front-end server
+    build: ./frontend
+    image: ghcr.io/eman-aijaz09/visa-frontend:latest
+    expose:
+      - "3000"
+    restart: unless-stopped
+
+  web:                                   # Web tier: Nginx reverse proxy (public)
+    build: ./nginx
+    image: ghcr.io/eman-aijaz09/visa-web:latest
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+      - frontend
+    restart: unless-stopped

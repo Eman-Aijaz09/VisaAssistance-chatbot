@@ -1,0 +1,7 @@
+.env
+**/__pycache__
+**/*.pyc
+*.csv
+data_collection/
+database/migration_archives/
+database/local/
