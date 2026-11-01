@@ -13,7 +13,7 @@ from groq import Groq
 from generation.prompts import get_prompt_template
 from generation.citation_utils import build_source_list, format_sources_for_prompt, resolve_citations
 
-GENERATION_MODEL = "llama-3.3-70b-versatile"
+GENERATION_MODEL = "openai/gpt-oss-120b"
 
 DISCLAIMER = "For the most current information, please verify details directly with official sources, as visa policies can change."
 
@@ -93,6 +93,7 @@ def generate_answer(query: str, routed: dict, user_profile: dict = None) -> dict
     response = client.chat.completions.create(
         model=GENERATION_MODEL,
         temperature=0.2,
+        extra_body={"reasoning_effort": "low"},
         messages=[
             {"role": "system", "content": (
                 "You are a precise, honest immigration information assistant. "

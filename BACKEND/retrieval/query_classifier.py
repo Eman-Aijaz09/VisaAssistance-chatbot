@@ -7,7 +7,7 @@ load_dotenv()
 import json
 from groq import Groq
 
-MODEL = "llama-3.1-8b-instant"
+MODEL = "openai/gpt-oss-20b"
 
 QUERY_CLASSIFICATION_PROMPT = """
 You are a query router for a visa/immigration assistant. Classify the
@@ -210,6 +210,7 @@ def classify_query_llm(query: str, model: str = MODEL, history: list = None) -> 
             model=model,
             temperature=0,
             response_format={"type": "json_object"},
+            extra_body={"reasoning_effort": "low"},
             messages=[
                 {"role": "system", "content": "You are a precise query classification system."},
                 {"role": "user", "content": prompt},
