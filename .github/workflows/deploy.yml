@@ -20,10 +20,13 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r BACKEND/requirements-api.txt pytest httpx
-      - name: Run tests
+            - name: Run tests
         working-directory: BACKEND
-        run: pytest tests -v
-
+        env:
+          PYTHONPATH: .
+          SUPABASE_DB_URL: postgresql://test:test@localhost:5432/test
+          GROQ_API_KEY: dummy
+        run: python -m pytest tests -v
   build-and-push:
     needs: test
     runs-on: ubuntu-latest
