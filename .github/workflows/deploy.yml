@@ -10,23 +10,56 @@ permissions:
   packages: write
 
 jobs:
-  build-and-push:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: |
+          pip install -r BACKEND/requirements-api.txt pytest httpx
+      - name: Run tests
+        working-directory: BACKEND
+        run: pytest tests -v
 
+  build-and-push:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
       - name: Create empty .env (secrets are never stored in the repo)
         run: touch .env
-
       - name: Log in to GHCR
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Build images
         run: docker compose build
-
       - name: Push images
         run: docker compose push
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Check infrastructure exists
+        id: rg
+        run: echo "exists=$(az group exists -n rg-visa-cea)" >> $GITHUB_OUTPUT
+      - name: Roll out new images to VM scale sets
+        if: steps.rg.outputs.exists == 'true'
+        run: |
+          for vmss in vmss-app vmss-web; do
+            for id in $(az vmss list-instances -g rg-visa-cea -n $vmss --query "[].instanceId" -o tsv); do
+              az vmss run-command invoke -g rg-visa-cea -n $vmss --instance-id $id \
+                --command-id RunShellScript \
+                --scripts "cd /opt/visa && docker compose pull && docker compose up -d"
+            done
+          done
